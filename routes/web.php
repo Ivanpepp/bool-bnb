@@ -13,10 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/apartment/{id}', 'Guest\HomeController@show')->name('guest.show');
+
+Route::middleware('auth')
+->namespace('Host')
+->prefix('host')
+->name('host.')
+->group(function(){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('apartments', 'ApartmentController');
+    Route::resource('users', 'UserController');
+});
+
+
+Route::get("{any?}", function(){
+    return view('guest.home');
+})->where('any', '.*');
