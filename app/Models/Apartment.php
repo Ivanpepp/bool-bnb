@@ -20,6 +20,11 @@ class Apartment extends Model
     }
 
     public function sponsorships(){
-        return $this->belongsToMany('App\Models\Apartment');
+        return $this->belongsToMany('App\Models\Sponsorship');
     }
+
+    public function features(){
+        return $this->belongsToMany('App\Models\Feature');
+    }
+
 }

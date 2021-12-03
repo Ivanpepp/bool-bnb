@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feature extends Model
 {
-    //
+    public function apartments(){
+        return $this->belongsToMany('App\Models\Apartment');
+    }
 }
