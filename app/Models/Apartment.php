@@ -15,4 +15,7 @@ class Apartment extends Model
     public function visits(){
         return $this->hasMany('App\Models\Visit');
     }
+    public function photos(){
+        return $this->hasMany('App\Models\Photo');
+    }
 }
