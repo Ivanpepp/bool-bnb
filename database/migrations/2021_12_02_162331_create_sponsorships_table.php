@@ -17,7 +17,7 @@ class CreateSponsorshipsTable extends Migration
             $table->id();
             $table->string('type',100);
             $table->float('price',3,2);
-            $table->tinyInteger('period');
+            $table->tinyInteger('period')->unsigned();
             $table->timestamps();
         });
     }
