@@ -14,7 +14,7 @@ class AddForeignUserIdToApartmentsTable extends Migration
     public function up()
     {
         Schema::table('apartments', function (Blueprint $table) {
-            $table-> unsignedBigInteger('user_id')->unique()->after('id')->nullable();
+            $table-> unsignedBigInteger('user_id')->after('id')->nullable();
             
             $table->foreign('user_id')
                     ->references('id')
