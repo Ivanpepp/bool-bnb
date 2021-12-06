@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use App\Models\Apartment;
+use App\Models\Feature;
+use App\Models\Sponsorship;
 use App\User;
 
 class ApartmentController extends Controller
@@ -30,7 +32,12 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $apartment = new Apartment();
+        $sponsorships = Sponsorship::all();
+        $features = Feature::all();
+        $featureIds = $apartment->features->pluck('id')->toArray();
+
+        return view('host.apartments.create', compact('apartment', 'sponsorships', 'features', 'featureIds'));
     }
 
     /**

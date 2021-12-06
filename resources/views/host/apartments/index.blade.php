@@ -9,7 +9,7 @@
         @endif
         <header>
             <h1>Lista degli appartamenti </h1>
-            {{-- <a class="btn btn-primary my-5" href="{{route('host.apartments.create')}}">Crea nuovo apartment</a> --}}
+            <a class="btn btn-primary my-5" href="{{route('host.apartments.create')}}">Inserisci nuovo appartamento</a>
         </header>
         <table class="table">
             <thead>
