@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Host;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use App\Models\Apartment;
+use App\User;
 
 class ApartmentController extends Controller
 {
@@ -14,7 +18,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::where('user_id', Auth::user()->id)->orderBy('created_at','desc')->get();
+      
+        return view('host.apartments.index', compact('apartments'));
     }
 
     /**
