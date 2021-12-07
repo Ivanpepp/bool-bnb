@@ -56,8 +56,38 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Apartment $apartment)
     {
+        request()->validate([
+            'title' => ['required','string','max:100',
+                        Rule::unique('apartments')
+                        ->ignore($apartment->id)],
+            'description' => 'required|min:50',
+            'city' => 'required',
+            'address' => 'required',
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
+            'price' => 'required',
+            'type' => 'nullable',
+            'total_room' => 'required|numeric',
+            'total_guest' => 'required|numeric',
+            'total_bathroom' => 'required|numeric',
+            'mq' => 'nullable',
+            'is_visible' => 'required',
+    
+        ],
+        [
+            'required'=>'Devi compilare correttamente :attribute',
+            'title.required' => 'non è possibile inserire un appartamento senza titolo',
+            'description.min' => 'la descrizione dell\'appartamento deve essere lungo almeno 50 caratteri',
+            'total_room.numeric' => 'nel campo :attribute devi inserire un numero',
+            'total_guest.numeric' => 'nel campo :attribute devi inserire un numero',
+            'total_bathroom.numeric' => 'nel campo :attribute devi inserire un numero',
+            'is_visible.required' => 'Scegli dalla tendina se renderlo visibile',
+            
+            
+        ]
+    );
 
         $data = request()->all();
         $data['user_id'] = Auth::user()->id;
@@ -123,7 +153,39 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-      
+        
+        request()->validate([
+            'title' => ['required','string','max:100',
+                        Rule::unique('apartments')
+                        ->ignore($apartment->id)],
+            'description' => 'required|min:50',
+            'city' => 'required',
+            'address' => 'required',
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
+            'price' => 'required',
+            'type' => 'nullable',
+            'total_room' => 'required|numeric',
+            'total_guest' => 'required|numeric',
+            'total_bathroom' => 'required|numeric',
+            'mq' => 'nullable',
+            'is_visible' => 'required',
+    
+        ],
+        [
+            'required'=>'Devi compilare correttamente :attribute',
+            'title.required' => 'non è possibile inserire un appartamento senza titolo',
+            'description.min' => 'la descrizione dell\'appartamento deve essere lungo almeno 50 caratteri',
+            'total_room.numeric' => 'nel campo :attribute devi inserire un numero',
+            'total_guest.numeric' => 'nel campo :attribute devi inserire un numero',
+            'total_bathroom.numeric' => 'nel campo :attribute devi inserire un numero',
+            'is_visible.required' => 'Scegli dalla tendina se renderlo visibile',
+    
+            
+            
+        ]
+    );
+
         $data = request()->all();
         $data['user_id'] = Auth::user()->id;
         $apartment->fill($data);

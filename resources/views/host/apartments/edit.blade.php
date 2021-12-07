@@ -32,8 +32,7 @@
                     <legend class="h5">Sponsorizzazione: </legend>
                     <div class="form-radio form-radio-inline">
                         @foreach ($sponsorships as $sponsorship)
-                            <input @if (in_array($sponsorship->id, old('sponsorships' , $sponsorshipIds ? $sponsorshipIds : [])))
-                            checked @endif type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}" value="{{$sponsorship->id}}" name="sponsorships">
+                            <input  type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}" value="{{$sponsorship->id}}" name="sponsorships">
                             <label class="form-check-label me-2" for="sponsorship-{{$sponsorship->id}}">{{$sponsorship->type}}</label>    
                         @endforeach
                     </div>
