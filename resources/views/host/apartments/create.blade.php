@@ -28,29 +28,15 @@
                     <label for="title">Titolo dell' appartamento</label>
                     <input class="form-control form-control-lg" type="text" 
                     placeholder="Inserisci il titolo del post" id="title" name="title" value="{{ old('title', $apartment->title) }}">
-                    {{-- old() richiede come primo parametro [obbligatorio] il valore da inserire quando torna alla compilazione con errori, se questo è vuoto inserisci il secondo parametro [facoltativo] --}}
+                    
                 </div>
 
                 
-
-               {{--  <div class="form-group">
-                    <label for="sponsorship_id">Sponsor:</label>
-                    <select name="sponsorship_id" id="sponsorship_id">
-                        <option value="{{null}}">nessuno sponsorizzazione</option>
-                        @foreach ($sponsorships as $sponsorship)
-                            <option 
-                            @if (in_array($sponsorship->id, old('sponsorships' , $sponsorshipIds ? $sponsorshipIds : [])))
-                            selected @endif
-                            value="{{ $sponsorship->id }}">{{ $sponsorship->type }}</option>
-                        @endforeach
-                    </select>
-                </div>
- --}}
                 <div class="form-group">
                     <legend class="h5">Sponsorizzazione: </legend>
                     <div class="form-radio form-radio-inline">
                         @foreach ($sponsorships as $sponsorship)
-                            <input  type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}" value="{{$sponsorship->id}}" name="sponsorships">
+                        <input {{ old("sponsorships") == $sponsorship['id'] ? 'checked' : '' }}   type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}" value="{{$sponsorship->id}}" name="sponsorships">
                             <label class="form-check-label me-2" for="sponsorship-{{$sponsorship->id}}">{{$sponsorship->type}}</label>    
                         @endforeach
                     </div>
@@ -120,12 +106,15 @@
                     <input  class="form-control" mq="text" placeholder="inserisci il numero di metri quadrati" id="mq" name="mq" value="{{old('mq', $apartment->mq) }} ">
                 </div> 
                 <div class="form-group">
-                    <select name="is_visible" id="is_visible">
-                        <option value="{{null}}">nessuna selezione</option>
-                        <option value="{{false}}">non visibile</option>
-                        <option value="{{true}}">visibile</option>
-                    </select>
-                </div> 
+                    <legend class="h5">Status: </legend>
+                    <div class="form-radio form-radio-inline">
+                            <input  {{ old("is_visible") == '1' ? 'checked' : '' }} type="radio" class="form-radio-input mx-2" id="is_visible" value="1" name="is_visible">
+                            <label class="form-check-label me-2" for="is_visible">Visibile</label>      
+                            
+                            <input {{ old("is_visible") == '0' ? 'checked' : '' }}   type="radio" class="form-radio-input mx-2" id="is_visible" value="0" name="is_visible">
+                            <label class="form-check-label me-2" for="is_visible">Non Visibile</label>  
+                    </div>
+                </div>
               
               
 

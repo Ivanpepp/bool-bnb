@@ -73,7 +73,7 @@ class ApartmentController extends Controller
             'total_guest' => 'required|numeric',
             'total_bathroom' => 'required|numeric',
             'mq' => 'nullable',
-            'is_visible' => 'required',
+            'is_visible' => 'nullable',
     
         ],
         [
@@ -83,7 +83,7 @@ class ApartmentController extends Controller
             'total_room.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_guest.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_bathroom.numeric' => 'nel campo :attribute devi inserire un numero',
-            'is_visible.required' => 'Scegli dalla tendina se renderlo visibile',
+           /*  'is_visible' => 'Scegli dalla tendina se renderlo visibile', */
             
             
         ]
@@ -169,7 +169,7 @@ class ApartmentController extends Controller
             'total_guest' => 'required|numeric',
             'total_bathroom' => 'required|numeric',
             'mq' => 'nullable',
-            'is_visible' => 'required',
+            'is_visible' => 'nullable',
     
         ],
         [
@@ -179,7 +179,7 @@ class ApartmentController extends Controller
             'total_room.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_guest.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_bathroom.numeric' => 'nel campo :attribute devi inserire un numero',
-            'is_visible.required' => 'Scegli dalla tendina se renderlo visibile',
+           /*  'is_visible.required' => 'Scegli dalla tendina se renderlo visibile', */
     
             
             

@@ -102,13 +102,15 @@
                     <input  class="form-control" mq="text" placeholder="inserisci il numero di metri quadrati" id="mq" name="mq" value="{{old('mq', $apartment->mq) }} ">
                 </div> 
                 <div class="form-group">
-                    <select name="is_visible" id="is_visible">
-                        <option value="{{null}}">nessuna selezione</option>
-                        <option @if (old($apartment->is_visible)==$apartment->is_visible) selected @endif value="{{true}}">visibile</option>
-                        <option @if (old($apartment->is_visible)==$apartment->is_visible) selected @endif value="{{false}}">non visibile</option>
-                   
-                    </select>
-                </div> 
+                    <legend class="h5">Status: </legend>
+                    <div class="form-radio form-radio-inline">
+                            <input  type="radio" class="form-radio-input mx-2" id="is_visible" value="1" name="is_visible">
+                            <label class="form-check-label me-2" for="is_visible">Visibile</label>      
+                            
+                            <input  type="radio" class="form-radio-input mx-2" id="is_visible" value="0" name="is_visible">
+                            <label class="form-check-label me-2" for="is_visible">Non Visibile</label>  
+                    </div>
+                </div>
               
 
                 
