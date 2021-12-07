@@ -23,11 +23,16 @@
                 <p class="card-text"><strong>Descrizione:</strong> {{$apartment->description}}</p>
                 <address class="card-text">Indirizzo: {{$apartment->city . ' ' . $apartment->address}} </address>
                 <p class="card-text">Prezzo: {{$apartment->price}} €</p>
-                <a href="{{route('host.apartments.index')}}" class="btn btn-danger">Torna alla lista</a>
+                <a href="{{route('host.apartments.index')}}" class="btn btn-primary">Torna alla lista</a>
                 <a href="{{route('host.apartments.edit', $apartment)}}" class="btn btn-secondary">Modifica</a>
+                <form class="my-5" action="{{route('host.apartments.destroy',$apartment)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">ELIMINA</button>
+                </form>
             </div>
           </div> 
-           
+          
     </div>
 </div>
 @endsection

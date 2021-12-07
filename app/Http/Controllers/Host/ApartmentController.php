@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Host;
 
+use ApartmentSeeder;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,9 +103,15 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+     
+        $sponsorships = Sponsorship::all();
+        $features = Feature::all();
+        $featureIds = $apartment->features->pluck('id')->toArray();
+        $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
+
+        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds'));
     }
 
     /**
@@ -114,9 +121,19 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+      
+        $data = request()->all();
+        $data['user_id'] = Auth::user()->id;
+        $apartment->fill($data);
+        $apartment->update();
+       
+
+        if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
+        if(array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
+
+        return redirect()->route('host.apartments.show', compact('apartment'));
     }
 
     /**
@@ -125,8 +142,13 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        if($apartment->features || $apartment->sponsorships){
+            $apartment->features()->detach();
+            $apartment->sponsorships()->detach();
+        }
+        $apartment->delete();
+        return redirect()->route('host.apartments.index')->with('deleted', $apartment->title)->with('alert-message',"$apartment->title è stato eliminato con successo!");
     }
 }

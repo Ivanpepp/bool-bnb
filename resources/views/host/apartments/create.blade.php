@@ -81,43 +81,43 @@
                 </div> 
                 <div class="form-group">
                     <label for="city">Città</label>
-                    <input  class="form-control" type="text" placeholder="Inserisci la città" id="city" name="city" >{{old('city', $apartment->city) }} 
+                    <input  class="form-control" type="text" placeholder="Inserisci la città" id="city" name="city" value="{{old('city', $apartment->city) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="address">Indirizzo</label>
-                    <input  class="form-control" type="text" placeholder="Inserisci l'indirizzo dell'appartamento" id="address" name="address" >{{old('address', $apartment->address) }} 
+                    <input  class="form-control" type="text" placeholder="Inserisci l'indirizzo dell'appartamento" id="address" name="address" value="{{old('address', $apartment->address) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="price">prezzo</label>
-                    <input  class="form-control" type="text" placeholder="Inserisci il prezzo a notte" id="price" name="price" >{{old('price', $apartment->price) }} 
+                    <input  class="form-control" type="text" placeholder="Inserisci il prezzo a notte" id="price" name="price" value="{{old('price', $apartment->price) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="latitude">Latitudine</label>
-                    <input  class="form-control" type="text" placeholder="inserisci la latitudine" id="latitude" name="latitude" >{{old('latitude', $apartment->latitude) }} 
+                    <input  class="form-control" type="text" placeholder="inserisci la latitudine" id="latitude" name="latitude" value="{{old('latitude', $apartment->latitude) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="longitude">Longitudione</label>
-                    <input  class="form-control" type="text" placeholder="inserisci la longitudine" id="longitude" name="longitude" >{{old('longitude', $apartment->longitude) }} 
+                    <input  class="form-control" type="text" placeholder="inserisci la longitudine" id="longitude" name="longitude" value="{{old('longitude', $apartment->longitude) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="type">Tipo di appartamento </label>
-                    <input  class="form-control" type="text" placeholder="inserisci il tipo di appartamento" id="type" name="type" >{{old('type', $apartment->type) }} 
+                    <input  class="form-control" type="text" placeholder="inserisci il tipo di appartamento" id="type" name="type" value="{{old('type', $apartment->type) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="total_room">Numero Stanze</label>
-                    <input  class="form-control" total_room="text" placeholder="inserisci il numero di stanze" id="total_room" name="total_room" >{{old('total_room', $apartment->total_room) }} 
+                    <input  class="form-control" total_room="text" placeholder="inserisci il numero di stanze" id="total_room" name="total_room" value="{{old('total_room', $apartment->total_room) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="total_guest">Numero Ospiti</label>
-                    <input  class="form-control" total_guest="text" placeholder="inserisci il numero di persone che puo ospitare" id="total_guest" name="total_guest" >{{old('total_guest', $apartment->total_guest) }} 
+                    <input  class="form-control" total_guest="text" placeholder="inserisci il numero di persone che puo ospitare" id="total_guest" name="total_guest" value="{{old('total_guest', $apartment->total_guest) }}"> 
                 </div> 
                 <div class="form-group">
                     <label for="total_bathroom">Numero Bagni</label>
-                    <input  class="form-control" total_bathroom="text" placeholder="inserisci il numero dei bagni" id="total_bathroom" name="total_bathroom" >{{old('total_bathroom', $apartment->total_bathroom) }} 
+                    <input  class="form-control" total_bathroom="text" placeholder="inserisci il numero dei bagni" id="total_bathroom" name="total_bathroom" value="{{old('total_bathroom', $apartment->total_bathroom) }} ">
                 </div> 
                 <div class="form-group">
                     <label for="mq">Numero mq</label>
-                    <input  class="form-control" mq="text" placeholder="inserisci il numero di metri quadrati" id="mq" name="mq" >{{old('mq', $apartment->mq) }} 
+                    <input  class="form-control" mq="text" placeholder="inserisci il numero di metri quadrati" id="mq" name="mq" value="{{old('mq', $apartment->mq) }} ">
                 </div> 
                 <div class="form-group">
                     <select name="is_visible" id="is_visible">
@@ -126,6 +126,7 @@
                         <option value="{{true}}">visibile</option>
                     </select>
                 </div> 
+              
               
 
                 
