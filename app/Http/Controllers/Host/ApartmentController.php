@@ -8,11 +8,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use App\Models\Apartment;
 use App\Models\Feature;
+use Illuminate\Support\Facades\Storage; 
 use App\Models\Sponsorship;
+use App\Models\Photo;
 use App\User;
 
 class ApartmentController extends Controller
 {
+ 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     /**
      * Display a listing of the resource.
      *
@@ -36,8 +44,9 @@ class ApartmentController extends Controller
         $sponsorships = Sponsorship::all();
         $features = Feature::all();
         $featureIds = $apartment->features->pluck('id')->toArray();
+        $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
 
-        return view('host.apartments.create', compact('apartment', 'sponsorships', 'features', 'featureIds'));
+        return view('host.apartments.create', compact('apartment', 'sponsorships', 'features', 'featureIds','sponsorshipIds'));
     }
 
     /**
@@ -48,9 +57,34 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
 
+        $data = request()->all();
+        $data['user_id'] = Auth::user()->id;
+   
+       /*  $data['image_thumb'] = Storage::put('apartments/images',$data['image_thumb']); */
+        $apartment=  Apartment::create($data);
+       
+        $apartment->save();
+       /*  if($request->hasfile('image_thumb'))
+     {
+        foreach($request->file('image_thumb') as $file)
+        {
+            $name = time().'.'.$file->extension();
+            $file->move(public_path().'/files/', $name);  
+            $data[] = $name;  
+
+        }
+     }
+     $file= new Photo();
+     $file->image_thumb=json_encode($data);
+     $file->save(); */
+
+        if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
+        if(array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
+
+        return redirect()->route('host.apartments.index', compact('apartment'));
+        
+    }
     /**
      * Display the specified resource.
      *
