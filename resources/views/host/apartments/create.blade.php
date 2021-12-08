@@ -20,10 +20,7 @@
         </section>
             <form action="{{route('host.apartments.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-              {{--   <div class="form-group">
-                    <label for="user_id">Proprietario Appartamento</label>
-                    <input class="form-control" type="text"  id="user_id" name="user_id" value="{{Auth::user()->name}}" >
-                </div> --}}
+             
                 <div class="form-group">
                     <label for="title">Titolo dell' appartamento</label>
                     <input class="form-control form-control-lg" type="text" 

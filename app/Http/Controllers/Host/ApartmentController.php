@@ -140,8 +140,9 @@ class ApartmentController extends Controller
         $features = Feature::all();
         $featureIds = $apartment->features->pluck('id')->toArray();
         $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
+        $isVisibleIds = ['0','1'];
 
-        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds'));
+        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds','isVisibleIds'));
     }
 
     /**

@@ -28,11 +28,22 @@
                 </div>
 
         
-                <div class="form-group">
+              {{--   <div class="form-group">
                     <legend class="h5">Sponsorizzazione: </legend>
                     <div class="form-radio form-radio-inline">
                         @foreach ($sponsorships as $sponsorship)
                             <input  type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}" value="{{$sponsorship->id}}" name="sponsorships">
+                            <label class="form-check-label me-2" for="sponsorship-{{$sponsorship->id}}">{{$sponsorship->type}}</label>    
+                        @endforeach
+                    </div>
+                </div> --}}
+
+                <div class="form-group">
+                    <legend class="h5">Sponsorizzazione: </legend>
+                    <div class="form-radio form-radio-inline">
+                        @foreach ($sponsorships as $sponsorship)
+                        <input {{ old("sponsorships") == $sponsorship['id'] ? 'checked' : '' }}   @if (in_array($sponsorship->id, old('sponsorships' , $sponsorshipIds ? $sponsorshipIds : [])))
+                        checked @endif type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}" value="{{$sponsorship->id}}" name="sponsorships[]">
                             <label class="form-check-label me-2" for="sponsorship-{{$sponsorship->id}}">{{$sponsorship->type}}</label>    
                         @endforeach
                     </div>
@@ -104,17 +115,14 @@
                 <div class="form-group">
                     <legend class="h5">Status: </legend>
                     <div class="form-radio form-radio-inline">
-                            <input  type="radio" class="form-radio-input mx-2" id="is_visible" value="1" name="is_visible">
+                            <input  {{ old("is_visible") == '1' ? 'checked' : '' }} type="radio" class="form-radio-input mx-2" id="is_visible" value="1" name="is_visible">
                             <label class="form-check-label me-2" for="is_visible">Visibile</label>      
                             
-                            <input  type="radio" class="form-radio-input mx-2" id="is_visible" value="0" name="is_visible">
+                            <input {{ old("is_visible") == '0' ? 'checked' : '' }}   type="radio" class="form-radio-input mx-2" id="is_visible" value="0" name="is_visible">
                             <label class="form-check-label me-2" for="is_visible">Non Visibile</label>  
                     </div>
                 </div>
-              
-
-                
-
+      
                 <button type="submit" class="btn btn-primary">Modidica</button>
                 <button type="reset" class="btn btn-secondary">Cancella i dati</button>
             </form>

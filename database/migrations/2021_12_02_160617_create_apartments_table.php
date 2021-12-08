@@ -27,7 +27,7 @@ class CreateApartmentsTable extends Migration
             $table->tinyInteger('total_guest');
             $table->tinyInteger('total_bathroom');
             $table->smallInteger('mq');
-            $table->boolean('is_visible');
+            $table->boolean('is_visible')->default(0);
             $table->timestamps();
         });
     }
