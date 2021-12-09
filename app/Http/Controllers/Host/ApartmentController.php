@@ -39,15 +39,16 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $apartment = new Apartment();
         $sponsorships = Sponsorship::all();
         $features = Feature::all();
         $featureIds = $apartment->features->pluck('id')->toArray();
         $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
+        $photo = new Photo();
 
-        return view('host.apartments.create', compact('apartment', 'sponsorships', 'features', 'featureIds','sponsorshipIds'));
+        return view('host.apartments.create', compact('apartment', 'sponsorships', 'features', 'featureIds','sponsorshipIds', 'request','photo'));
     }
 
     /**
@@ -58,7 +59,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request, Apartment $apartment)
     {
-        request()->validate([
+        $request->validate([
             'title' => ['required','string','max:100',
                         Rule::unique('apartments')
                         ->ignore($apartment->id)],
@@ -74,6 +75,8 @@ class ApartmentController extends Controller
             'total_bathroom' => 'required|numeric',
             'mq' => 'nullable',
             'is_visible' => 'nullable',
+            'image_thumb' => 'required',
+            'image_thumb.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     
         ],
         [
@@ -94,8 +97,23 @@ class ApartmentController extends Controller
    
        /*  $data['image_thumb'] = Storage::put('apartments/images',$data['image_thumb']); */
         $apartment=  Apartment::create($data);
-       
         $apartment->save();
+
+        if($request->hasfile('image_thumb'))
+        {
+   
+           foreach($request->file('image_thumb') as $image)
+           {
+               $photo= new Photo();
+               $name=$image->getClientOriginalName();
+               $image->move(public_path().'/storage/apartments/images/', $name);
+               $thumb = $name;
+               $photo->image_thumb = $thumb;
+               $photo->apartment_id = $apartment->id;   
+               $photo->save();
+           }
+        }
+   
        /*  if($request->hasfile('image_thumb'))
      {
         foreach($request->file('image_thumb') as $file)
@@ -133,7 +151,7 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment)
+    public function edit(Apartment $apartment, Request $request)
     {
      
         $sponsorships = Sponsorship::all();
@@ -141,7 +159,7 @@ class ApartmentController extends Controller
         $featureIds = $apartment->features->pluck('id')->toArray();
         $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
 
-        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds'));
+        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds', 'request'));
     }
 
     /**
@@ -154,7 +172,7 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment)
     {
         
-        request()->validate([
+        $request->validate([
             'title' => ['required','string','max:100',
                         Rule::unique('apartments')
                         ->ignore($apartment->id)],
@@ -180,8 +198,6 @@ class ApartmentController extends Controller
             'total_guest.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_bathroom.numeric' => 'nel campo :attribute devi inserire un numero',
            /*  'is_visible.required' => 'Scegli dalla tendina se renderlo visibile', */
-    
-            
             
         ]
     );
@@ -191,7 +207,6 @@ class ApartmentController extends Controller
         $apartment->fill($data);
         $apartment->update();
        
-
         if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
         if(array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
 

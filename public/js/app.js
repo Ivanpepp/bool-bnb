@@ -50293,8 +50293,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

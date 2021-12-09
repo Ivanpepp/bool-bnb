@@ -10,8 +10,8 @@
                 <p class="card-text">{{$apartment->type}}</p>
                 <div class="d-flex flex-wrap">
                     @foreach ($apartment->photos  as $photo)
-                    
-                        <img class="m-2" width="200px" src="{{$photo->image_thumb}}"  alt="{{$apartment->title}}">
+
+                        <img class="img-fluid" src="{{ $photo->getImagePrefix() . $photo->image_thumb }}" alt="{{$apartment->title}} image">
                       
                     @endforeach
     
