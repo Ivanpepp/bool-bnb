@@ -92,7 +92,6 @@ class ApartmentController extends Controller
         ]
     );
 
-<<<<<<< HEAD
         $data = request()->all();
         $data['user_id'] = Auth::user()->id;
    
@@ -130,30 +129,6 @@ class ApartmentController extends Controller
      $file->save(); */
 
         if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
-=======
-            $data = request()->all();
-            $data['user_id'] = Auth::user()->id;
-
-             /*  $data['image_thumb'] = Storage::put('apartments/images',$data['image_thumb']); */
-            $apartment=  Apartment::create($data);
-            $apartment->save();
-
-            if($request->hasfile('image_thumb'))
-            {
-
-            foreach($request->file('image_thumb') as $image)
-            {
-                $photo= new Photo();
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'storage/images/', $name);
-                $thumb = $name;
-                $photo->image_thumb = $thumb;
-                $photo->apartment_id = $apartment->id;
-                $photo->save();
-            }
-            }
-        if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);    
->>>>>>> 4e767bebd83de920688807a121ee150620506e89
         if(array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
 
     return redirect()->route('host.apartments.show', compact('apartment'));
@@ -185,11 +160,7 @@ class ApartmentController extends Controller
         $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
         $isVisibleIds = ['0','1'];
 
-<<<<<<< HEAD
         return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds', 'request'));
-=======
-        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds','isVisibleIds'));
->>>>>>> 4e767bebd83de920688807a121ee150620506e89
     }
 
     /**

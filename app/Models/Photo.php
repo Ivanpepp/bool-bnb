@@ -13,20 +13,12 @@ class Photo extends Model
         return $this->belongsTo('App\Models\Apartment');
     }
 
-<<<<<<< HEAD
     public function getImagePrefix(){
-        if (str_starts_with($this->image_thumb, "apartments/images")){
-            return asset('storage/'); 
-        }
-=======
-    public function getImageUrl(){
-     
-        if(str_starts_with($this->image_thumb,  '/images/'))
+        if (str_starts_with($this->image_thumb, "http")){
+            return ''; 
+        }else
         {
-            
-            return asset('storage') . '/';
+            return asset('/storage/apartments/images') . '/';
         }
-        
->>>>>>> 4e767bebd83de920688807a121ee150620506e89
     }
 }
