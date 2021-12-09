@@ -33,6 +33,9 @@ Route::middleware('auth')
 });
 
 
+Route::get('/photos','Host\PhotoController@create')->name('host.photos.create');
+Route::post('/photos','Host\PhotoController@store')->name('host.photos.store');
+
 Route::get("{any?}", function(){
     return view('guest.home');
 })->where('any', '.*');

@@ -30,4 +30,6 @@ class Apartment extends Model
         return $this->belongsToMany('App\Models\Feature');
     }
 
+ 
+
 }
