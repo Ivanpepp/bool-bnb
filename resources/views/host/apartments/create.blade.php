@@ -52,12 +52,13 @@
                                                 
               
                  
-
                 <div class="form-group">
                     <label for="image_thumb">Immagine</label>
                     <input class="form-control" type="file" id="image_thumb" multiple name="image_thumb[]" placeholder="Inserisci l'immagine dell'appartamento" value="{{old('image_thumb', $apartment->image_thumb)}}">
                 </div>
 
+
+             
                 <div class="form-group">
                     <label for="description">Descrizione dell'appartamento</label>
                     <textarea  class="form-control" type="textarea" placeholder="Inserisci la descrizione dell'appartamento" id="description" name="description" >{{old('description', $apartment->description) }} </textarea>

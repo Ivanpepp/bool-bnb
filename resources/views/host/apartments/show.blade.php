@@ -11,7 +11,7 @@
                 <div class="d-flex flex-wrap">
                     @foreach ($apartment->photos  as $photo)
                     
-                        <img class="m-2" width="200px" src="{{$photo->image_thumb}}"  alt="{{$apartment->title}}">
+                        <img class="m-2 img-fluid" width="200px" src="{{asset('../images/' . $photo->image_thumb)}}"  alt="{{$apartment->title}}">
                       
                     @endforeach
     

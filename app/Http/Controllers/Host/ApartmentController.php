@@ -89,33 +89,33 @@ class ApartmentController extends Controller
         ]
     );
 
-        $data = request()->all();
-        $data['user_id'] = Auth::user()->id;
-   
-       /*  $data['image_thumb'] = Storage::put('apartments/images',$data['image_thumb']); */
-        $apartment=  Apartment::create($data);
-       
-        $apartment->save();
-       /*  if($request->hasfile('image_thumb'))
-     {
-        foreach($request->file('image_thumb') as $file)
-        {
-            $name = time().'.'.$file->extension();
-            $file->move(public_path().'/files/', $name);  
-            $data[] = $name;  
+            $data = request()->all();
+            $data['user_id'] = Auth::user()->id;
 
-        }
-     }
-     $file= new Photo();
-     $file->image_thumb=json_encode($data);
-     $file->save(); */
+             /*  $data['image_thumb'] = Storage::put('apartments/images',$data['image_thumb']); */
+            $apartment=  Apartment::create($data);
+            $apartment->save();
 
-        if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
+            if($request->hasfile('image_thumb'))
+            {
+
+            foreach($request->file('image_thumb') as $image)
+            {
+                $photo= new Photo();
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'storage/images/', $name);
+                $thumb = $name;
+                $photo->image_thumb = $thumb;
+                $photo->apartment_id = $apartment->id;
+                $photo->save();
+            }
+            }
+        if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);    
         if(array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
 
-        return redirect()->route('host.apartments.index', compact('apartment'));
-        
-    }
+    return redirect()->route('host.apartments.show', compact('apartment'));
+
+        }
     /**
      * Display the specified resource.
      *
