@@ -19,24 +19,16 @@
                 <form action="{{route('guest.sender')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <h5 for="name" class="form-h5">Nome:</h5>
-                        <input class="form-control" type="text" placeholder="Inserisci nome" name="name"> 
-                    </div> 
-                    <div class="form-group">
-                        <h5 for="name" class="form-h5">Cognome:</h5>
-                        <input class="form-control" type="text" placeholder="Inserisci cognome" name="surname"> 
-                    </div> 
-                    <div class="form-group">
                         <h5 for="email_address" class="form-h5">Indirizzo Email:</h5>
-                        <input class="form-control" type="text" placeholder="Inserisci indirizzo email" name="email"> 
+                        <input class="form-control" type="text" placeholder="Inserisci indirizzo email" name="email" value="{{(Auth::user()) ? Auth::user()->email : old('email')}}"> 
                     </div> 
                     <div class="form-group">
                         <h5 for="message" class="form-h5">Oggetto Mail:</h5>
-                        <textarea class="form-control" type="text" placeholder="Inserisci oggetto" name="subject"></textarea>
+                        <textarea class="form-control" type="text" placeholder="Inserisci oggetto" name="subject">{{old('subject') }}</textarea>
                     </div>
                     <div class="form-group">
                         <h5 for="message" class="form-h5">Messaggio:</h5>
-                        <textarea class="form-control" type="text" placeholder="Inserisci messaggio" name="content"></textarea>
+                        <textarea class="form-control" type="text" placeholder="Inserisci messaggio" name="content">{{old('content') }}</textarea>
                     </div>
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn btn-success">Invia</button>

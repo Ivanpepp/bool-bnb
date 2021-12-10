@@ -26,12 +26,40 @@ class HomeController extends Controller
         return view('guest.contact');
     }
 
-    public function contactFormHandler(Request $request)
+    public function contactFormHandler(Request $request, Apartment $apartment)
     {
+
         $data = $request->all();
+        $data['apartment_id'] = $apartment->id;
+
+        
+        $request->validate(
+            [
+                'email' => 'required|email|',
+                'name' => 'required|string|max:100',
+                'surname' => 'required|string|max:100',
+                'subject' => 'required|min:50|max:100',
+                'content' => 'required|min:100',
+            ],
+
+            [
+                'required'=>'Devi compilare correttamente :attribute',
+                'email.required' => 'Non è possibile inviare un messaggio senza email',
+                'email.email' => 'Compila correttamente l\' email',
+                'subject.min' => 'L\' oggetto dell\' email deve avere minimo 50 caratteri',
+                'subject.max' => 'L\' oggetto dell\' email può avere massimo 100 caratteri',
+                'content.min' => 'Il contenuto dell\' email deve avere un minimo di 100 caratteri', 
+                
+            ]
+        );
+
+    
         $newMessage = new Message();
+        dd($data);
         $newMessage->fill($data);
         $newMessage->save();
+        
+       
 
         Mail::to("account@mail.it")->send(new SendNewMail($newMessage));
 
