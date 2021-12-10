@@ -24,7 +24,7 @@
                 <address class="card-text">Indirizzo: {{$apartment->city . ' ' . $apartment->address}} </address>
                 <p class="card-text">Prezzo: {{$apartment->price}} €</p>
                 <a href="http://127.0.0.1:8000" class="btn btn-primary">Torna alla lista</a>
-                
+                <a href="{{route("guest.contact", $apartment)}}" class="btn btn-primary">Contattaci</a>
                
             </div>
           </div> 
