@@ -2420,14 +2420,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentList',
@@ -2437,17 +2429,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       apartments: [],
-      searchApartments: [],
-      features: [],
-      featuresIds: [],
       baseUri: 'http://127.0.0.1:8000',
       isLoading: false,
       currentPage: null,
       lastPage: null,
-      search: '',
-      selected: {
-        features: []
-      }
+      search: ''
     };
   },
   methods: {
@@ -2456,11 +2442,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isLoading = true;
       axios.get("".concat(this.baseUri, "/api/apartments")).then(function (res) {
-        console.log(res);
         _this.apartments = res.data.data;
-        console.log(_this.apartments);
-        _this.features = res.data.feature;
-        console.log(_this.features);
       })["catch"](function (err) {
         console.error(err);
       }).then(function () {
@@ -2477,13 +2459,6 @@ __webpack_require__.r(__webpack_exports__);
 
       return this.apartments.filter(function (element) {
         return element.title.toLowerCase().match(_this2.search.toLowerCase());
-      });
-    },
-    filterFeatures: function filterFeatures() {
-      var _this3 = this;
-
-      return this.features.filter(function (element) {
-        return element.title.toLowerCase().match(_this3.search.toLowerCase());
       });
     }
   }
@@ -3738,171 +3713,145 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "my-3 p-2" }, [
-    _c("div", { staticClass: "input-group" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.search,
-            expression: "search",
+  return _c(
+    "section",
+    { staticClass: "my-3 p-2" },
+    [
+      _c("div", { staticClass: "input-group" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.search,
+              expression: "search",
+            },
+          ],
+          staticClass: "form-control mb-4",
+          attrs: {
+            id: "input-search",
+            type: "text",
+            placeholder: "Cerca ",
+            "aria-label": "Username",
+            "aria-describedby": "basic-addon1",
           },
-        ],
-        staticClass: "form-control mb-4",
-        attrs: {
-          id: "input-search",
-          type: "text",
-          placeholder: "Cerca ",
-          "aria-label": "Username",
-          "aria-describedby": "basic-addon1",
-        },
-        domProps: { value: _vm.search },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.filterNames.apply(null, arguments)
+          domProps: { value: _vm.search },
+          on: {
+            keyup: function ($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.filterNames.apply(null, arguments)
+            },
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.search = $event.target.value
+            },
           },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.search = $event.target.value
-          },
-        },
-      }),
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary mb-4", attrs: { type: "submit" } },
+          [_vm._v("Cerca")]
+        ),
+      ]),
       _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary mb-4", attrs: { type: "submit" } },
-        [_vm._v("Cerca")]
-      ),
-    ]),
-    _vm._v(" "),
-    _c("h2", { staticClass: "mb-4" }, [_vm._v("Lista Appartamenti:")]),
-    _vm._v(" "),
-    _vm.isLoading
-      ? _c("div", { staticClass: "loader" }, [
-          _c("div", {
-            staticClass: "spinner-border text-white",
-            attrs: { role: "status" },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-white loading" }, [
-            _vm._v("Loading..."),
-          ]),
-        ])
-      : _c(
-          "div",
-          { staticClass: "d-flex flex-wrap " },
-          [
-            _vm._l(_vm.features, function (feature, index) {
-              return _c("div", { key: feature.id, staticClass: "form-check" }, [
-                _c("input", {
-                  staticClass: "form-check-input ",
-                  attrs: { type: "checkbox", id: "feature" + index },
-                  domProps: { value: feature.id },
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "form-check-label",
-                    attrs: { for: "feature" + index },
-                  },
-                  [_vm._v(_vm._s(feature.title))]
-                ),
-              ])
+      _c("h2", { staticClass: "mb-4" }, [_vm._v("Lista Appartamenti:")]),
+      _vm._v(" "),
+      _vm.isLoading
+        ? _c("div", { staticClass: "loader" }, [
+            _c("div", {
+              staticClass: "spinner-border text-white",
+              attrs: { role: "status" },
             }),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-10" },
-              _vm._l(_vm.filterNames, function (apartment) {
-                return _c("ApartmentCard", {
-                  key: apartment.id,
-                  attrs: { apartment: apartment, baseUri: _vm.baseUri },
-                })
-              }),
-              1
-            ),
+            _c("span", { staticClass: "text-white loading" }, [
+              _vm._v("Loading..."),
+            ]),
+          ])
+        : _vm._l(_vm.filterNames, function (apartment) {
+            return _c("ApartmentCard", {
+              key: apartment.id,
+              attrs: { apartment: apartment, baseUri: _vm.baseUri },
+            })
+          }),
+      _vm._v(" "),
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c(
+          "ul",
+          { staticClass: "pagination pagination-lg" },
+          [
+            _vm.currentPage > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getApartmentList(_vm.currentPage - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("Precedente")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.lastPage, function (n) {
+              return _c(
+                "li",
+                {
+                  key: n,
+                  staticClass: "page-item",
+                  class: { active: n === _vm.currentPage },
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getApartmentList(n)
+                        },
+                      },
+                    },
+                    [_vm._v(_vm._s(n))]
+                  ),
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _vm.currentPage < _vm.lastPage
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getApartmentList(_vm.currentPage + 1)
+                        },
+                      },
+                    },
+                    [_vm._v("Successivo")]
+                  ),
+                ])
+              : _vm._e(),
           ],
           2
         ),
-    _vm._v(" "),
-    _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-      _c(
-        "ul",
-        { staticClass: "pagination pagination-lg" },
-        [
-          _vm.currentPage > 1
-            ? _c("li", { staticClass: "page-item" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getApartmentList(_vm.currentPage - 1)
-                      },
-                    },
-                  },
-                  [_vm._v("Precedente")]
-                ),
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.lastPage, function (n) {
-            return _c(
-              "li",
-              {
-                key: n,
-                staticClass: "page-item",
-                class: { active: n === _vm.currentPage },
-              },
-              [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getApartmentList(n)
-                      },
-                    },
-                  },
-                  [_vm._v(_vm._s(n))]
-                ),
-              ]
-            )
-          }),
-          _vm._v(" "),
-          _vm.currentPage < _vm.lastPage
-            ? _c("li", { staticClass: "page-item" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getApartmentList(_vm.currentPage + 1)
-                      },
-                    },
-                  },
-                  [_vm._v("Successivo")]
-                ),
-              ])
-            : _vm._e(),
-        ],
-        2
-      ),
-    ]),
-  ])
+      ]),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

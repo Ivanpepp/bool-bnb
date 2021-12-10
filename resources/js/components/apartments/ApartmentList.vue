@@ -16,15 +16,7 @@
              <span class="text-white loading">Loading...</span>
             
         </div>
-        <div v-else class="d-flex flex-wrap " >
-            <div class="form-check" v-for="(feature, index) in features" :key='feature.id' >
-                <input type="checkbox" class="form-check-input " :value="feature.id" :id="'feature' + index" >
-                <label class="form-check-label" :for="'feature' + index">{{feature.title}}</label>
-            </div>
-            <div class="col-10">
-                <ApartmentCard   v-for="apartment in filterNames" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
-            </div>
-        </div>
+            <ApartmentCard  v-else  v-for="apartment in filterNames" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
         
         
          
@@ -50,17 +42,11 @@ export default {
     data(){
         return{
             apartments: [],
-            searchApartments: [],
-            features: [],
-            featuresIds: [],
             baseUri: 'http://127.0.0.1:8000',
             isLoading : false,
             currentPage: null,
             lastPage: null,
-            search: '',
-            selected: {
-                features: [],
-            }
+            search: '',  
         }
     },
     
@@ -70,13 +56,7 @@ export default {
             this.isLoading=true;
            axios.get(`${this.baseUri}/api/apartments`)
            .then((res)=>{
-               console.log(res);    
                this.apartments=res.data.data;
-                console.log( this.apartments);
-               this.features= res.data.feature;
-                console.log(this.features);
-                
-               
            })
            .catch((err)=>{
                console.error(err);
@@ -100,12 +80,7 @@ export default {
             });
 
         },
-        filterFeatures: function(){
-            return this.features.filter((element)=>{
-                return element.title.toLowerCase().match(this.search.toLowerCase());
-            });
-
-        }
+      
     }
 
 

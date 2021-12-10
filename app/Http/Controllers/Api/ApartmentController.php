@@ -18,10 +18,10 @@ class ApartmentController extends Controller
     {
         //
         $data = Apartment::orderBy('created_at', 'desc')->get();
-        $feature = Feature::all();
+        
 
 
-        return response()->json(compact('data','feature','featureIds'));
+        return response()->json(compact('data'));
     }
 
     /**
