@@ -151,7 +151,7 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment, Request $request)
+    public function edit(Apartment $apartment, Request $request, Photo $photo)
     {
      
         $sponsorships = Sponsorship::all();
@@ -159,8 +159,9 @@ class ApartmentController extends Controller
         $featureIds = $apartment->features->pluck('id')->toArray();
         $sponsorshipIds = $apartment->sponsorships->pluck('id')->toArray();
         $isVisibleIds = ['0','1'];
+        $photos = Photo::all();
 
-        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds', 'request'));
+        return view('host.apartments.edit', compact( 'apartment','sponsorships', 'features', 'featureIds','sponsorshipIds', 'request','photos'));
     }
 
     /**
@@ -170,7 +171,7 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Apartment $apartment)
+    public function update(Request $request, Apartment $apartment, Photo $photo)
     {
         
         $request->validate([
@@ -207,7 +208,16 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::user()->id;
         $apartment->fill($data);
         $apartment->update();
-       
+       foreach($request->file('image_thumb') as $image)
+           {
+               
+               $name=$image->getClientOriginalName();
+               $image->move(public_path().'/storage/apartments/images/', $name);
+               $thumb = $name;
+               $photo->image_thumb = $thumb;
+               $photo->apartment_id = $apartment->id;   
+               $photo->update();
+           }
         if(array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
         if(array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
 

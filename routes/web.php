@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/apartment/{id}', 'Guest\HomeController@show')->name('guest.show');
+Route::get('/guest/{id}', 'Guest\HomeController@show')->name('guest.show');
 
 Route::middleware('auth')
 ->namespace('Host')
@@ -32,9 +32,6 @@ Route::middleware('auth')
     Route::resource('users', 'UserController');
 });
 
-
-Route::get('/photos','Host\PhotoController@create')->name('host.photos.create');
-Route::post('/photos','Host\PhotoController@store')->name('host.photos.store');
 
 Route::get("{any?}", function(){
     return view('guest.home');
