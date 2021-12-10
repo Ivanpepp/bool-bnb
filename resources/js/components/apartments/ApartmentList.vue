@@ -1,5 +1,11 @@
 <template>
     <section class="my-3 p-2">
+            
+                <div class="input-group">
+                    <input  @keyup.enter="filterNames" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca " aria-label="Username" aria-describedby="basic-addon1">
+                    <button type="submit" class="btn btn-primary mb-4">Cerca</button>
+                </div>
+          
         <h2 class="mb-4">Lista Appartamenti:</h2>
        
         <div v-if="isLoading" class="loader">
@@ -10,7 +16,18 @@
              <span class="text-white loading">Loading...</span>
             
         </div>
-         <ApartmentCard v-else v-for="apartment in apartments" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
+        <div v-else class="d-flex flex-wrap " >
+            <div class="form-check" v-for="(feature, index) in features" :key='feature.id' >
+                <input type="checkbox" class="form-check-input " :value="feature.id" :id="'feature' + index" >
+                <label class="form-check-label" :for="'feature' + index">{{feature.title}}</label>
+            </div>
+            <div class="col-10">
+                <ApartmentCard   v-for="apartment in filterNames" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
+            </div>
+        </div>
+        
+        
+         
        
         <nav aria-label="Page navigation example">
             <ul class="pagination pagination-lg">
@@ -33,23 +50,32 @@ export default {
     data(){
         return{
             apartments: [],
+            searchApartments: [],
+            features: [],
+            featuresIds: [],
             baseUri: 'http://127.0.0.1:8000',
             isLoading : false,
             currentPage: null,
             lastPage: null,
+            search: '',
+            selected: {
+                features: [],
+            }
         }
     },
     
     methods:{
-        getApartmentList(page){
+        getApartmentList(){
 
             this.isLoading=true;
-           axios.get(`${this.baseUri}/api/apartments/?page=${page}`)
+           axios.get(`${this.baseUri}/api/apartments`)
            .then((res)=>{
-             
+               console.log(res);    
                this.apartments=res.data.data;
-               this.currentPage = res.data.current_page;
-               this.lastPage = res.data.last_page;
+                console.log( this.apartments);
+               this.features= res.data.feature;
+                console.log(this.features);
+                
                
            })
            .catch((err)=>{
@@ -58,11 +84,30 @@ export default {
            .then(()=>{
                this.isLoading =false;
            });
-        }
+       
+        },
+        
+       
+         
     },
     created(){
-        this.getApartmentList(1);
+        this.getApartmentList();
     },
+    computed: {
+        filterNames: function(){
+            return this.apartments.filter((element)=>{
+                return element.title.toLowerCase().match(this.search.toLowerCase());
+            });
+
+        },
+        filterFeatures: function(){
+            return this.features.filter((element)=>{
+                return element.title.toLowerCase().match(this.search.toLowerCase());
+            });
+
+        }
+    }
+
 
 }
 </script>

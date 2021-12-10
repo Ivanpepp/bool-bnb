@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <Header :title='title'/>
+        <Header  :title='title'/>
         <main>
             <ApartmentList />
         </main>
@@ -16,12 +16,15 @@ import ApartmentList from './apartments/ApartmentList.vue'
         name: 'App',
         data(){
             return {
-                title: 'BoolBnB'
+                title: 'BoolBnB',
+                searchGroup: [],
+                uri: 'http://127.0.0.1:8000/api/apartments'
             }
         },
         components:{
             Header,
             ApartmentList,
-        }
+        },
+    
     }
 </script>

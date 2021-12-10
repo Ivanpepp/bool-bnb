@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\Feature;
 
 class ApartmentController extends Controller
 {
@@ -13,13 +14,14 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Apartment $apartment)
     {
         //
-        $data = Apartment::orderBy('created_at', 'desc')->paginate(10);
+        $data = Apartment::orderBy('created_at', 'desc')->get();
+        $feature = Feature::all();
 
 
-        return response()->json($data);
+        return response()->json(compact('data','feature','featureIds'));
     }
 
     /**
