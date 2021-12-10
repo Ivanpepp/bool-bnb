@@ -32,10 +32,10 @@
 
                 @csrf
 
-                <div class="form-group">
+              {{--   <div class="form-group">
                     <label for="user_id">Proprietario Appartamento</label>
                     <input class="form-control" type="text"  id="user_id" name="user_id" value="{{Auth::user()->name}}" >
-                </div>
+                </div> --}}
 
                 <div class="form-group">
                     <label for="title">Titolo dell' appartamento</label>
