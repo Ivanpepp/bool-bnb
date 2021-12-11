@@ -16,11 +16,10 @@
              <span class="text-white loading">Loading...</span>
             
         </div>
-            <ApartmentCard  v-else  v-for="apartment in filterNames" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
-        
-        
-         
-       
+            <div v-else>
+                <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
+            </div>
+
         <nav aria-label="Page navigation example">
             <ul class="pagination pagination-lg">
                 <li v-if="currentPage > 1" class="page-item"><button class="page-link" @click='getApartmentList(currentPage - 1)' >Precedente</button></li>
@@ -74,9 +73,9 @@ export default {
         this.getApartmentList();
     },
     computed: {
-        filterNames: function(){
+        filterCity: function(){
             return this.apartments.filter((element)=>{
-                return element.title.toLowerCase().match(this.search.toLowerCase());
+                return( element.city.toLowerCase().match(this.search.toLowerCase()) || element.address.toLowerCase().match(this.search.toLowerCase()));
             });
 
         },
