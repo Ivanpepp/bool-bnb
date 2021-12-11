@@ -26,12 +26,13 @@ class HomeController extends Controller
         return view('guest.contact');
     }
 
-    public function contactFormHandler(Request $request, Apartment $apartment)
+    public function contactFormHandler(Request $request)
     {
 
         $data = $request->all();
-        $data['apartment_id'] = $apartment->id;
-
+        $newMessage = new Message;
+        $newMessage->fill($data);
+        $newMessage->save();
         
         $request->validate(
             [
@@ -53,13 +54,6 @@ class HomeController extends Controller
             ]
         );
 
-    
-        $newMessage = new Message();
-        dd($data);
-        $newMessage->fill($data);
-        $newMessage->save();
-        
-       
 
         Mail::to("account@mail.it")->send(new SendNewMail($newMessage));
 
