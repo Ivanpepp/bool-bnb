@@ -2,9 +2,15 @@
     <section class="my-3 p-2">
             
                 <div class="input-group">
-                    <input  @keyup.enter="filterNames" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca " aria-label="Username" aria-describedby="basic-addon1">
-                    <button type="submit" class="btn btn-primary mb-4">Cerca</button>
+                    <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per città o indirizzo " aria-label="Username" aria-describedby="basic-addon1">
+                    <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
+                <div class="inpu-group d-flex">
+                    <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo ospiti " aria-label="Username" aria-describedby="basic-addon1">
+                    <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
+                    <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                
           
         <h2 class="mb-4">Lista Appartamenti:</h2>
        
@@ -32,7 +38,6 @@
 
 <script>
 import ApartmentCard from './ApartmentCard.vue'
-
 export default {
     name: 'ApartmentList',
     components:{
@@ -46,12 +51,15 @@ export default {
             currentPage: null,
             lastPage: null,
             search: '',  
+            minGuest: '',
+            minRoom: '',
+            minBath: '',
+            minMq: '',
         }
     },
     
     methods:{
         getApartmentList(){
-
             this.isLoading=true;
            axios.get(`${this.baseUri}/api/apartments`)
            .then((res)=>{
@@ -71,23 +79,25 @@ export default {
     },
     created(){
         this.getApartmentList();
+       
     },
     computed: {
         filterCity: function(){
             return this.apartments.filter((element)=>{
-                return( element.city.toLowerCase().match(this.search.toLowerCase()) || element.address.toLowerCase().match(this.search.toLowerCase()));
+                return( 
+                   ( element.city.toLowerCase().match(this.search.toLowerCase()) || element.address.toLowerCase().match(this.search.toLowerCase()))
+                    &&( this.minGuest <= element.total_guest)
+                    &&( this.minRoom <= element.total_room)
+                    &&( this.minBath <= element.total_bathroom)
+                    &&( this.minMq <= element.mq));
             });
-
         },
       
     }
-
-
 }
 </script>
 
 <style lang="scss" scoped>
-
     .loader{
         position: fixed;
         top:0;

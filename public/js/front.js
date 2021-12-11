@@ -2419,6 +2419,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentList',
@@ -2432,7 +2438,11 @@ __webpack_require__.r(__webpack_exports__);
       isLoading: false,
       currentPage: null,
       lastPage: null,
-      search: ''
+      search: '',
+      minGuest: '',
+      minRoom: '',
+      minBath: '',
+      minMq: ''
     };
   },
   methods: {
@@ -2457,7 +2467,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       return this.apartments.filter(function (element) {
-        return element.city.toLowerCase().match(_this2.search.toLowerCase()) || element.address.toLowerCase().match(_this2.search.toLowerCase());
+        return (element.city.toLowerCase().match(_this2.search.toLowerCase()) || element.address.toLowerCase().match(_this2.search.toLowerCase())) && _this2.minGuest <= element.total_guest && _this2.minRoom <= element.total_room && _this2.minBath <= element.total_bathroom && _this2.minMq <= element.mq;
       });
     }
   }
@@ -3727,7 +3737,7 @@ var render = function () {
         attrs: {
           id: "input-search",
           type: "text",
-          placeholder: "Cerca ",
+          placeholder: "Cerca per città o indirizzo ",
           "aria-label": "Username",
           "aria-describedby": "basic-addon1",
         },
@@ -3740,7 +3750,7 @@ var render = function () {
             ) {
               return null
             }
-            return _vm.filterNames.apply(null, arguments)
+            return _vm.filterCity.apply(null, arguments)
           },
           input: function ($event) {
             if ($event.target.composing) {
@@ -3751,11 +3761,155 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary mb-4", attrs: { type: "submit" } },
-        [_vm._v("Cerca")]
-      ),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.minMq,
+            expression: "minMq",
+          },
+        ],
+        staticClass: "form-control mb-4",
+        attrs: {
+          id: "input-search",
+          type: "text",
+          placeholder: "Cerca per minimo di metri quadri ",
+          "aria-label": "Username",
+          "aria-describedby": "basic-addon1",
+        },
+        domProps: { value: _vm.minMq },
+        on: {
+          keyup: function ($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.filterCity.apply(null, arguments)
+          },
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.minMq = $event.target.value
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "inpu-group d-flex" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.minGuest,
+            expression: "minGuest",
+          },
+        ],
+        staticClass: "form-control mb-4",
+        attrs: {
+          id: "input-search",
+          type: "text",
+          placeholder: "Cerca per minimo ospiti ",
+          "aria-label": "Username",
+          "aria-describedby": "basic-addon1",
+        },
+        domProps: { value: _vm.minGuest },
+        on: {
+          keyup: function ($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.filterCity.apply(null, arguments)
+          },
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.minGuest = $event.target.value
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.minRoom,
+            expression: "minRoom",
+          },
+        ],
+        staticClass: "form-control mb-4",
+        attrs: {
+          id: "input-search",
+          type: "text",
+          placeholder: "Cerca per minimo stanze da letto ",
+          "aria-label": "Username",
+          "aria-describedby": "basic-addon1",
+        },
+        domProps: { value: _vm.minRoom },
+        on: {
+          keyup: function ($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.filterCity.apply(null, arguments)
+          },
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.minRoom = $event.target.value
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.minBath,
+            expression: "minBath",
+          },
+        ],
+        staticClass: "form-control mb-4",
+        attrs: {
+          id: "input-search",
+          type: "text",
+          placeholder: "Cerca per minimo bagni ",
+          "aria-label": "Username",
+          "aria-describedby": "basic-addon1",
+        },
+        domProps: { value: _vm.minBath },
+        on: {
+          keyup: function ($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.filterCity.apply(null, arguments)
+          },
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.minBath = $event.target.value
+          },
+        },
+      }),
     ]),
     _vm._v(" "),
     _c("h2", { staticClass: "mb-4" }, [_vm._v("Lista Appartamenti:")]),
