@@ -34,6 +34,7 @@ Route::middleware('auth')
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');
     Route::resource('users', 'UserController');
+    Route::resource('mail', 'MessageController');
 });
 
 

@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
-use Illuminate\Support\Facades\Mail;
 use App\Models\Message;
-use App\Mail\SendNewMail;
 
 class HomeController extends Controller
 {
@@ -21,16 +19,17 @@ class HomeController extends Controller
         return view('guest.show', compact('apartment'));
     }
 
-    public function getContactForm()
+    public function getContactForm($id)
     {
-        return view('guest.contact');
+        $apartment = Apartment::findOrFail($id);
+        return view('guest.contact', compact("apartment"));
     }
 
-    public function contactFormHandler(Request $request)
+    public function contactFormHandler(Request $request, Apartment $apartment)
     {
 
         $data = $request->all();
-        $newMessage = new Message;
+        $newMessage = new Message();
         $newMessage->fill($data);
         $newMessage->save();
         
@@ -53,9 +52,6 @@ class HomeController extends Controller
                 
             ]
         );
-
-
-        Mail::to("account@mail.it")->send(new SendNewMail($newMessage));
 
         return redirect()->route("guest.thanks");
     }

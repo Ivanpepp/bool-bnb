@@ -16,6 +16,7 @@
 
                     {{ __('You are logged in!') }}
                     <a class="btn btn-primary" href="{{route('host.apartments.index')}}">I tuoi appartamenti</a>
+                    <a class="btn btn-primary" href="{{route('host.mail.index')}}">I tuoi messaggi</a>
                 </div>
             </div>
         </div>

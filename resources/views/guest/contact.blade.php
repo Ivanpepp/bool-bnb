@@ -16,8 +16,11 @@
     <div class="row justify-content-center">
         <div class="text-center card m-2 col-12" style="width: 18rem;">
             <div class="card-body">
-                <form action="{{route('guest.sender')}}" method="POST">
+                <form action="{{route('guest.sender', $apartment)}}" method="POST">
                     @csrf
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" name="apartment_id" id="apartment_id" value="{{$apartment->id}}"> 
+                    </div> 
                     <div class="form-group">
                         <h5 for="email_address" class="form-h5">Nome:</h5>
                         <input class="form-control" type="text" placeholder="Inserisci nome" name="name" value="{{old('subject') }}"> 
