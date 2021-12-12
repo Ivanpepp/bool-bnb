@@ -15,6 +15,7 @@
         </header>
         <table class="table">
             <thead>
+                <th class="col">Apt_id</th>
                 <th class="col">Email</th>
                 <th class="col">Nome</th>
                 <th class="col">Cognome</th>
@@ -25,6 +26,7 @@
                 @if ($messages->isNotEmpty())
                  @foreach ($messages as $message)
                     <tr>
+                        <td style="white-space: nowrap">{{$message->apartment_id}}</td>
                         <td><a href="{{route('host.mail.show', $message)}}">{{$message->email}}</a></td>
                         <td style="white-space: nowrap">{{$message->name}}</td>
                         <td style="white-space: nowrap">{{$message->surname}}</td>

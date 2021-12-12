@@ -51,4 +51,16 @@ class MessageController extends Controller
         return view("host.mail.show", compact("message"));
         
     }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $message = Message::find($id)->delete();
+        return redirect()->route('host.mail.index', compact("message"));
+    }
 }
