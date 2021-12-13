@@ -2525,7 +2525,8 @@ __webpack_require__.r(__webpack_exports__);
       style: 'tomtom://vector/1/basic-main',
       center: speedyPizzaCoordinates,
       zoom: 15
-    }); // var marker = new tt.Marker().setLngLat(speedyPizzaCoordinates).addTo(map);
+    });
+    console.log(map); // var marker = new tt.Marker().setLngLat(speedyPizzaCoordinates).addTo(map);
     // // addMarker(map);
     // var popupOffsets = {
     //     top: [0, 0],
@@ -2540,8 +2541,21 @@ __webpack_require__.r(__webpack_exports__);
     // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
   },
   methods: {
+    moveMap: function moveMap(lnglat) {
+      console.log(map);
+      var map = tt.map({
+        key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
+        container: 'map',
+        style: 'tomtom://vector/1/basic-main',
+        center: lnglat,
+        zoom: 14
+      });
+    },
     handleResults: function handleResults(result) {
       console.log(result);
+      console.log(result.results[0].position.lat);
+      console.log(result.results[0].position.lng);
+      this.moveMap(result.results[0].position);
     },
     search: function search() {
       tt.services.fuzzySearch({
