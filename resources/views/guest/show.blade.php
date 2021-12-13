@@ -24,8 +24,8 @@
                 <address class="card-text">Indirizzo: {{$apartment->city . ' ' . $apartment->address}} </address>
                 <p class="card-text">Prezzo: {{$apartment->price}} €</p>
                 <a href="http://127.0.0.1:8000" class="btn btn-primary">Torna alla lista</a>
-                
-               
+                @if (Auth::check() && Auth::User()->id == $apartment->user_id)
+                @else <a href="{{route("guest.contact", $apartment->id)}}" class="btn btn-primary">Contattaci</a> @endif
             </div>
           </div> 
           

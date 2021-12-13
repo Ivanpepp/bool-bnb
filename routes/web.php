@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
+Route::get('/', 'Guest\HomeController@index')->name('guest.home');
 Route::get('/guest/{id}', 'Guest\HomeController@show')->name('guest.show');
+Route::get('/guest/{id}/contatti', 'Guest\HomeController@getContactForm')->name('guest.contact');
+Route::post('/guest/contatti', 'Guest\HomeController@contactFormHandler')->name('guest.sender');
+Route::get('/thanks', 'Guest\HomeController@contactFormEnder')->name('guest.thanks');
+
 
 Route::middleware('auth')
 ->namespace('Host')
@@ -30,6 +34,7 @@ Route::middleware('auth')
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');
     Route::resource('users', 'UserController');
+    Route::resource('mail', 'MessageController');
 });
 
 
