@@ -1,9 +1,8 @@
 <template>
     <div>
-        <h1>Vue 3 TomTom Maps Demo</h1> 
         <input type="text" id="query" value="">
-        <button @click="search()"> Search </button>
-        <div id='map' ></div> 
+        <button class="btn-sm btn-danger" @click="searchMap()"> Search </button>
+        <div class="mt-3 mb-3" id='map' ></div> 
     </div>
 </template>
 
@@ -17,51 +16,64 @@ export default {
     },
     mounted(){
             let tt = window.tt;
-            var speedyPizzaCoordinates = [15.67154, 38.24017]
+            var defaultCenter = [12.49427, 41.89056]
             let map = tt.map({ 
             key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI', 
             container: 'map', 
             style: 'tomtom://vector/1/basic-main',
-            center: speedyPizzaCoordinates,
-            zoom: 15,
+            center: defaultCenter,
+            zoom: 5,
         });
-        console.log(map);
         
-        // var marker = new tt.Marker().setLngLat(speedyPizzaCoordinates).addTo(map);
+        // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
         // // addMarker(map);
-        // var popupOffsets = {
-        //     top: [0, 0],
-        //     bottom: [0, -70],
-        //     'bottom-right': [0, -70],
-        //     'bottom-left': [0, -70],
-        //     left: [25, -35],
-        //     right: [-25, -35]
-        // }
+        // // var popupOffsets = {
+        // //     top: [0, 0],
+        // //     bottom: [0, -70],
+        // //     'bottom-right': [0, -70],
+        // //     'bottom-left': [0, -70],
+        // //     left: [25, -35],
+        // //     right: [-25, -35]
+        // // }
 
-        // var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
-        // marker.setPopup(popup).togglePopup();
+        // // var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
+        // // marker.setPopup(popup).togglePopup();
 
-        // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
+        // // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
     },
     methods:{
-        moveMap(lnglat){
+        updateMap(lnglat){
             console.log(map);
             let map = tt.map ({
                 key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
                 container: 'map',
                 style: 'tomtom://vector/1/basic-main',
                 center: lnglat,
-                zoom: 14,
-            })
-        },
+                zoom: 15,              
+                })
+
+            var marker = new tt.Marker().setLngLat(lnglat).addTo(map);
+            var popupOffsets = {
+            top: [0, 0],
+            bottom: [0, -30],
+            'bottom-right': [0, -30],
+            'bottom-left': [0, -30],
+            left: [25, -35],
+            right: [-25, -35]
+                }
+
+            var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>INSANE</b><br/>Relativamente molto gangsta!");
+            marker.setPopup(popup).togglePopup();
+
+            },
         handleResults(result){
             console.log(result);
-            console.log(result.results[0].position.lat);
-            console.log(result.results[0].position.lng);
-            this.moveMap(result.results[0].position);
+            console.log('latitudine: '+ result.results[0].position.lat);
+            console.log('longitudine: '+ result.results[0].position.lng);
+            this.updateMap(result.results[0].position);
             
         },
-        search(){
+        searchMap(){
             tt.services.fuzzySearch({
                 key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
                 query: document.getElementById("query").value,
@@ -70,7 +82,7 @@ export default {
         },
         // addMarker(map) { 
         //   const tt = window.tt; 
-        //     let location = [-121.91595, 37.36729]; 
+        //     let location = lnglat; 
         //     let popupOffset = 25; 
  
         //     let marker = new tt.Marker().setLngLat(location).addTo(map); 
@@ -94,7 +106,7 @@ export default {
     
 <style>
     #map { 
-    height: 50vh; 
-    width: 50vw; 
+    height: 500px; 
+    width: 750px; 
 } 
 </style>

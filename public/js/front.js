@@ -2510,7 +2510,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Map',
   Data: function Data() {
@@ -2518,53 +2517,65 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var tt = window.tt;
-    var speedyPizzaCoordinates = [15.67154, 38.24017];
+    var defaultCenter = [12.49427, 41.89056];
     var map = tt.map({
       key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
       container: 'map',
       style: 'tomtom://vector/1/basic-main',
-      center: speedyPizzaCoordinates,
-      zoom: 15
-    });
-    console.log(map); // var marker = new tt.Marker().setLngLat(speedyPizzaCoordinates).addTo(map);
+      center: defaultCenter,
+      zoom: 5
+    }); // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
     // // addMarker(map);
-    // var popupOffsets = {
-    //     top: [0, 0],
-    //     bottom: [0, -70],
-    //     'bottom-right': [0, -70],
-    //     'bottom-left': [0, -70],
-    //     left: [25, -35],
-    //     right: [-25, -35]
-    // }
-    // var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
-    // marker.setPopup(popup).togglePopup();
-    // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
+    // // var popupOffsets = {
+    // //     top: [0, 0],
+    // //     bottom: [0, -70],
+    // //     'bottom-right': [0, -70],
+    // //     'bottom-left': [0, -70],
+    // //     left: [25, -35],
+    // //     right: [-25, -35]
+    // // }
+    // // var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
+    // // marker.setPopup(popup).togglePopup();
+    // // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
   },
   methods: {
-    moveMap: function moveMap(lnglat) {
+    updateMap: function updateMap(lnglat) {
       console.log(map);
       var map = tt.map({
         key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
         container: 'map',
         style: 'tomtom://vector/1/basic-main',
         center: lnglat,
-        zoom: 14
+        zoom: 15
       });
+      var marker = new tt.Marker().setLngLat(lnglat).addTo(map);
+      var popupOffsets = {
+        top: [0, 0],
+        bottom: [0, -30],
+        'bottom-right': [0, -30],
+        'bottom-left': [0, -30],
+        left: [25, -35],
+        right: [-25, -35]
+      };
+      var popup = new tt.Popup({
+        offset: popupOffsets
+      }).setHTML("<b>INSANE</b><br/>Relativamente molto gangsta!");
+      marker.setPopup(popup).togglePopup();
     },
     handleResults: function handleResults(result) {
       console.log(result);
-      console.log(result.results[0].position.lat);
-      console.log(result.results[0].position.lng);
-      this.moveMap(result.results[0].position);
+      console.log('latitudine: ' + result.results[0].position.lat);
+      console.log('longitudine: ' + result.results[0].position.lng);
+      this.updateMap(result.results[0].position);
     },
-    search: function search() {
+    searchMap: function searchMap() {
       tt.services.fuzzySearch({
         key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
         query: document.getElementById("query").value
       }).go().then(this.handleResults);
     } // addMarker(map) { 
     //   const tt = window.tt; 
-    //     let location = [-121.91595, 37.36729]; 
+    //     let location = lnglat; 
     //     let popupOffset = 25; 
     //     let marker = new tt.Marker().setLngLat(location).addTo(map); 
     //     let popup = new tt.Popup({ offset: popupOffset }); 
@@ -2618,7 +2629,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map { \n    height: 50vh; \n    width: 50vw;\n} \n", ""]);
+exports.push([module.i, "\n#map { \n    height: 500px; \n    width: 750px;\n} \n", ""]);
 
 // exports
 
@@ -4191,23 +4202,22 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Vue 3 TomTom Maps Demo")]),
-    _vm._v(" "),
     _c("input", { attrs: { type: "text", id: "query", value: "" } }),
     _vm._v(" "),
     _c(
       "button",
       {
+        staticClass: "btn-sm btn-danger",
         on: {
           click: function ($event) {
-            return _vm.search()
+            return _vm.searchMap()
           },
         },
       },
       [_vm._v(" Search ")]
     ),
     _vm._v(" "),
-    _c("div", { attrs: { id: "map" } }),
+    _c("div", { staticClass: "mt-3 mb-3", attrs: { id: "map" } }),
   ])
 }
 var staticRenderFns = []
