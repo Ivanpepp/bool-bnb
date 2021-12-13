@@ -73,6 +73,19 @@ export default {
            });
        
         },
+      /*   kmCoverter(lat1,lon1){
+
+
+             // generally used geo measurement function
+                let R = 6378.137; // Radius of earth in KM
+                let dLat = lat1 * Math.PI / 180;
+                let dLon = lon1 * Math.PI / 180;
+                let a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat1 * Math.PI / 180)  * Math.sin(dLon/2) * Math.sin(dLon/2);
+                let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                let d = R * c;
+                return d * 1000; // meters
+            
+        } */
         
        
          
