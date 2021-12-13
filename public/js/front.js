@@ -2509,6 +2509,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Map',
   Data: function Data() {
@@ -2516,32 +2518,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var tt = window.tt;
-    var speedyPizzaCoordinates = [-121.91595, 37.36729];
+    var speedyPizzaCoordinates = [15.67154, 38.24017];
     var map = tt.map({
       key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
       container: 'map',
       style: 'tomtom://vector/1/basic-main',
       center: speedyPizzaCoordinates,
       zoom: 15
-    });
-    map.addControl(new tt.FullscreenControl());
-    map.addControl(new tt.NavigationControl());
-    var marker = new tt.Marker().setLngLat(speedyPizzaCoordinates).addTo(map); // addMarker(map);
-
-    var popupOffsets = {
-      top: [0, 0],
-      bottom: [0, -70],
-      'bottom-right': [0, -70],
-      'bottom-left': [0, -70],
-      left: [25, -35],
-      right: [-25, -35]
-    };
-    var popup = new tt.Popup({
-      offset: popupOffsets
-    }).setHTML("your company name, your company address");
-    marker.setPopup(popup).togglePopup(); // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
+    }); // var marker = new tt.Marker().setLngLat(speedyPizzaCoordinates).addTo(map);
+    // // addMarker(map);
+    // var popupOffsets = {
+    //     top: [0, 0],
+    //     bottom: [0, -70],
+    //     'bottom-right': [0, -70],
+    //     'bottom-left': [0, -70],
+    //     left: [25, -35],
+    //     right: [-25, -35]
+    // }
+    // var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
+    // marker.setPopup(popup).togglePopup();
+    // var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA");
   },
-  methods: {// addMarker(map) { 
+  methods: {
+    handleResults: function handleResults(result) {
+      console.log(result);
+    },
+    search: function search() {
+      tt.services.fuzzySearch({
+        key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
+        query: document.getElementById("query").value
+      }).go().then(this.handleResults);
+    } // addMarker(map) { 
     //   const tt = window.tt; 
     //     let location = [-121.91595, 37.36729]; 
     //     let popupOffset = 25; 
@@ -2560,6 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
     //         popup.setHTML(result.addresses[0].address.freeformAddress); 
     //     }) 
     // } 
+
   }
 });
 
@@ -4171,7 +4179,21 @@ var render = function () {
   return _c("div", [
     _c("h1", [_vm._v("Vue 3 TomTom Maps Demo")]),
     _vm._v(" "),
-    _c("div", { ref: "mapRef", attrs: { id: "map" } }),
+    _c("input", { attrs: { type: "text", id: "query", value: "" } }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        on: {
+          click: function ($event) {
+            return _vm.search()
+          },
+        },
+      },
+      [_vm._v(" Search ")]
+    ),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "map" } }),
   ])
 }
 var staticRenderFns = []
