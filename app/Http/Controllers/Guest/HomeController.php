@@ -35,10 +35,10 @@ class HomeController extends Controller
         
         $request->validate(
             [
-                'email' => 'required|email|',
+                'email' => 'required|string|email|',
                 'name' => 'required|string|max:100',
                 'surname' => 'required|string|max:100',
-                'subject' => 'required|min:50|max:100',
+                'subject' => 'required|string|min:50|max:100',
                 'content' => 'required|min:100',
             ],
 

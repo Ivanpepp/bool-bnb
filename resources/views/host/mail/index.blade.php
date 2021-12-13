@@ -26,12 +26,12 @@
                 @if ($messages->isNotEmpty())
                  @foreach ($messages as $message)
                     <tr>
-                        <td style="white-space: nowrap">{{$message->apartment_id}}</td>
+                        <td>{{$message->apartment_id}}</td>
                         <td><a href="{{route('host.mail.show', $message)}}">{{$message->email}}</a></td>
-                        <td style="white-space: nowrap">{{$message->name}}</td>
-                        <td style="white-space: nowrap">{{$message->surname}}</td>
-                        <td style="white-space: nowrap">{{$message->subject}}</td>
-                        <td style="white-space: nowrap">{{$message->created_at}}</td>
+                        <td>{{$message->name}}</td>
+                        <td>{{$message->surname}}</td>
+                        <td>{{$message->subject}}</td>
+                        <td>{{$message->created_at}}</td>
                     </tr>
                  @endforeach
                 @else
