@@ -10,8 +10,11 @@
                     <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-                
-          
+        
+        <div>
+            <Map />
+        </div>        
+
         <h2 class="mb-4">Lista Appartamenti:</h2>
        
         <div v-if="isLoading" class="loader">
@@ -37,11 +40,14 @@
 </template>
 
 <script>
-import ApartmentCard from './ApartmentCard.vue'
+import ApartmentCard from './ApartmentCard.vue';
+import Map from './Map.vue';
+
 export default {
     name: 'ApartmentList',
     components:{
         ApartmentCard,
+        Map,
     },
     data(){
         return{

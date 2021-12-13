@@ -22,7 +22,6 @@ window.axios = require('axios');
 //component parent dal quale compilerò tutto quello che mi serve per la mia applicazione
 import App from './components/App.vue';
 
-
 const app = new Vue({
     el: '#root',
     render: h=>h(App)

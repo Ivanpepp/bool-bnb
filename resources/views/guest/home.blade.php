@@ -8,9 +8,15 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+       
+        <link  rel='stylesheet'  type='text/css'  href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps.css'>
 
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <!-- Styles -->
+        
+        <script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script> 
+        <script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script>
+
         <style>
             html, body {
                 background-color: #fff;
@@ -80,6 +86,7 @@
                 </div>
             @endif
         </div>
+        
         
         <div id="root">
                
