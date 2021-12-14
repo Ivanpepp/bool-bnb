@@ -23,7 +23,9 @@ export default {
             style: 'tomtom://vector/1/basic-main',
             center: defaultCenter,
             zoom: 5,
-        });
+            });
+            map.addControl(new tt.FullscreenControl()); 
+            map.addControl(new tt.NavigationControl()); 
         
         // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
         // // addMarker(map);

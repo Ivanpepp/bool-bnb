@@ -2524,7 +2524,9 @@ __webpack_require__.r(__webpack_exports__);
       style: 'tomtom://vector/1/basic-main',
       center: defaultCenter,
       zoom: 5
-    }); // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
+    });
+    map.addControl(new tt.FullscreenControl());
+    map.addControl(new tt.NavigationControl()); // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
     // // addMarker(map);
     // // var popupOffsets = {
     // //     top: [0, 0],
