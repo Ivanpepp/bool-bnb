@@ -66,6 +66,8 @@ export default {
 
             var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>INSANE</b><br/>Relativamente molto gangsta!");
             marker.setPopup(popup).togglePopup();
+            map.addControl(new tt.FullscreenControl()); 
+            map.addControl(new tt.NavigationControl()); 
 
             },
         handleResults(result){
