@@ -21,7 +21,8 @@
                 <p class="card-text">Bagni: {{$apartment->total_bathroom}}</p>
                 <p class="card-text">Metri quadri: {{$apartment->mq}}</p>
                 <p class="card-text"><strong>Descrizione:</strong> {{$apartment->description}}</p>
-                <address class="card-text">Indirizzo: {{$apartment->city . ' ' . $apartment->address}} </address>
+                <address  class="card-text">Indirizzo: {{$apartment->city . ' ' . $apartment->address}} </address>
+                <input id="city" type="hidden"  value='{{$apartment->city . '<br/>' . $apartment->address}}'>
                 <p class="card-text">Prezzo: {{$apartment->price}} €</p>
                 <a href="http://127.0.0.1:8000" class="btn btn-primary">Torna alla lista</a>
                 @if (Auth::check() && Auth::User()->id == $apartment->user_id)
@@ -40,6 +41,7 @@
      
 </div>
 <script>
+          
             let longitudine = document.getElementById("longitudine").value;
             let latitudine = document.getElementById("latitudine").value;
             console.log(latitudine,longitudine)
@@ -64,10 +66,11 @@
                     left: [25, -35],
                     right: [-25, -35]
             };
-             var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
+            let city = document.getElementById('city').value;
+             var popup = new tt.Popup({offset: popupOffsets}).setHTML(city);
              marker.setPopup(popup).togglePopup();
             
-              /* var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA"); */
+             
             
 </script>
 
