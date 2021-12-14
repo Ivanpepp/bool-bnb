@@ -91,9 +91,12 @@
                     <label for="city">Città</label>
                     <input  class="form-control" type="text" placeholder="Inserisci la città" id="city" name="city" value="{{old('city', $apartment->city) }} ">
                 </div> 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="address">Indirizzo</label>
+                   {{--  <input type="text" id="query" value=""> --}}
+                    
                     <input  class="form-control" type="text" placeholder="Inserisci l'indirizzo dell'appartamento" id="address" name="address" value="{{old('address', $apartment->address) }} ">
+                    <span class="btn  btn-primary"  onclick= "searchMap()" > Genera Coordinate </span>
                 </div> 
                 <div class="form-group">
                     <label for="price">prezzo</label>
@@ -163,11 +166,6 @@
                             <label class="form-check-label me-2" for="is_visible">Non Visibile</label>  
                     </div>
                 </div>
-              
-              
-
-                
-
                 <button type="submit" class="btn btn-primary">
                 {{ $request->routeIs('host.apartments.edit') ? "Modifica" : "Crea" }}
                 </button>
@@ -175,5 +173,29 @@
             </form>
         </section>
     </div>
+    <script>
+        let tt = window.tt;
+         let handleResults= function(result){
+            /* console.log(result);
+            console.log('latitudine: '+ result.results[0].position.lat);
+            console.log('longitudine: '+ result.results[0].position.lng); */
+            
+            document.getElementById('latitude').value = result.results[0].position.lat;
+            document.getElementById('longitude').value = result.results[0].position.lng;
 
-    
+
+            
+        };
+        let searchMap = function(){
+            tt.services.fuzzySearch({
+                key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
+                query: document.getElementById("address").value,
+
+            }).go().then(handleResults);
+        };
+    </script>
+    <style lang="scss" scoped>
+        span{
+            margin-top: 10px;
+        }
+    </style>

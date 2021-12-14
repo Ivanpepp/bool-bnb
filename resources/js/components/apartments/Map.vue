@@ -24,8 +24,9 @@ export default {
             center: defaultCenter,
             zoom: 5,
             });
-            map.addControl(new tt.FullscreenControl()); 
-            map.addControl(new tt.NavigationControl()); 
+            map.addControl(new tt.FullscreenControl());
+            map.addControl(new tt.NavigationControl());
+            
         
         // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
         // // addMarker(map);
@@ -46,12 +47,14 @@ export default {
     methods:{
         updateMap(lnglat){
             console.log(map);
+            
             let map = tt.map ({
                 key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
                 container: 'map',
                 style: 'tomtom://vector/1/basic-main',
                 center: lnglat,
-                zoom: 15,              
+                zoom: 15,  
+                            
                 })
 
             var marker = new tt.Marker().setLngLat(lnglat).addTo(map);
@@ -66,6 +69,8 @@ export default {
 
             var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>INSANE</b><br/>Relativamente molto gangsta!");
             marker.setPopup(popup).togglePopup();
+            map.addControl(new tt.FullscreenControl());
+            map.addControl(new tt.NavigationControl());
 
             },
         handleResults(result){

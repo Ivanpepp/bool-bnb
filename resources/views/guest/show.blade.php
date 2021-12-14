@@ -26,9 +26,49 @@
                 <a href="http://127.0.0.1:8000" class="btn btn-primary">Torna alla lista</a>
                 @if (Auth::check() && Auth::User()->id == $apartment->user_id)
                 @else <a href="{{route("guest.contact", $apartment->id)}}" class="btn btn-primary">Contattaci</a> @endif
+                <input type='hidden'  id="longitudine" value='{{$apartment->longitude}}'>
+                <input type='hidden'  id="latitudine" value='{{$apartment->latitude}}'>
             </div>
           </div> 
+         
           
     </div>
+   
+       
+        
+        <div  class="mt-3 mb-3" id='map' ></div> 
+     
 </div>
+<script>
+            let longitudine = document.getElementById("longitudine").value;
+            let latitudine = document.getElementById("latitudine").value;
+            console.log(latitudine,longitudine)
+            var tt = window.tt;
+            var defaultCenter = [longitudine, latitudine]
+            var map = tt.map({ 
+            key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI', 
+            container: 'map', 
+            style: 'tomtom://vector/1/basic-main',
+            center: defaultCenter,
+            zoom: 15,
+            });
+            map.addControl(new tt.FullscreenControl());
+            map.addControl(new tt.NavigationControl());
+             var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
+             
+             var popupOffsets = {
+                    top: [0, 0],
+                    bottom: [0, -70],
+                    'bottom-right': [0, -70],
+                    'bottom-left': [0, -70],
+                    left: [25, -35],
+                    right: [-25, -35]
+            };
+             var popup = new tt.Popup({offset: popupOffsets}).setHTML("your company name, your company address");
+             marker.setPopup(popup).togglePopup();
+            
+              /* var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>Speedy's pizza</b><br/>100 Century Center Ct 210, San Jose, CA 95112, USA"); */
+            
+</script>
+
 @endsection
