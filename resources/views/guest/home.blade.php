@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -7,17 +7,17 @@
         <title>Lista Appartamenti</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
        
         <link  rel='stylesheet'  type='text/css'  href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps.css'>
 
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <!-- Styles -->
         
-        <script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script> 
-        <script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script>
+        <!-- <script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script> 
+        <script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script> -->
 
-        <style>
+        <!-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -68,9 +68,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
-    </head>
-    <body>
+        </style> -->
+    <!-- </head> -->
+    <!-- <body>
         <div class="d-flex justify-content-end">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -87,11 +87,24 @@
             @endif
         </div>
         
-        
+        <p>CIAO</p>
         <div id="root">
-               
+
         </div>
-        
+
     </body>
     <script src="{{asset('js/front.js')}}"></script>
-</html>
+</html> -->
+
+
+<!-- LO ABBIAMO SOSTITUITO CON 'layouts.app' -->
+
+@extends('layouts.app')
+
+@section('content')
+        <div>
+            <div id="root"></div>
+        </div>
+
+        <script src="{{asset('js/front.js')}}"></script>
+@endsection

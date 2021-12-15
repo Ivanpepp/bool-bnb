@@ -13,6 +13,10 @@ class HomeController extends Controller
         return view('guest.home');
     }
 
+    public function welcome(){
+        return view('welcome');
+    }
+
     public function show(Request $request, $id){
         
         $apartment = Apartment::findOrFail($id);

@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'Guest\HomeController@index')->name('guest.home');
+
+Route::get('/', 'Guest\HomeController@welcome')->name('welcome');
+Route::get('/guest', 'Guest\HomeController@index')->name('guest.home');
 Route::get('/guest/{id}', 'Guest\HomeController@show')->name('guest.show');
 Route::get('/guest/{id}/contatti', 'Guest\HomeController@getContactForm')->name('guest.contact');
 Route::post('/guest/contatti', 'Guest\HomeController@contactFormHandler')->name('guest.sender');
@@ -39,5 +41,5 @@ Route::middleware('auth')
 
 
 Route::get("{any?}", function(){
-    return view('guest.home');
+    return view('welcome');
 })->where('any', '.*');
