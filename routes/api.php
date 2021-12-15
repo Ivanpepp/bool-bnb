@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Orders\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::namespace('Api')->group(function(){
     Route::resource('/apartments', 'ApartmentController');
 });
+
+Route::get('orders/generate',[OrderController::class, 'generate']);
+Route::post('orders/makePayment',[OrderController::class, 'makePayment']);
