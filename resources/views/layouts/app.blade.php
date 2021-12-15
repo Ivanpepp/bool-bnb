@@ -106,6 +106,7 @@
         </div>
 
         <main >
+        <main class="">
             @yield('content')
         </main>
         
