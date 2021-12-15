@@ -10019,6 +10019,18 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.my_header {
-  background-color: blue;
+#app .navbar-brand a {
+  color: blue;
+}
+
+.my_wrap_show img {
+  height: 500px;
+  width: 500px;
+}
+.my_wrap_show li {
+  list-style-type: none;
+}
+.my_wrap_show #map {
+  width: 100%;
+  height: 300px;
 }
