@@ -24,10 +24,9 @@
     
 </head>
 <body>
-    
-    <div id="app">
-        <div class="my_header">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="my-wrap-homepage">
+        <div class="my-header">
+            <nav class="navbar navbar-expand-md shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         BoolBNB
