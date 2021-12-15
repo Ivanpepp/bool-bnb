@@ -10019,3 +10019,28 @@ h3 {
     border-color: #dee2e6;
   }
 }
+#my-wrap-homepage .navbar {
+  height: 80px;
+}
+#my-wrap-homepage .user-nav {
+  color: crimson;
+}
+#my-wrap-homepage .user-nav :hover {
+  color: #a31633;
+}
+#my-wrap-homepage .navbar-brand {
+  color: crimson;
+}
+
+main {
+  padding-top: 120px;
+}
+
+td a {
+  color: crimson;
+}
+
+td a:hover {
+  color: #a31633;
+  text-decoration: underline;
+}

@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link  rel='stylesheet'  type='text/css'  href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps.css'>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
@@ -26,7 +27,7 @@
 <body>
     <div id="my-wrap-homepage">
         <div class="my-header">
-            <nav class="navbar navbar-expand-md shadow-sm">
+            <nav class="navbar navbar-expand-md shadow-sm fixed-top" style="background-color: black" >
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         BoolBNB
@@ -40,32 +41,51 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
                         </ul>
-    
+
+                        
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-light" href="{{ route('guest.home') }}"><i class="fas fa-search fa-lg"></i></a>
                                 </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-house-user fa-lg"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{route('login')}}">  
+                                            {{ __('Login') }}
+                                        </a>
+                                    @if (Route::has('register'))
+                                        <a class="dropdown-item" href="{{route('register')}}">  
+                                            {{ __('Register') }}
+                                        </a>
+                                    </div>
+                                </li>
                                 @endif
                             @else
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{{ route('guest.home') }}">    <i class="fas fa-search fa-lg"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{{ route('host.mail.index') }}"><i class="far fa-envelope fa-lg"></i></a>
+                                </li>
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                                    <a id="navbarDropdown" class="user-nav nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} |  
+                                        <i class="fas fa-house-user fa-lg"></i>
                                     </a>
 
     
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
                                         <a class="dropdown-item" href="{{route('host.home')}}">  
                                             {{ __('Dashboard') }}
                                         </a>
-
+                                        <a class="dropdown-item" href="{{route('host.apartments.index')}}">
+                                            {{ __('Apartments') }}
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
@@ -76,7 +96,6 @@
                                             @csrf
                                         </form>
                                     </div>
-
                                 </li>
                             @endguest
                         </ul>
@@ -85,9 +104,12 @@
             </nav>
         </div>
 
-        <main class="py-4">
+        <main >
             @yield('content')
         </main>
+        
     </div>
 </body>
+<script>
+</script>
 </html>
