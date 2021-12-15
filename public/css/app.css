@@ -10056,3 +10056,31 @@ td a:hover {
   width: 100%;
   height: 300px;
 }
+
+#my-container-welcome-page {
+  height: 1800px;
+}
+#my-container-welcome-page .my-wrap-black-container {
+  height: 1000px;
+  margin-bottom: 400px;
+  color: white;
+  background-color: #131313;
+  padding-top: 80px;
+}
+#my-container-welcome-page #my-jumbotron-apartamnets {
+  height: 500px;
+  background-image: url("/images/jumbotron-prova-2.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}
+#my-container-welcome-page #my-section-sponsorship {
+  background-color: #e6e3e3;
+  color: white;
+  background-image: url("/images/jumbotron-sponsor.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: 250px;
+  height: 500px;
+  border-radius: 10px;
+}
