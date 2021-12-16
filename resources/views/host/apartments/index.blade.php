@@ -19,6 +19,7 @@
                 <th class="col">Visibilità</th>
                 <th class="col">Servizi</th>
                 <th class="col">Sponsorizzazione</th>
+                <th class="col">Sponsorizza</th>
             </thead>
             <tbody>
                 @forelse ($apartments as $apartment)
@@ -45,6 +46,7 @@
                                 nessuna sponsorizzazione
                             @endforelse
                         </td>
+                        <td><a href="{{route('host.payment')}}" class="btn btn-primary">Sponsorizza</a></td>
                        
                        {{--  <td><a href="{{route('host.apartments.edit', $apartment)}}" class="btn btn-secondary">Modifica</a></td> --}}
                         {{-- <td>

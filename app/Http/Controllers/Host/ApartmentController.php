@@ -33,6 +33,9 @@ class ApartmentController extends Controller
       
         return view('host.apartments.index', compact('apartments'));
     }
+    public function payment(){
+        return view('host.sponsor.payment');
+    }
 
     /**
      * Show the form for creating a new resource.
