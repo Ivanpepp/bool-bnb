@@ -33,16 +33,31 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         Bool<span class="text-warning">BNB</span>
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".my-mobile" aria-controls=".my-mobile" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="fas fa-house-user fa-lg text-warning p-2"></span>
                     </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                        </ul>
+                    <div class="collapse navbar-collapse my-mobile" style="background-color: #131313" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <div class="navbar-nav">
+                            <div class="d-flex justify-content-between">
+                                <ul>
+                                    <li>
+                                        <a class="nav-link text-light" href="{{ route('guest.home') }}"><i class="fas fa-search fa-lg text-warning"></i> | Annunci</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-light" href="{{ route('host.mail.index') }}"><i class="fas fa-envelope fa-lg text-warning"></i> | Messaggi</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-light" href="{{ route('host.home') }}"><i class="fas fa-house-user fa-lg text-warning"></i> | Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-light" href="{{ route('logout') }}"><i class="fas fa-house-user fa-lg text-warning"></i> | Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #131313">
                         
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
@@ -78,8 +93,6 @@
                                         {{ Auth::user()->name }} |  
                                         <i class="fas fa-house-user fa-lg"></i>
                                     </a>
-
-    
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{route('host.home')}}">  
                                             {{ __('Dashboard') }}
