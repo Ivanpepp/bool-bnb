@@ -2362,6 +2362,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentCard',
   props: ['apartment', 'baseUri'],
@@ -3899,197 +3900,6 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "my-3 p-2" }, [
-    _c("div", { staticClass: "input-group" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.search,
-            expression: "search",
-          },
-        ],
-        staticClass: "form-control mb-4",
-        attrs: {
-          id: "input-search",
-          type: "text",
-          placeholder: "Cerca per città o indirizzo ",
-          "aria-label": "Username",
-          "aria-describedby": "basic-addon1",
-        },
-        domProps: { value: _vm.search },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.filterCity.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.search = $event.target.value
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.minMq,
-            expression: "minMq",
-          },
-        ],
-        staticClass: "form-control mb-4",
-        attrs: {
-          id: "input-search",
-          type: "text",
-          placeholder: "Cerca per minimo di metri quadri ",
-          "aria-label": "Username",
-          "aria-describedby": "basic-addon1",
-        },
-        domProps: { value: _vm.minMq },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.filterCity.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.minMq = $event.target.value
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "inpu-group d-flex" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.minGuest,
-            expression: "minGuest",
-          },
-        ],
-        staticClass: "form-control mb-4",
-        attrs: {
-          id: "input-search",
-          type: "text",
-          placeholder: "Cerca per minimo ospiti ",
-          "aria-label": "Username",
-          "aria-describedby": "basic-addon1",
-        },
-        domProps: { value: _vm.minGuest },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.filterCity.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.minGuest = $event.target.value
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.minRoom,
-            expression: "minRoom",
-          },
-        ],
-        staticClass: "form-control mb-4",
-        attrs: {
-          id: "input-search",
-          type: "text",
-          placeholder: "Cerca per minimo stanze da letto ",
-          "aria-label": "Username",
-          "aria-describedby": "basic-addon1",
-        },
-        domProps: { value: _vm.minRoom },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.filterCity.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.minRoom = $event.target.value
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.minBath,
-            expression: "minBath",
-          },
-        ],
-        staticClass: "form-control mb-4",
-        attrs: {
-          id: "input-search",
-          type: "text",
-          placeholder: "Cerca per minimo bagni ",
-          "aria-label": "Username",
-          "aria-describedby": "basic-addon1",
-        },
-        domProps: { value: _vm.minBath },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.filterCity.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.minBath = $event.target.value
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("div", [_c("Map")], 1),
-    _vm._v(" "),
     _c("h2", { staticClass: "mb-4" }, [_vm._v("Lista Appartamenti:")]),
     _vm._v(" "),
     _vm.isLoading
@@ -16836,7 +16646,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

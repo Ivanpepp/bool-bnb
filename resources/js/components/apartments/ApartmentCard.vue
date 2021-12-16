@@ -6,6 +6,7 @@
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
+                <!-- <img src= '`../../../storage/public/apartments/images/${apartment.image_thumb}`' alt=""> -->
                 <p>
                     {{apartment.description}}
                 </p>

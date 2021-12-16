@@ -1,7 +1,7 @@
 <template>
     <section class="my-3 p-2">
             
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per città o indirizzo " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
@@ -9,11 +9,11 @@
                     <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo ospiti " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
-                </div>
+                </div> -->
         
-        <div>
+        <!-- <div>
             <Map />
-        </div>        
+        </div>         -->
 
         <h2 class="mb-4">Lista Appartamenti:</h2>
        
