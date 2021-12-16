@@ -33,8 +33,11 @@ class ApartmentController extends Controller
       
         return view('host.apartments.index', compact('apartments'));
     }
-    public function payment(){
-        return view('host.sponsor.payment');
+    public function payment(Apartment $apartment){
+
+    
+
+        return view('host.sponsor.payment', compact('apartment'));
     }
 
     /**

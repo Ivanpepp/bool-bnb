@@ -37,7 +37,7 @@ Route::middleware('auth')
     Route::resource('apartments', 'ApartmentController');
     Route::resource('users', 'UserController');
     Route::resource('mail', 'MessageController');
-    Route::get('/sponsor/payment','ApartmentController@payment')->name('payment');
+    Route::get('/sponsor/payment/{id}','ApartmentController@payment')->name('payment');
 });
 
 
