@@ -10083,3 +10083,9 @@ td a:hover {
   background-size: cover;
   border-radius: 10px;
 }
+
+.my-mail-show .card {
+  background-color: #e4e4e4;
+  border: 5px solid #4073ff;
+  border-radius: 20px;
+}

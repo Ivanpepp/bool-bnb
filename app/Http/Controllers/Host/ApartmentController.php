@@ -34,6 +34,13 @@ class ApartmentController extends Controller
         return view('host.apartments.index', compact('apartments'));
     }
 
+    public function chart()
+    {
+      
+        $apartments = Apartment::where('user_id', Auth::user()->id);
+        return view('host.apartments.chart', compact("apartments"));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

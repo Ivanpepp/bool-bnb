@@ -84,38 +84,39 @@
 
             </div>
         </div>
+    </div>
 
 
-        <script>
-            let longitudine = document.getElementById("longitudine").value;
-            let latitudine = document.getElementById("latitudine").value;
-            console.log(latitudine, longitudine)
-            var tt = window.tt;
-            var defaultCenter = [longitudine, latitudine]
-            var map = tt.map({
-                key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
-                container: 'map',
-                style: 'tomtom://vector/1/basic-main',
-                center: defaultCenter,
-                zoom: 15,
-            });
-            map.addControl(new tt.FullscreenControl());
-            map.addControl(new tt.NavigationControl());
-            var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
+    <script>
+        let longitudine = document.getElementById("longitudine").value;
+        let latitudine = document.getElementById("latitudine").value;
+        console.log(latitudine, longitudine)
+        var tt = window.tt;
+        var defaultCenter = [longitudine, latitudine]
+        var map = tt.map({
+            key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
+            container: 'map',
+            style: 'tomtom://vector/1/basic-main',
+            center: defaultCenter,
+            zoom: 15,
+        });
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
 
-            var popupOffsets = {
-                top: [0, 0],
-                bottom: [0, -70],
-                'bottom-right': [0, -70],
-                'bottom-left': [0, -70],
-                left: [25, -35],
-                right: [-25, -35]
-            };
-            let city = document.getElementById('city').value;
-            var popup = new tt.Popup({
-                offset: popupOffsets
-            }).setHTML(city);
-            marker.setPopup(popup).togglePopup();
-        </script>
+        var popupOffsets = {
+            top: [0, 0],
+            bottom: [0, -70],
+            'bottom-right': [0, -70],
+            'bottom-left': [0, -70],
+            left: [25, -35],
+            right: [-25, -35]
+        };
+        let city = document.getElementById('city').value;
+        var popup = new tt.Popup({
+            offset: popupOffsets
+        }).setHTML(city);
+        marker.setPopup(popup).togglePopup();
+    </script>
 
-    @endsection
+@endsection
