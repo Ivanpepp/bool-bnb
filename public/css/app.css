@@ -10023,25 +10023,21 @@ h3 {
   height: 80px;
 }
 #my-wrap-homepage .user-nav {
-  color: crimson;
+  color: #ffc107;
 }
 #my-wrap-homepage .user-nav :hover {
-  color: #a31633;
+  color: #ffdb6f;
 }
 #my-wrap-homepage .navbar-brand {
-  color: crimson;
-}
-
-main {
-  padding-top: 120px;
+  font-size: 30px;
 }
 
 td a {
-  color: crimson;
+  color: #ffc107;
 }
 
 td a:hover {
-  color: #a31633;
+  color: #ffdb6f;
   text-decoration: underline;
 }
 
@@ -10057,30 +10053,33 @@ td a:hover {
   height: 300px;
 }
 
-#my-container-welcome-page {
-  height: 1800px;
-}
 #my-container-welcome-page .my-wrap-black-container {
-  height: 1000px;
-  margin-bottom: 400px;
+  height: 50vh;
+  margin-top: 80px;
   color: white;
   background-color: #131313;
-  padding-top: 80px;
 }
 #my-container-welcome-page #my-jumbotron-apartamnets {
   height: 500px;
+  margin-top: 30px;
   background-image: url("/images/jumbotron-prova-2.jpg");
   background-position: center;
   background-size: cover;
   border-radius: 10px;
 }
 #my-container-welcome-page #my-section-sponsorship {
-  background-color: #e6e3e3;
-  color: white;
+  height: 500px;
+  margin-top: 140px;
   background-image: url("/images/jumbotron-sponsor.jpg");
   background-position: center;
   background-size: cover;
-  margin-top: 250px;
+  border-radius: 10px;
+}
+#my-container-welcome-page #my-section-login {
   height: 500px;
+  margin-top: 140px;
+  background-image: url("/images/jumbotron-sponsor.jpg");
+  background-position: center;
+  background-size: cover;
   border-radius: 10px;
 }

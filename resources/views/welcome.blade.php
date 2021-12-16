@@ -7,23 +7,26 @@
                 <div class="row">
 
                     <!-- JUMBOTRON INDEX CHE PORTA AGLI APPARTAMENTI -->
-                    <div class="col-12 text-center" id="my-jumbotron-apartamnets">
-                        <h1>jumbotron index</h1>
-                    </div>
-                </div>
+                    <div class="col-12 text-center" >
+                        <div class="shadow-lg" id="my-jumbotron-apartamnets">
+                            <a href="{{ route('guest.home') }}" class="btn btn-warning pt-5">Esplora</a>
 
-                <div class="" id="my-section-sponsorship">
-                    <div class="row">
-                        <div class="col-12 text-center ">
-                            <h1>Jumbotron sponsor</h1>
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-center" >
+                        <div class="shadow-lg" id="my-section-login">
+                            <a href="{{ route('guest.home') }}" class="btn btn-warning pt-5">Partecipa</a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-center" >
+                        <div class="shadow-lg" id="my-section-sponsorship">
+                            <a href="{{ route('guest.home') }}" class="btn btn-warning pt-5">Esperienze</a>
                         </div>
                     </div>
                 </div>         
             </div>
         </div>
-        <div class="container">
-            <h1>Registrati al sito jumbotron<h1>
-        </div>
-        
     </div>
 @endsection

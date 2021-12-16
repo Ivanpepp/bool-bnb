@@ -28,10 +28,10 @@
 <body>
     <div id="my-wrap-homepage">
         <div class="my-header">
-            <nav class="navbar navbar-expand-md shadow-sm fixed-top" style="background-color: black" >
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #131313" >
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        BoolBNB
+                        Bool<span class="text-warning">BNB</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>

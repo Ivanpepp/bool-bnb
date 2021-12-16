@@ -1,16 +1,18 @@
 #my-wrap-homepage{
     .navbar{
         height: 80px;
+        
     }
+
     .user-nav {
-        color: crimson;
+        color: #ffc107;
 
         :hover{
-            color: rgb(163, 22, 51);
+            color: #ffdb6f;
         }
     }
 
     .navbar-brand{
-        color: crimson;
+        font-size: 30px;
     }
 }
