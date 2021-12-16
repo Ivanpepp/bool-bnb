@@ -106,9 +106,94 @@
         </div>
 
         <main >
-        <main class="">
+        <main class="pb-5">
             @yield('content')
         </main>
+
+        <!-- FOOTER APP -->
+        <footer class="my-footer pt-5">
+            <div class="container-fluid">
+                <div class="row d-flex flex-row">
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Assistenza</h4>
+                            </li>
+                            <li>
+                                <a href="">Centro Assistenza</a>
+                            </li>
+                            <li>
+                                <a href="">Informazioni di sicurezza</a>
+                            </li>
+                            <li>
+                                <a href="">Opzioni di cancellazione</a>
+                            </li>
+                            <li>
+                                <a href="">Segnala problemi nel quartiere</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Informazioni</h4>
+                            </li>
+                            <li>
+                                <a href="">Newsroom</a>
+                            </li>
+                            <li>
+                                <a href="">Scopri le nuove funzionalità</a>
+                            </li>
+                            <li>
+                                <a href="">Lettera dai nostri fondatori</a>
+                            </li>
+                            <li>
+                                <a href="">Opportunità di lavoro</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Ospitare</h4>
+                            </li>
+                            <li>
+                                <a href="">Prova a ospitare</a>
+                            </li>
+                            <li>
+                                <a href="">IAirCover: host protetti</a>
+                            </li>
+                            <li>
+                                <a href="">Esplora le risorse per host</a>
+                            </li>
+                            <li>
+                                <a href="">Vai al forum della community</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Informazioni</h4>
+                            </li>
+                            <li>
+                                <a href="">Newsroom</a>
+                            </li>
+                            <li>
+                                <a href="">Scopri le nuove funzionalità</a>
+                            </li>
+                            <li>
+                                <a href="">Lettera dai nostri fondatori</a>
+                            </li>
+                            <li>
+                                <a href="">Opportunità di lavoro</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         
     </div>
 </body>

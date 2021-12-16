@@ -10034,6 +10034,16 @@ h3 {
 #my-wrap-homepage .navbar-brand {
   font-size: 30px;
 }
+#my-wrap-homepage .my-footer {
+  background-color: #f5f1f1;
+  padding-bottom: 50px;
+}
+#my-wrap-homepage .my-footer ul {
+  list-style-type: none;
+}
+#my-wrap-homepage .my-footer ul a {
+  text-decoration: none;
+}
 
 td a {
   color: #ffc107;
@@ -10058,6 +10068,7 @@ td a:hover {
 
 #my-container-welcome-page {
   position: relative;
+  height: 1800px;
 }
 #my-container-welcome-page a {
   text-decoration: none;
@@ -10067,9 +10078,6 @@ td a:hover {
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
-  position: absolute;
-  bottom: 50px;
-  transform: translate(-50%);
 }
 #my-container-welcome-page .my-btn-homepage:hover {
   background-color: white;
@@ -10089,13 +10097,23 @@ td a:hover {
   background-size: cover;
   border-radius: 10px;
 }
+#my-container-welcome-page #my-jumbotron-apartments .my-btn-homepage {
+  position: absolute;
+  bottom: 50px;
+  transform: translate(-50%);
+}
 #my-container-welcome-page #my-section-sponsorship {
   height: 500px;
   margin-top: 140px;
-  background-image: url("/images/jumbotron-sponsor.jpg");
+  background-image: linear-gradient(to bottom, rgba(40, 41, 51, 0.52), rgba(194, 195, 199, 0.52)), url("/images/jumbotron-sponsor.jpg");
   background-position: center;
   background-size: cover;
   border-radius: 10px;
+  position: relative;
+}
+#my-container-welcome-page #my-section-sponsorship .my-text {
+  position: absolute;
+  bottom: 80px;
 }
 #my-container-welcome-page #my-section-login {
   height: 500px;

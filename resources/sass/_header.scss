@@ -19,4 +19,18 @@
     .navbar-brand{
         font-size: 30px;
     }
+
+    
+    // FOOTER APP BLADE
+    .my-footer{
+        background-color: rgb(245, 241, 241);
+        padding-bottom: 50px;
+
+        ul{
+            list-style-type:none;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
 }
