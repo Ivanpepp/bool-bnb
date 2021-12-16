@@ -27,6 +27,7 @@
 </head>
 <body>
     <div id="my-wrap-homepage">
+        <div class="div-height"></div>
         <div class="my-header">
             <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #131313" >
                 <div class="container">
@@ -197,6 +198,19 @@
         
     </div>
 </body>
-<script>
-</script>
+
+    <script>
+
+        let myNav = document.getElementById("navbar");
+
+        window.onscroll = function() {
+        "use strict";
+        if (document.body.scrollTop >= 280 || document.documentElement.scrollTop >= 280) {
+            myNav.classList.add("scroll");
+        } else {
+            myNav.classList.remove("scroll");
+        }
+        };
+
+    </script>
 </html>

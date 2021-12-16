@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-5">
+    <div class="container pt-3">
         @if (session('deleted'))
             <div class="alert alert-success" role="alert">
                 {{session('alert-message')}}
             </div>
         @endif
-        <div class="wrapper pt-5">
+        <div class="wrapper">
             <div class="card   ">
                 <div class="card-header">{{ __('Messaggi') }}</div>
     
