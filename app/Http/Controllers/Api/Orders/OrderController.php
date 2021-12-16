@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\Api\Orders;
-use App\Http\Requests\Oreders\OrderRequest;
 
-use App\Http\Controllers\Controller;
-use App\Models\Sponsorship;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
+use App\Models\Sponsorship;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Oreders\OrderRequest;
 
 class OrderController extends Controller
 {
 
     public function generate(Request $request,Gateway $gateway){
+       
         $token = $gateway->clientToken()->generate();
         $data = [
             'success'=>true,
@@ -20,7 +21,7 @@ class OrderController extends Controller
         return response()->json($data,200);
     }
 
-    public function makePayment(OrderRequest $request,Gateway $gateway){
+    public function makePayment(OrderRequest $request, Gateway $gateway){
 
         $sponsor = Sponsorship::find($request->sponsor);
 
@@ -28,10 +29,11 @@ class OrderController extends Controller
         $result = $gateway->transaction()->sale([
             'amount' => $sponsor->price,
             'paymentMethodNonce' => $request->token,
-            'options'=>[
+            'options' => [
                 'submitForSettlement' => true
             ]
         ]);
+
         if($result->success){
             $data = [
                 'success'=>true,
@@ -45,6 +47,6 @@ class OrderController extends Controller
             ];
             return response()->json($data,401);
         }
-        return 'payment';
+        return ' make payment';
     }
 }

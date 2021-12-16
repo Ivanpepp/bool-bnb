@@ -29,7 +29,7 @@ class OrderRequest extends FormRequest
             'sponsor' => [
                 'required',
                 new ValidSponsor()
-                ]
+            ]
         ];
     }
 }

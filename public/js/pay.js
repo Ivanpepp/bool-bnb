@@ -2281,7 +2281,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Pay'
+  name: 'Pay',
+  data: function data() {
+    return {
+      loading: false,
+      sponsorships: [],
+      baseUri: 'http://127.0.0.1:8000'
+    };
+  },
+  created: function created() {
+    this.getSponsorshipsList();
+  },
+  mounted: function mounted() {},
+  methods: {
+    getSponsorshipsList: function getSponsorshipsList() {
+      var _this = this;
+
+      this.loading = true;
+      axios.get("".concat(this.baseUri, "/api/apartments")).then(function (res) {
+        console.log(res);
+        _this.sponsorships = res.data.sponsorships;
+        console.log(_this.sponsorships);
+      })["catch"](function (err) {
+        console.error(err);
+      }).then(function () {
+        _this.loading = false;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2776,7 +2803,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("\n       PROVA\n   ")])])
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("h2", [_vm._v("\n      Loading...\n    ")]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true

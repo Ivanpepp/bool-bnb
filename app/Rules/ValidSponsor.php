@@ -26,7 +26,7 @@ class ValidSponsor implements Rule
      */
     public function passes($attribute, $value)
     {
-        $sponsor = Sponsorship::find($value);
+       
         if(Sponsorship::find($value)){
             return true;
         }
