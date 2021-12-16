@@ -106,7 +106,7 @@
         </div>
 
         <main >
-        <main class="pb-5">
+        <main class="my-main-padding">
             @yield('content')
         </main>
 

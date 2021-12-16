@@ -37,7 +37,15 @@
 
                     <div class="col-12 text-center" >
                         <div class="shadow-lg" id="my-section-login">
-                            <a href="{{ route('guest.home') }}" class="my-btn-homepage">Partecipa</a>
+                                <div class="text-left pl-3 my-text">
+                                    <div class="col-sm-7 col-lg-6 pt-5">
+                                        <h2>ENTRA ANCHE TU A FAR PARTE DEL MONDO DI BOOLBNB</h2>
+                                    </div>
+                                    <div class="col-sm-8 col-lg-5 pt-2 pb-2">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus soluta vel, facere eligendi sit voluptas ipsum unde nihil sed, officia provident qui sint accusantium ducimus sequi quia atque, illo ex?</p>
+                                    </div>
+                                    <a href="{{ route('register') }}" class="my-btn-homepage ml-3">REGISTRATI</a>
+                                </div>
                         </div>
                     </div>
                 </div>         
