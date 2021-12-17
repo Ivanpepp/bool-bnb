@@ -13,16 +13,25 @@
         color:rgb(37, 82, 207);
     }
 
-    .user-nav {
-        color: #ffc107;
+    .my-bg-blue{
+        background-color: $myBlue;
+    }
 
-        :hover{
-            color: #ffdb6f;
+    .my-header{
+        .navbar {
+            background-color: #131313;
+        }
+        .nav-active {
+            background-color: white;
         }
     }
 
     .navbar-brand{
         font-size: 30px;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     .my-main-padding{
@@ -45,4 +54,21 @@
             }
         }
     }
+}
+
+.my_blue {
+    color: $myBlue;
+}
+
+.my_bg-black{
+    background-color: $myBlack;
+}
+
+.my_black-text{
+    color: #3b3b3b;
+}
+
+.my_bg-white{
+    background-color: white;
+    color: #131313; 
 }
