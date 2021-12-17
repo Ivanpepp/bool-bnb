@@ -2611,7 +2611,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".my-card .img[data-v-4662a702] {\n  height: 200px;\n  width: 100%;\n  background-color: #2552cf;\n}", ""]);
+exports.push([module.i, ".my-card[data-v-4662a702] {\n  padding: 10px;\n  border-radius: 10px;\n}\n.my-card .img[data-v-4662a702] {\n  height: 200px;\n  width: 100%;\n  background-color: #2552cf;\n  border-radius: 10px;\n}", ""]);
 
 // exports
 

@@ -46,15 +46,14 @@ export default {
 
 <style lang="scss" scoped>
     .my-card{
-        // height: 200px;
-        // width: 200px;
-
-        // border:1px solid black;
+        padding:10px;
+        border-radius:10px;
 
         .img{
             height: 200px;
             width:100%;
             background-color:rgb(37, 82, 207);
+            border-radius: 10px;
         }
     }
 </style>
