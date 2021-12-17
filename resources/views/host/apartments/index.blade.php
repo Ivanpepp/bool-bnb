@@ -7,6 +7,7 @@
                 {{session('alert-message')}}
             </div>
         @endif
+<<<<<<< HEAD
 
         <div class="wrapper pt-5">
             <div class="card">
@@ -70,6 +71,48 @@
                                 <td colspan="3">Non ci sono appartamenti da visualizzare</td>
                             </tr>
                         @endforelse
+=======
+        <header>
+            <h1>Lista degli appartamenti </h1>
+            <a class="btn btn-primary my-5" href="{{route('host.apartments.create')}}">Inserisci nuovo appartamento</a>
+        </header>
+        <table class="table">
+            <thead>
+                <th class="col">Titolo</th>
+                <th class="col">Città</th>
+                <th class="col">Indirizzo</th>
+                <th class="col">Visibilità</th>
+                <th class="col">Servizi</th>
+                <th class="col">Sponsorizzazione</th>
+                <th class="col">Sponsorizza</th>
+            </thead>
+            <tbody>
+                @forelse ($apartments as $apartment)
+                    <tr>
+                        <td><a href="{{route('host.apartments.show', $apartment)}}">{{$apartment->title}}</a></td>
+                        <td>{{$apartment->city}}</td>
+                        <td>{{$apartment->address}}</td>
+                        <td>{{$apartment->is_visible}}</td>
+                        <td>
+                            @forelse ($apartment->features as $feature)
+                                
+                                    <span class="badge badge-pill" style="background-color: {{$feature->color}}">{{$feature->title}}</span>
+                                
+                            @empty
+                                nessun feature
+                            @endforelse
+                        </td>
+                        <td>
+                            @forelse ($apartment->sponsorships as $sponsor)
+                                
+                                    <span class="badge badge-pill">{{$sponsor->type}}</span>
+                                
+                            @empty
+                                nessuna sponsorizzazione
+                            @endforelse
+                        </td>
+                        <td><a href="{{route('host.payment', $apartment->id)}}" class="btn btn-primary">Sponsorizza</a></td>
+>>>>>>> pay-imp
                        
                     </tbody>
                 </table>

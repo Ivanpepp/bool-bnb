@@ -26,6 +26,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@tomtom-international/web-sdk-maps": "^6.15.0",
-        "@tomtom-international/web-sdk-services": "^6.15.0"
+        "@tomtom-international/web-sdk-services": "^6.15.0",
+        "vue-braintree": "^2.1.0"
     }
 }

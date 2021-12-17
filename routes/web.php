@@ -19,14 +19,20 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+<<<<<<< HEAD
 
 Route::get('/', 'Guest\HomeController@welcome')->name('welcome');
 Route::get('/guest', 'Guest\HomeController@index')->name('guest.home');
+=======
+Route::get('/', 'Guest\HomeController@welcome')->name('welcome');
+Route::get('/guest', 'Guest\HomeController@index')->name('guest.home');
+
+>>>>>>> pay-imp
 Route::get('/guest/{id}', 'Guest\HomeController@show')->name('guest.show');
 Route::get('/guest/{id}/contatti', 'Guest\HomeController@getContactForm')->name('guest.contact');
 Route::post('/guest/contatti', 'Guest\HomeController@contactFormHandler')->name('guest.sender');
 Route::get('/thanks', 'Guest\HomeController@contactFormEnder')->name('guest.thanks');
-
+Route::get('/welcome' , 'Guest\HomeController@welcome')->name('welcome');
 
 Route::middleware('auth')
 ->namespace('Host')
@@ -37,7 +43,12 @@ Route::middleware('auth')
     Route::resource('apartments', 'ApartmentController');
     Route::resource('users', 'UserController');
     Route::resource('mail', 'MessageController');
+    Route::get('/sponsor/payment/{id}','ApartmentController@payment')->name('payment');
 });
+
+
+
+
 
 
 Route::get("{any?}", function(){
