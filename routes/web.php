@@ -28,7 +28,7 @@ Route::post('/guest/contatti', 'Guest\HomeController@contactFormHandler')->name(
 Route::get('/thanks', 'Guest\HomeController@contactFormEnder')->name('guest.thanks');
 
 
-Route::get("/chart", "Host\ApartmentController@chart")->name("host.chart");
+Route::get("/chart/{id}", "Host\ApartmentController@MessageStats")->name("host.apartments.chart");
 
 
 Route::middleware('auth')
