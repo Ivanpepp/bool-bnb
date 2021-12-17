@@ -10022,14 +10022,27 @@ h3 {
 #my-wrap-homepage .navbar {
   height: 80px;
 }
-#my-wrap-homepage .user-nav {
-  color: #ffc107;
+#my-wrap-homepage .my-header .navbar {
+  background-color: #131313;
 }
-#my-wrap-homepage .user-nav :hover {
-  color: #ffdb6f;
+#my-wrap-homepage .my-header .nav-active {
+  background-color: white;
 }
 #my-wrap-homepage .navbar-brand {
   font-size: 30px;
+}
+
+.my_blue {
+  color: #2552cf;
+}
+
+.my_black {
+  background-color: #131313;
+}
+
+.my_white {
+  background-color: white;
+  color: #131313;
 }
 
 td a {

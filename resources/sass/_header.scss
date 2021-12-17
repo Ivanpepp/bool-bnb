@@ -3,16 +3,29 @@
         height: 80px;
         
     }
-
-    .user-nav {
-        color: #ffc107;
-
-        :hover{
-            color: #ffdb6f;
+    .my-header{
+        .navbar {
+            background-color: #131313;
+        }
+        .nav-active {
+            background-color: white;
         }
     }
 
     .navbar-brand{
         font-size: 30px;
     }
+}
+
+.my_blue {
+    color: $myBlue;
+}
+
+.my_black{
+    background-color: $myBlack;
+}
+
+.my_white{
+    background-color: white;
+    color: #131313; 
 }
