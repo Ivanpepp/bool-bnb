@@ -299,6 +299,7 @@
     const linkToggler = document.querySelector('.toggler-link');
     const linkToggler2 = document.querySelector('.toggler-link-2');
     const linkToggler3 = document.querySelector('.toggler-link-3');
+    const searchIcon = document.querySelector('.fa-search');
     window.onscroll = () => {
         if (window.scrollY > 80) {
             navbar.classList.add('nav-active');
@@ -314,6 +315,7 @@
             linkToggler2.classList.add('text-dark');
             linkToggler3.classList.remove('text-light');
             linkToggler3.classList.add('text-dark');
+            searchIcon.classList.add('my_black-text');
 
             // } else if (window.scrollY <= 80){
             //     navbar.classList.add('text-light');
