@@ -106,5 +106,9 @@
             <div id="root"></div>
         </div>
 
-        <script src="{{asset('js/front.js')}}"></script>
+        <script src="{{asset('js/front.js')}}">
+            
+        </script>
+        
+        
 @endsection

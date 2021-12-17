@@ -35960,7 +35960,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_braintree__WEBPACK_IMPORTED_M
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\braintree.js */"./resources/js/braintree.js");
+module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\braintree.js */"./resources/js/braintree.js");
 
 
 /***/ })

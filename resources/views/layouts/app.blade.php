@@ -46,7 +46,7 @@
                             <ul class="navbar-nav ml-auto text-center">
                                 @guest
                                 <li class="nav-item">
-                                    <a class="nav-link text-light p-3" href="{{ route('guest.home') }}">
+                                    <a class="nav-link toggler-link-2 text-light p-3" href="{{ route('guest.home') }}">
                                         <i class="fas fa-search fa-2x"></i>
                                     </a>
                                 </li>
@@ -54,7 +54,7 @@
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-light p-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <i class="fas fa-house-user fa-2x my_blue"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{route('login')}}">
                                             {{ __('Login') }}
                                         </a>

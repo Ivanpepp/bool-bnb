@@ -16863,6 +16863,61 @@ var app = new Vue({
     return h(_components_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 });
+var navbar = document.querySelector('.fixed-top');
+var hiddenNav = document.querySelector('.my_hidden');
+var toggler = document.querySelector('.fa-bars');
+var menuToggler = document.querySelector('#navbarToggleExternalContent');
+var linkToggler = document.querySelector('.toggler-link');
+var linkToggler2 = document.querySelector('.toggler-link-2');
+var linkToggler3 = document.querySelector('.toggler-link-3');
+var searchIcon = document.querySelector('.fa-search');
+var mailIcon = document.querySelector('.fa-envelope');
+var userIcon = document.querySelector('.user-icon');
+
+window.onscroll = function () {
+  if (window.scrollY > 80) {
+    navbar.classList.add('nav-active');
+    navbar.classList.remove('navbar-dark');
+    navbar.classList.add('navbar-light');
+    hiddenNav.classList.remove('show');
+    toggler.classList.add('my_blue');
+    menuToggler.classList.remove('my_bg-black');
+    menuToggler.classList.add('my_bg-white');
+    linkToggler.classList.remove('text-light');
+    linkToggler.classList.add('text-dark');
+    linkToggler2.classList.remove('text-light');
+    linkToggler2.classList.add('text-dark');
+    linkToggler3.classList.remove('text-light');
+    linkToggler3.classList.add('text-dark');
+    searchIcon.classList.add('my_black-text');
+    mailIcon.classList.add('my_black-text');
+    userIcon.classList.add('my_black-text');
+    userIcon.classList.remove('text-light');
+  } else {
+    navbar.classList.remove('nav-active');
+    navbar.classList.add('navbar-dark');
+    navbar.classList.remove('navbar-light');
+    toggler.classList.remove('my_blue');
+    menuToggler.classList.remove('my_bg-white');
+    menuToggler.classList.add('my_bg-black');
+    linkToggler.classList.remove('text-dark');
+    linkToggler.classList.add('text-light');
+    linkToggler2.classList.remove('text-dark');
+    linkToggler2.classList.add('text-light');
+    linkToggler3.classList.remove('text-dark');
+    linkToggler3.classList.add('text-light');
+    searchIcon.classList.remove('my_black-text');
+    mailIcon.classList.remove('my_black-text');
+    userIcon.classList.remove('my_black-text');
+    userIcon.classList.add('text-light');
+  }
+};
+
+window.onresize = function () {
+  if (window.innerWidth >= 576) {
+    hiddenNav.classList.remove('show');
+  }
+};
 
 /***/ }),
 
@@ -16873,7 +16928,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
