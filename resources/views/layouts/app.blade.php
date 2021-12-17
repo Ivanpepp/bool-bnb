@@ -80,7 +80,7 @@
                                         {{ Auth::user()->name }} |
                                         <i class="fas fa-house-user fa-2x my_blue"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{route('host.home')}}">
                                             {{ __('Dashboard') }}
                                         </a>
