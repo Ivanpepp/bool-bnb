@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Sponsorship;
 use App\Models\Photo;
 use App\User;
-use App\Models\Visit;
+use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -43,7 +43,7 @@ class ApartmentController extends Controller
 
         $user_id = Auth::id();
 
-        $messagesCount = DB::table('messages')->where('apartment_id', '=', $id)->count();
+        $messagesCount = Message::where('apartment_id', $id)-> count();
 
         return view('host.apartments.chart', compact('apartment', 'messagesCount'));
     }
