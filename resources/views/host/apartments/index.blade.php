@@ -46,7 +46,7 @@
                                 nessuna sponsorizzazione
                             @endforelse
                         </td>
-                        <td><a href="{{route('host.payment', $apartment)}}" class="btn btn-primary">Sponsorizza</a></td>
+                        <td><a href="{{route('host.payment', $apartment->id)}}" class="btn btn-primary">Sponsorizza</a></td>
                        
                        {{--  <td><a href="{{route('host.apartments.edit', $apartment)}}" class="btn btn-secondary">Modifica</a></td> --}}
                         {{-- <td>

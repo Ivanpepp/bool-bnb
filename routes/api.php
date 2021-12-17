@@ -21,7 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->group(function(){
     Route::resource('/apartments', 'ApartmentController');
+    
 });
 
 Route::get('orders/generate',[OrderController::class, 'generate']);
 Route::post('orders/make/payment',[OrderController::class, 'makePayment']);
+

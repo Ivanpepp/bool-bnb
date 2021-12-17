@@ -21,6 +21,10 @@ window.axios = require('axios');
 
 //component parent dal quale compilerò tutto quello che mi serve per la mia applicazione
 import Payment from './components/Pay.vue';
+import Vue from 'vue'
+import vueBraintree from 'vue-braintree'
+
+Vue.use(vueBraintree)
 
 const payment = new Vue({
     el: '#pay',

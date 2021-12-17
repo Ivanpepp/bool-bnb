@@ -6,6 +6,7 @@
    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -80,5 +81,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-braintree/dist/vue-braintree.umd.min.js"></script>
 </body>
 </html>

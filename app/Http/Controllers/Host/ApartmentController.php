@@ -33,11 +33,12 @@ class ApartmentController extends Controller
       
         return view('host.apartments.index', compact('apartments'));
     }
-    public function payment(Apartment $apartment){
+    public function payment( $id){
 
+        $apartment = Apartment::find($id);  
     
 
-        return view('host.sponsor.payment', compact('apartment'));
+        return view('host.sponsor.payment', compact('apartment')) ;
     }
 
     /**

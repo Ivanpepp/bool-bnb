@@ -18,6 +18,7 @@ class ApartmentController extends Controller
     public function index(Apartment $apartment)
     {
         //
+        
         $data = Apartment::orderBy('created_at', 'desc')->get();
         $sponsorships= Sponsorship::all();
 
@@ -42,9 +43,12 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Apartment $apartment){
+    public function show(Request $request, $id){
     
-        return view('guest.show', compact('apartment'));
+        $apartment = Apartment::find($id);
+
+
+        return response()->json(compact('apartment'));
     }
 
     /**
