@@ -224,11 +224,11 @@
                                 @endguest
                             </ul>
                         </div>
-                        <div class="collapse my_hidden my_black" id="navbarToggleExternalContent" style="width: 100%">
+                        <div class="collapse my_hidden my_bg-black" id="navbarToggleExternalContent" style="width: 100%">
                             <div class="p-2 text-center">
                                 @guest
                                 <a class="text-light toggler-link" href="{{ route('guest.home') }}">
-                                    <span class="h4">Annunci</span>
+                                    <span class="h4">Esplora</span>
                                 </a>
                                 <div class="dropdown pt-3">
                                     <a id="navbarDropdownMenuLink" class="dropdown-toggle p-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -300,6 +300,7 @@
     const linkToggler2 = document.querySelector('.toggler-link-2');
     const linkToggler3 = document.querySelector('.toggler-link-3');
     const searchIcon = document.querySelector('.fa-search');
+    const mailIcon = document.querySelector('.fa-envelope');
     window.onscroll = () => {
         if (window.scrollY > 80) {
             navbar.classList.add('nav-active');
@@ -307,8 +308,8 @@
             navbar.classList.add('navbar-light');
             hiddenNav.classList.remove('show');
             toggler.classList.add('my_blue');
-            menuToggler.classList.remove('my_black');
-            menuToggler.classList.add('my_white');
+            menuToggler.classList.remove('my_bg-black');
+            menuToggler.classList.add('my_bg-white');
             linkToggler.classList.remove('text-light');
             linkToggler.classList.add('text-dark');
             linkToggler2.classList.remove('text-light');
@@ -316,6 +317,7 @@
             linkToggler3.classList.remove('text-light');
             linkToggler3.classList.add('text-dark');
             searchIcon.classList.add('my_black-text');
+            mailIcon.classList.add('my_black-text');
 
             // } else if (window.scrollY <= 80){
             //     navbar.classList.add('text-light');
@@ -324,14 +326,16 @@
             navbar.classList.add('navbar-dark');
             navbar.classList.remove('navbar-light');
             toggler.classList.remove('my_blue');
-            menuToggler.classList.remove('my_white');
-            menuToggler.classList.add('my_black');
+            menuToggler.classList.remove('my_bg-white');
+            menuToggler.classList.add('my_bg-black');
             linkToggler.classList.remove('text-dark');
             linkToggler.classList.add('text-light');
             linkToggler2.classList.remove('text-dark');
             linkToggler2.classList.add('text-light');
             linkToggler3.classList.remove('text-dark');
-            linkToggler3.classList.add('text-light')
+            linkToggler3.classList.add('text-light');
+            searchIcon.classList.remove('my_black-text');
+            mailIcon.classList.remove('my_black-text');
         }
     };
 

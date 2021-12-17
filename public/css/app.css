@@ -10031,12 +10031,15 @@ h3 {
 #my-wrap-homepage .navbar-brand {
   font-size: 30px;
 }
+#my-wrap-homepage a {
+  text-decoration: none;
+}
 
 .my_blue {
   color: #2552cf;
 }
 
-.my_black {
+.my_bg-black {
   background-color: #131313;
 }
 
@@ -10044,7 +10047,7 @@ h3 {
   color: #3b3b3b;
 }
 
-.my_white {
+.my_bg-white {
   background-color: white;
   color: #131313;
 }

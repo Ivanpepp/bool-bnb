@@ -15,13 +15,19 @@
     .navbar-brand{
         font-size: 30px;
     }
+
+    a {
+        text-decoration: none;
+    }
 }
+
+
 
 .my_blue {
     color: $myBlue;
 }
 
-.my_black{
+.my_bg-black{
     background-color: $myBlack;
 }
 
@@ -29,7 +35,7 @@
     color: #3b3b3b;
 }
 
-.my_white{
+.my_bg-white{
     background-color: white;
     color: #131313; 
 }
