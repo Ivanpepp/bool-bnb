@@ -28,3 +28,7 @@ import ApartmentList from './apartments/ApartmentList.vue'
     
     }
 </script>
+
+<style scoped>
+
+</style>

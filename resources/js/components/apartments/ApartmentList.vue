@@ -1,6 +1,7 @@
 <template>
-    <section class="my-3 p-2">
-            
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
                 <div class="input-group">
                     <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per città o indirizzo " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
@@ -10,25 +11,17 @@
                     <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-        
-        <div>
-            <Map />
-        </div>        
-
-        <h2 class="mb-4">Lista Appartamenti:</h2>
-       
-        <div v-if="isLoading" class="loader">
-           
-            <div class="spinner-border text-white" role="status" >
-               
+                
+                <!-- <div>
+                    <Map />
+                </div>         -->
             </div>
-             <span class="text-white loading">Loading...</span>
+        </div>
+        <div class="row">
+
+            <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
             
         </div>
-            <div v-else>
-                <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
-            </div>
-
         <nav aria-label="Page navigation example">
             <ul class="pagination pagination-lg">
                 <li v-if="currentPage > 1" class="page-item"><button class="page-link" @click='getApartmentList(currentPage - 1)' >Precedente</button></li>

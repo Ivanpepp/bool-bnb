@@ -28,11 +28,12 @@
 </head>
 <body>
     <div id="my-wrap-homepage">
+        <div class="div-height"></div>
         <div class="my-header">
             <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #131313" >
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Bool<span class="text-warning">BNB</span>
+                        Bool<span class="my-text-blue">BNB</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -107,14 +108,112 @@
         </div>
 
         <main >
-        <main class="">
+        <main class="my-main-padding">
             @yield('content')
         </main>
+
+        <!-- FOOTER APP -->
+        <footer class="my-footer pt-5">
+            <div class="container-fluid">
+                <div class="row d-flex flex-row">
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Assistenza</h4>
+                            </li>
+                            <li>
+                                <a href="">Centro Assistenza</a>
+                            </li>
+                            <li>
+                                <a href="">Informazioni di sicurezza</a>
+                            </li>
+                            <li>
+                                <a href="">Opzioni di cancellazione</a>
+                            </li>
+                            <li>
+                                <a href="">Segnala problemi nel quartiere</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Informazioni</h4>
+                            </li>
+                            <li>
+                                <a href="">Newsroom</a>
+                            </li>
+                            <li>
+                                <a href="">Scopri le nuove funzionalità</a>
+                            </li>
+                            <li>
+                                <a href="">Lettera dai nostri fondatori</a>
+                            </li>
+                            <li>
+                                <a href="">Opportunità di lavoro</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Ospitare</h4>
+                            </li>
+                            <li>
+                                <a href="">Prova a ospitare</a>
+                            </li>
+                            <li>
+                                <a href="">IAirCover: host protetti</a>
+                            </li>
+                            <li>
+                                <a href="">Esplora le risorse per host</a>
+                            </li>
+                            <li>
+                                <a href="">Vai al forum della community</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <ul>
+                            <li>
+                                <h4>Informazioni</h4>
+                            </li>
+                            <li>
+                                <a href="">Newsroom</a>
+                            </li>
+                            <li>
+                                <a href="">Scopri le nuove funzionalità</a>
+                            </li>
+                            <li>
+                                <a href="">Lettera dai nostri fondatori</a>
+                            </li>
+                            <li>
+                                <a href="">Opportunità di lavoro</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         
     </div>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-braintree/dist/vue-braintree.umd.min.js"></script>
 </body>
-<script>
-</script>
+
+    <script>
+
+        let myNav = document.getElementById("navbar");
+
+        window.onscroll = function() {
+        "use strict";
+        if (document.body.scrollTop >= 280 || document.documentElement.scrollTop >= 280) {
+            myNav.classList.add("scroll");
+        } else {
+            myNav.classList.remove("scroll");
+        }
+        };
+
+    </script>
 </html>

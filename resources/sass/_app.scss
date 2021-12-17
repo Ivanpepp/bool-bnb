@@ -1,0 +1,48 @@
+#my-wrap-homepage{
+
+    .div-height{
+        height: 80px;
+    }
+    
+    .navbar{
+        height: 80px;
+
+    }
+
+    .my-text-blue{
+        color:rgb(37, 82, 207);
+    }
+
+    .user-nav {
+        color: #ffc107;
+
+        :hover{
+            color: #ffdb6f;
+        }
+    }
+
+    .navbar-brand{
+        font-size: 30px;
+    }
+
+    .my-main-padding{
+        padding-bottom: 100px;
+    }
+    
+    // FOOTER APP BLADE
+    .my-footer{
+        background-color: rgb(245, 241, 241);
+        // position: fixed;
+        // left: 0;
+        // bottom: 0;
+        // width: 100%;
+        // position:absolute;
+
+        ul{
+            list-style-type:none;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
