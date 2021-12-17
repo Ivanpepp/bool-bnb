@@ -30,135 +30,11 @@
 <body>
     <div id="my-wrap-homepage">
         <div class="my-header">
-            <!-- <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #131313" >
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Bool<span class="text-warning">BNB</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".my-mobile" aria-controls=".my-mobile" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="fas fa-house-user fa-lg text-warning p-2"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #131313">
-                        
-                    
-                        <ul class="navbar-nav ml-auto">
-                            @guest
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('guest.home') }}"><i class="fas fa-search fa-lg"></i></a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-house-user fa-lg"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{route('login')}}">  
-                                            {{ __('Login') }}
-                                        </a>
-                                    @if (Route::has('register'))
-                                        <a class="dropdown-item" href="{{route('register')}}">  
-                                            {{ __('Register') }}
-                                        </a>
-                                    </div>
-                                </li>
-                                @endif
-                            @else
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('guest.home') }}">    <i class="fas fa-search fa-lg"></i></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('host.mail.index') }}"><i class="far fa-envelope fa-lg"></i></a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="user-nav nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} |  
-                                        <i class="fas fa-house-user fa-lg"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{route('host.home')}}">  
-                                            {{ __('Dashboard') }}
-                                        </a>
-                                        <a class="dropdown-item" href="{{route('host.apartments.index')}}">
-                                            {{ __('Apartments') }}
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-    
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
-            </nav> -->
-            <!-- <div class="collapse pt-4" id="navbarSupportedContent" style="background-color: #131313">
-                <ul class="navbar-nav ml-auto text-center pt-5">
-                    @guest
-                    <li class="nav-item">
-                        <a class="nav-link text-light p-3" href="{{ route('guest.home') }}">
-                            <span class="h3">Annunci | </span><i class="fas fa-search fa-2x"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light p-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span class="h3">Profilo | </span><i class="fas fa-house-user fa-2x "></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('login')}}">
-                                {{ __('Login') }}
-                            </a>
-                            @if (Route::has('register'))
-                            <a class="dropdown-item" href="{{route('register')}}">
-                                {{ __('Registrati') }}
-                            </a>
-                        </div>
-                    </li>
-                    @endif
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ route('guest.home') }}"><i class="fas fa-search fa-lg"></i> | Annunci</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ route('host.mail.index') }}"><i class="far fa-envelope fa-lg"></i></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="user-nav nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} |
-                            <i class="fas fa-house-user fa-lg"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('host.home')}}">
-                                {{ __('Dashboard') }}
-                            </a>
-                            <a class="dropdown-item" href="{{route('host.apartments.index')}}">
-                                {{ __('Apartments') }}
-                            </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endguest
-                </ul>
-            </div> -->
-            <!-- <nav class="navbar navbar-expand-sm fixed-top navbar-dark nav-active" style="background-color: #131313">
-                <div class="container"> -->
-            <!-- <a class="navbar-brand" href="{{ url('/') }}">
-                    Bool<span class="text-primary">BNB</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mycollapse" aria-controls="mycollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button> -->
+            Bool<span class="text-primary">BNB</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mycollapse" aria-controls="mycollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
             <div class="pos-f-t">
                 <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
                     <div class="container">
@@ -318,9 +194,6 @@
             linkToggler3.classList.add('text-dark');
             searchIcon.classList.add('my_black-text');
             mailIcon.classList.add('my_black-text');
-
-            // } else if (window.scrollY <= 80){
-            //     navbar.classList.add('text-light');
         } else {
             navbar.classList.remove('nav-active');
             navbar.classList.add('navbar-dark');
