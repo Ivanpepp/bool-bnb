@@ -2494,6 +2494,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Map',
   Data: function Data() {
@@ -2568,7 +2570,7 @@ __webpack_require__.r(__webpack_exports__);
         container: 'map',
         style: 'tomtom://vector/1/basic-main',
         center: lnglat,
-        zoom: 15
+        zoom: 13
       });
       var marker = new tt.Marker().setLngLat(lnglat).addTo(map);
       var popupOffsets = {
@@ -2579,9 +2581,10 @@ __webpack_require__.r(__webpack_exports__);
         left: [25, -35],
         right: [-25, -35]
       };
+      map.scrollZoom.disable();
       var popup = new tt.Popup({
         offset: popupOffsets
-      }).setHTML("<b>INSANE</b><br/>Relativamente molto gangsta!");
+      });
       marker.setPopup(popup).togglePopup();
       map.addControl(new tt.FullscreenControl());
       map.addControl(new tt.NavigationControl());
@@ -2672,7 +2675,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\n.search-container{\r\n    position: relative;\n}\n#query{\r\n    position: absolute;\r\n    top: 100px;\r\n    left: 40px;\r\n    z-index: 99;\r\n    border: none;\n}\n#query:focus{\r\n    outline: none !important;\r\n    box-shadow: 0 0 10px #719ECE;\n}\r\n", ""]);
 
 // exports
 
@@ -4243,16 +4246,34 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "search-container" }),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "pl-2",
+      attrs: {
+        placeholder: " Cerca sulla mappa",
+        type: "text",
+        id: "query",
+        value: "",
+      },
+      on: {
+        keyup: function ($event) {
+          if (
+            !$event.type.indexOf("key") &&
+            _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+          ) {
+            return null
+          }
+          return _vm.searchMap()
+        },
+      },
+    }),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "map" } }),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("div", { attrs: { id: "map" } })])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

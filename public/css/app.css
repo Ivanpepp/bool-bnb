@@ -10079,6 +10079,10 @@ h3 {
   border-bottom-right-radius: 5px;
 }
 
+.auth-footer-fix {
+  height: calc(100vh - 320px);
+}
+
 .my_wrap_show img {
   height: 500px;
   width: 500px;

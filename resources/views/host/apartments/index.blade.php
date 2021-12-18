@@ -70,10 +70,7 @@
                     <i class="fas fa-hotel fa-3x my-text-blue p-2"></i>
                     <h4 class="pl-3 pt-3"> Annunci di <span class="my-text-blue"> {{ Auth::user()->name }} </span></h4>
                 </div> -->
-                <div class="card-body">
-                    <div class="text-center">
-                    </div>
-    
+                <div class="card-body">    
                     <table class="table table-hover">
                         <thead class="my_bg-black d-none">
                             <th class="col-6 my-text-blue">Titolo</th>

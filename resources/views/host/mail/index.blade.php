@@ -1,20 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-5">
-        <div class="wrapper pt-5">
-            <div class="row">
+    <div class="container pt-3">
+            <div class="wrapper row pb-3">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">{{ __('Messaggi') }}</div>
+                    <div class="">
+                        <!-- <div class="card-header">{{ __('Messaggi') }}</div> -->
             
                         <div class="card-body">
-                            <div class="text-center">
-                                <i class="fas fa-envelope fa-5x mb-4"></i>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-striped p-2">
-                                    <thead>
+                                <table class="table table-hover p-2">
+                                    <thead class="d-none">
                                             <th class="col">Annuncio</th>
                                             <th class="col">Email</th>
                                             <th class="col d-none d-lg-table-cell">Utente</th>
@@ -44,16 +39,14 @@
                                          @endforeach
                                         @else
                                             <tr>
-                                                <td>Nessun messaggio da visualizzare</td>
+                                                <td colspan="3">Nessuna messaggio da visualizzare</td>
                                             </tr>
                                         @endif
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 @endsection
