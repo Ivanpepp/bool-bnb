@@ -47,12 +47,12 @@
                                 @guest
                                 <li class="nav-item">
                                     <a class="nav-link toggler-link-2 text-light p-3" href="{{ route('guest.home') }}">
-                                        <i class="fas fa-search fa-2x"></i>
+                                        <i class="fas fa-search fa-lg"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-light p-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <i class="fas fa-house-user fa-2x my_blue"></i>
+                                        <i class="fas fa-house-user fa-lg my_blue"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{route('login')}}">
@@ -67,15 +67,15 @@
                                 @endif
                                 @else
                                 <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('guest.home') }}"><i class="fas fa-search fa-2x"></i></a>
+                                    <a class="nav-link text-light" href="{{ route('guest.home') }}"><i class="fas fa-search fa-lg"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('host.mail.index') }}"><i class="far fa-envelope fa-2x"></i></a>
+                                    <a class="nav-link text-light" href="{{ route('host.mail.index') }}"><i class="far fa-envelope fa-lg"></i></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="user-nav nav-link dropdown-toggle my_blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <span class="user-icon text-light">{{ Auth::user()->name }} |</span>
-                                        <i class="fas fa-house-user fa-2x my_blue"></i>
+                                        <i class="fas fa-house-user fa-lg my_blue"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{route('host.home')}}">
@@ -97,7 +97,7 @@
                                 @endguest
                             </ul>
                         </div>
-                        <div class="collapse my_hidden my_bg-black" id="navbarToggleExternalContent" style="width: 100%">
+                        <div class="collapse my_hidden my_bg-black" id="navbarToggleExternalContent">
                             <div class="p-2 text-center">
                                 @guest
                                 <a class="text-light toggler-link" href="{{ route('guest.home') }}">
@@ -157,7 +157,6 @@
             </div>
         </div>
 
-        <main >
         <main class="my-main-padding">
             @yield('content')
         </main>
@@ -263,7 +262,7 @@
     const mailIcon = document.querySelector('.fa-envelope');
     const userIcon = document.querySelector('.user-icon');
     window.onscroll = () => {
-        if (window.scrollY > 80) {
+        if (window.scrollY > 80 ) {
             navbar.classList.add('nav-active');
             navbar.classList.remove('navbar-dark');
             navbar.classList.add('navbar-light');

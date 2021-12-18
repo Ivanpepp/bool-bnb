@@ -1,25 +1,44 @@
 <template>
-    <section class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="input-group">
+<section>
+    <div>
+        <div>
+            <Map />
+        </div>       
+    </div>
+                <div class="my-search-card d-flex align-content-center">
+                <!-- <div class="input-group">
                     <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per città o indirizzo " aria-label="Username" aria-describedby="basic-addon1">
-                    <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="inpu-group d-flex">
+                    <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo ospiti " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
                     <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                
-                <!-- <div>
-                    <Map />
-                </div>         -->
-            </div>
-        </div>
-        <div class="row">
+                </div> -->
+                    <div class="container">
+                        <div class="search-bar p-5 d-flex">
+                            <div class="dropdown show">
+                                <a class="btn btn-md dropdown-toggle text-white my-bg-blue mr-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Avanzata
+                                </a>
 
-            <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
+                                <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
+                                    <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° m²" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° ospiti" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° stanze" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="dropdown-item form-control" placeholder="N° bagni" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control" placeholder="Cerca per indirizzo n° e/o città" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>         
+    <div class="container pt-4">
+        <div class="row">
+                <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
             
         </div>
         <nav aria-label="Page navigation example">
@@ -29,7 +48,9 @@
                 <li v-if="currentPage < lastPage" class="page-item"><button class="page-link" @click='getApartmentList(currentPage + 1)' >Successivo</button></li>
             </ul>
         </nav>
-    </section>
+    </div>
+
+</section>
 </template>
 
 <script>
@@ -138,4 +159,12 @@ export default {
         align-items: center;
         font-size: 2rem;
     }
+
+    .my-search-card{
+        background-image:
+        linear-gradient(to bottom, rgba(40, 41, 51, 0.52), rgba(40, 41, 51, 0.52)),
+        url('/images/search-background.jpg');
+        background-position: center;
+        background-size: cover;
+}
 </style>

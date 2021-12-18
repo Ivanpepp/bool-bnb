@@ -1,6 +1,5 @@
 <template>
-    <div class="container">
-        <Header  :title='title'/>
+    <div>
         <main>
             <ApartmentList />
         </main>
@@ -8,8 +7,6 @@
 </template>
 
 <script>
-
-import Header from './Header.vue';
 import ApartmentList from './apartments/ApartmentList.vue'
 
     export default {
@@ -22,7 +19,6 @@ import ApartmentList from './apartments/ApartmentList.vue'
             }
         },
         components:{
-            Header,
             ApartmentList,
         },
     

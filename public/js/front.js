@@ -2270,8 +2270,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue */ "./resources/js/components/Header.vue");
-/* harmony import */ var _apartments_ApartmentList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apartments/ApartmentList.vue */ "./resources/js/components/apartments/ApartmentList.vue");
+/* harmony import */ var _apartments_ApartmentList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apartments/ApartmentList.vue */ "./resources/js/components/apartments/ApartmentList.vue");
 //
 //
 //
@@ -2280,8 +2279,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -2293,39 +2290,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    Header: _Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    ApartmentList: _apartments_ApartmentList_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ApartmentList: _apartments_ApartmentList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Header.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Header',
-  props: {
-    'title': String
-  },
-  data: function data() {
-    return {};
-  },
-  computed: {}
 });
 
 /***/ }),
@@ -2392,6 +2358,27 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApartmentCard.vue */ "./resources/js/components/apartments/ApartmentCard.vue");
 /* harmony import */ var _Map_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Map.vue */ "./resources/js/components/apartments/Map.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2523,7 +2510,43 @@ __webpack_require__.r(__webpack_exports__);
       zoom: 5
     });
     map.addControl(new tt.FullscreenControl());
-    map.addControl(new tt.NavigationControl()); // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
+    map.addControl(new tt.NavigationControl()); // var HQ = { lat: 9.0548, lng: 7.4856 }
+    // var map = tt.map({
+    //     key: '<your-api-key>'
+    //     container: 'map',
+    //     center: HQ,
+    //     zoom: 15
+    // });
+
+    map.scrollZoom.disable();
+    var apartmentAssets = [{
+      lat: 41.89056,
+      lng: 12.49427
+    }, {
+      lat: 45.46362,
+      lng: 9.18812
+    }, {
+      lat: 38.11463,
+      lng: 15.6502
+    }, {
+      lat: 42.3507,
+      lng: 13.39993
+    }, {
+      lat: 42.44227,
+      lng: 11.22066
+    }, {
+      lat: 45.43461,
+      lng: 12.33891
+    }, {
+      lat: 40.92251,
+      lng: 9.48685
+    }];
+    apartmentAssets.forEach(function (child) {
+      new tt.Marker().setLngLat(child).addTo(map);
+    }); // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
+    // var popup = new tt.Popup({ anchor: 'top' }).setText('HeadQuarters')
+    // marker.setPopup(popup).togglePopup()
+    // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
     // // addMarker(map);
     // // var popupOffsets = {
     // //     top: [0, 0],
@@ -2630,7 +2653,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".loader[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(37, 37, 37, 0.911);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9;\n}\n.spinner-border[data-v-2d816b0d] {\n  width: 250px;\n  height: 250px;\n}\n.loading[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2rem;\n}", ""]);
+exports.push([module.i, ".loader[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(37, 37, 37, 0.911);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9;\n}\n.spinner-border[data-v-2d816b0d] {\n  width: 250px;\n  height: 250px;\n}\n.loading[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2rem;\n}\n.my-search-card[data-v-2d816b0d] {\n  background-image: linear-gradient(to bottom, rgba(40, 41, 51, 0.52), rgba(40, 41, 51, 0.52)), url(\"/images/search-background.jpg\");\n  background-position: center;\n  background-size: cover;\n}", ""]);
 
 // exports
 
@@ -2649,7 +2672,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map { \n    height: 500px; \n    width: 750px;\n} \n", ""]);
+exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -3825,49 +3848,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("Header", { attrs: { title: _vm.title } }),
-      _vm._v(" "),
-      _c("main", [_c("ApartmentList")], 1),
-    ],
-    1
-  )
+  return _c("div", [_c("main", [_c("ApartmentList")], 1)])
 }
 var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=template&id=1f42fb90&":
-/*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Header.vue?vue&type=template&id=1f42fb90& ***!
-  \*********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", { staticClass: "text-center fw-bold m pt-3" })])
-  },
-]
 render._withStripped = true
 
 
@@ -3927,278 +3910,314 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "input-group" }, [
-          _c("input", {
-            directives: [
+  return _c("section", [
+    _c("div", [_c("div", [_c("Map")], 1)]),
+    _vm._v(" "),
+    _c("div", { staticClass: "my-search-card d-flex align-content-center" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "search-bar p-5 d-flex" }, [
+          _c("div", { staticClass: "dropdown show" }, [
+            _c(
+              "a",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.search,
-                expression: "search",
+                staticClass:
+                  "btn btn-md dropdown-toggle text-white my-bg-blue mr-2",
+                attrs: {
+                  href: "#",
+                  role: "button",
+                  id: "dropdownMenuLink",
+                  "data-toggle": "dropdown",
+                  "aria-haspopup": "true",
+                  "aria-expanded": "false",
+                },
               },
-            ],
-            staticClass: "form-control mb-4",
-            attrs: {
-              id: "input-search",
-              type: "text",
-              placeholder: "Cerca per città o indirizzo ",
-              "aria-label": "Username",
-              "aria-describedby": "basic-addon1",
-            },
-            domProps: { value: _vm.search },
-            on: {
-              keyup: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.filterCity.apply(null, arguments)
+              [
+                _vm._v(
+                  "\r\n                                    Avanzata\r\n                                "
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "dropdown-menu p-2",
+                attrs: { "aria-labelledby": "dropdownMenuLink" },
               },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.search = $event.target.value
-              },
-            },
-          }),
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.minMq,
+                      expression: "minMq",
+                    },
+                  ],
+                  staticClass: "dropdown-item form-control mb-2",
+                  attrs: {
+                    id: "input-search",
+                    type: "text",
+                    placeholder: "N° m²",
+                    "aria-label": "Username",
+                    "aria-describedby": "basic-addon1",
+                  },
+                  domProps: { value: _vm.minMq },
+                  on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.filterCity.apply(null, arguments)
+                    },
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.minMq = $event.target.value
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.minGuest,
+                      expression: "minGuest",
+                    },
+                  ],
+                  staticClass: "dropdown-item form-control mb-2",
+                  attrs: {
+                    id: "input-search",
+                    type: "text",
+                    placeholder: "N° ospiti",
+                    "aria-label": "Username",
+                    "aria-describedby": "basic-addon1",
+                  },
+                  domProps: { value: _vm.minGuest },
+                  on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.filterCity.apply(null, arguments)
+                    },
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.minGuest = $event.target.value
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.minRoom,
+                      expression: "minRoom",
+                    },
+                  ],
+                  staticClass: "dropdown-item form-control mb-2",
+                  attrs: {
+                    id: "input-search",
+                    type: "text",
+                    placeholder: "N° stanze",
+                    "aria-label": "Username",
+                    "aria-describedby": "basic-addon1",
+                  },
+                  domProps: { value: _vm.minRoom },
+                  on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.filterCity.apply(null, arguments)
+                    },
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.minRoom = $event.target.value
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.minBath,
+                      expression: "minBath",
+                    },
+                  ],
+                  staticClass: "dropdown-item form-control",
+                  attrs: {
+                    id: "input-search",
+                    type: "text",
+                    placeholder: "N° bagni",
+                    "aria-label": "Username",
+                    "aria-describedby": "basic-addon1",
+                  },
+                  domProps: { value: _vm.minBath },
+                  on: {
+                    keyup: function ($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.filterCity.apply(null, arguments)
+                    },
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.minBath = $event.target.value
+                    },
+                  },
+                }),
+              ]
+            ),
+          ]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.minMq,
-                expression: "minMq",
+          _c("div", { staticClass: "input-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.search,
+                  expression: "search",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: {
+                id: "input-search",
+                type: "text",
+                placeholder: "Cerca per indirizzo n° e/o città",
+                "aria-label": "Username",
+                "aria-describedby": "basic-addon1",
               },
-            ],
-            staticClass: "form-control mb-4",
-            attrs: {
-              id: "input-search",
-              type: "text",
-              placeholder: "Cerca per minimo di metri quadri ",
-              "aria-label": "Username",
-              "aria-describedby": "basic-addon1",
-            },
-            domProps: { value: _vm.minMq },
-            on: {
-              keyup: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.filterCity.apply(null, arguments)
+              domProps: { value: _vm.search },
+              on: {
+                keyup: function ($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.filterCity.apply(null, arguments)
+                },
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.search = $event.target.value
+                },
               },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.minMq = $event.target.value
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "inpu-group d-flex" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.minGuest,
-                expression: "minGuest",
-              },
-            ],
-            staticClass: "form-control mb-4",
-            attrs: {
-              id: "input-search",
-              type: "text",
-              placeholder: "Cerca per minimo ospiti ",
-              "aria-label": "Username",
-              "aria-describedby": "basic-addon1",
-            },
-            domProps: { value: _vm.minGuest },
-            on: {
-              keyup: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.filterCity.apply(null, arguments)
-              },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.minGuest = $event.target.value
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.minRoom,
-                expression: "minRoom",
-              },
-            ],
-            staticClass: "form-control mb-4",
-            attrs: {
-              id: "input-search",
-              type: "text",
-              placeholder: "Cerca per minimo stanze da letto ",
-              "aria-label": "Username",
-              "aria-describedby": "basic-addon1",
-            },
-            domProps: { value: _vm.minRoom },
-            on: {
-              keyup: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.filterCity.apply(null, arguments)
-              },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.minRoom = $event.target.value
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.minBath,
-                expression: "minBath",
-              },
-            ],
-            staticClass: "form-control mb-4",
-            attrs: {
-              id: "input-search",
-              type: "text",
-              placeholder: "Cerca per minimo bagni ",
-              "aria-label": "Username",
-              "aria-describedby": "basic-addon1",
-            },
-            domProps: { value: _vm.minBath },
-            on: {
-              keyup: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.filterCity.apply(null, arguments)
-              },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.minBath = $event.target.value
-              },
-            },
-          }),
+            }),
+          ]),
         ]),
       ]),
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.filterCity, function (apartment) {
-        return _c("ApartmentCard", {
-          key: apartment.id,
-          attrs: { apartment: apartment, baseUri: _vm.baseUri },
-        })
-      }),
-      1
-    ),
-    _vm._v(" "),
-    _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+    _c("div", { staticClass: "container pt-4" }, [
       _c(
-        "ul",
-        { staticClass: "pagination pagination-lg" },
-        [
-          _vm.currentPage > 1
-            ? _c("li", { staticClass: "page-item" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getApartmentList(_vm.currentPage - 1)
-                      },
-                    },
-                  },
-                  [_vm._v("Precedente")]
-                ),
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.lastPage, function (n) {
-            return _c(
-              "li",
-              {
-                key: n,
-                staticClass: "page-item",
-                class: { active: n === _vm.currentPage },
-              },
-              [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getApartmentList(n)
-                      },
-                    },
-                  },
-                  [_vm._v(_vm._s(n))]
-                ),
-              ]
-            )
-          }),
-          _vm._v(" "),
-          _vm.currentPage < _vm.lastPage
-            ? _c("li", { staticClass: "page-item" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getApartmentList(_vm.currentPage + 1)
-                      },
-                    },
-                  },
-                  [_vm._v("Successivo")]
-                ),
-              ])
-            : _vm._e(),
-        ],
-        2
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.filterCity, function (apartment) {
+          return _c("ApartmentCard", {
+            key: apartment.id,
+            attrs: { apartment: apartment, baseUri: _vm.baseUri },
+          })
+        }),
+        1
       ),
+      _vm._v(" "),
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c(
+          "ul",
+          { staticClass: "pagination pagination-lg" },
+          [
+            _vm.currentPage > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getApartmentList(_vm.currentPage - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("Precedente")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.lastPage, function (n) {
+              return _c(
+                "li",
+                {
+                  key: n,
+                  staticClass: "page-item",
+                  class: { active: n === _vm.currentPage },
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getApartmentList(n)
+                        },
+                      },
+                    },
+                    [_vm._v(_vm._s(n))]
+                  ),
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _vm.currentPage < _vm.lastPage
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getApartmentList(_vm.currentPage + 1)
+                        },
+                      },
+                    },
+                    [_vm._v("Successivo")]
+                  ),
+                ])
+              : _vm._e(),
+          ],
+          2
+        ),
+      ]),
     ]),
   ])
 }
@@ -4224,26 +4243,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("input", { attrs: { type: "text", id: "query", value: "" } }),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn-sm btn-danger",
-        on: {
-          click: function ($event) {
-            return _vm.searchMap()
-          },
-        },
-      },
-      [_vm._v(" Search ")]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "mt-3 mb-3", attrs: { id: "map" } }),
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("div", { attrs: { id: "map" } })])
+  },
+]
 render._withStripped = true
 
 
@@ -16492,75 +16501,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_332fccf4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_332fccf4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Header.vue":
-/*!********************************************!*\
-  !*** ./resources/js/components/Header.vue ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Header_vue_vue_type_template_id_1f42fb90___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue?vue&type=template&id=1f42fb90& */ "./resources/js/components/Header.vue?vue&type=template&id=1f42fb90&");
-/* harmony import */ var _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header.vue?vue&type=script&lang=js& */ "./resources/js/components/Header.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Header_vue_vue_type_template_id_1f42fb90___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Header_vue_vue_type_template_id_1f42fb90___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Header.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Header.vue?vue&type=script&lang=js&":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/Header.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Header.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Header.vue?vue&type=template&id=1f42fb90&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/Header.vue?vue&type=template&id=1f42fb90& ***!
-  \***************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_1f42fb90___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Header.vue?vue&type=template&id=1f42fb90& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=template&id=1f42fb90&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_1f42fb90___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_1f42fb90___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

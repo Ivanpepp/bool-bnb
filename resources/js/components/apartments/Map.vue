@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <input type="text" id="query" value="">
-        <button class="btn-sm btn-danger" @click="searchMap()"> Search </button>
-        <div class="mt-3 mb-3" id='map' ></div> 
-    </div>
+  <div>
+    <!-- <input type="text" id="query" value="" />
+    <button class="btn-sm btn-danger" @click="searchMap()">Search</button> -->
+    <div id="map"></div>
+  </div>
 </template>
 
 <script>
@@ -26,8 +26,32 @@ export default {
             });
             map.addControl(new tt.FullscreenControl());
             map.addControl(new tt.NavigationControl());
+
+            // var HQ = { lat: 9.0548, lng: 7.4856 }
+            // var map = tt.map({
+            //     key: '<your-api-key>'
+            //     container: 'map',
+            //     center: HQ,
+            //     zoom: 15
+            // });
+            map.scrollZoom.disable();
+
+            var apartmentAssets = [
+                { lat: 41.89056, lng: 12.49427 },
+                { lat: 45.46362, lng: 9.18812 },
+                { lat: 38.11463, lng: 15.6502 },
+                { lat: 42.3507, lng: 13.39993 },
+                { lat: 42.44227, lng: 11.22066},
+                { lat: 45.43461, lng: 12.33891},
+                { lat: 40.92251, lng: 9.48685},
+            ];
+            apartmentAssets.forEach(function (child) {
+                new tt.Marker().setLngLat(child).addTo(map);
+            })
             
-        
+        // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
+        // var popup = new tt.Popup({ anchor: 'top' }).setText('HeadQuarters')
+        // marker.setPopup(popup).togglePopup()
         // // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
         // // addMarker(map);
         // // var popupOffsets = {
@@ -112,8 +136,8 @@ export default {
 </script>
     
 <style>
-    #map { 
-    height: 500px; 
-    width: 750px; 
-} 
+#map {
+  height: 650px;
+  width: 100%;
+}
 </style>
