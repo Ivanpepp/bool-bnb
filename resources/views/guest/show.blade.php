@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="my_wrap_show">
+    <div class="my-wrap-container pt-4">
         <div class="container">
-            <div class="row card">
-                <div class="col-12 mb-3">
+            <div class="row">
 
-                    <div id="myCarousel" class="carousel slide pt-5" data-ride="carousel">
+                <!-- SEZIONE IMMAGINE -->
+                <div class="col-12 my-img-container text-center">
+
+                    <!-- <div id="myCarousel" class="carousel slide pt-5" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         </ol>
@@ -24,51 +26,77 @@
                         <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
                             <span class="sr-only">Next</span>
                         </a>
+                    </div> -->
+                    @foreach($apartment->photos as $key=> $photo)
+                        
+                        <img class="my-img mb-1" src="$photo->image_thumb" alt="">
+                        
+                    @endforeach
+
+                </div>
+                <!-- FINE SEZIONE IMMAGINE -->
+
+                <div class="col-8">
+                    <section class="my-info-section my-border-section pt-5">
+                        <div class="col-10">
+                            <h3><strong>{{ $apartment->title }} - Host: 
+                                {{ $apartment->user->name . ' ' . $apartment->user->surname }} </strong>
+                            </h3>
+                        </div>
+                        <div class="col-10 d-flex my-container-info pt-2 pb-3">
+                            <p><i class="fas fa-person-booth pr-1"></i> STANZE: {{ $apartment->total_room }}</p>
+                            <p><i class="fas fa-bed pl-2 pr-1"></i> LETTI: {{ $apartment->total_guest }}</p>
+                            <p><i class="fas fa-bath pl-2 pr-1"></i> BAGNI: {{ $apartment->total_bathroom }} </p>
+                            <p><i class="fas fa-chart-area pl-2 pr-1"></i> MQ: {{ $apartment->mq }} </p>
+                        </div>
+                    </section>
+
+                    <section class="pt-4 pb-3 my-border-section">
+                        <div class="col-6 my-list-service">
+                            <h3>Servizi:</h3>
+                            <div class="col-12 ">
+                                @foreach ($apartment->features as $feature)
+                                    <ul>
+                                        <li>
+                                            <i class="{{ $feature->icon }} p-1"></i> {{ $feature->title }}
+                                        </li>
+                                    </ul>
+                                @endforeach
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="my-border-section pt-4">
+
+                        <div class="col-12">
+                            <H2>Descrizione:</H2>
+                            <p>{{ $apartment->description }}</p>
+                        </div>
+
+                    </section>
+    
+                
+
+                    <div class="col-9 pt-4 pb-1">
+                        <h3>Luogo:</h3>
+                        <p>{{ $apartment->address . ' , ' . $apartment->city }}</p>
                     </div>
                 </div>
 
-                <div>
-                    <section class="description pt-5">
-                        <div class="col-9">
-                            <h3>{{ $apartment->title }} - Host:
-                                {{ $apartment->user->name . ' ' . $apartment->user->surname }}</h3>
-                            <hr>
-                            <div class="d-flex justify-content-around">
-                                <h6><i class="fas fa-person-booth"></i> STANZE: {{ $apartment->total_room }} </h6>
-                                <h6><i class="fas fa-bed"></i> LETTI: {{ $apartment->total_guest }} </h6>
-                                <h6><i class="fas fa-bath"></i> BAGNI: {{ $apartment->total_bathroom }} </h6>
-                                <h6><i class="fas fa-chart-area"></i> MQ: {{ $apartment->mq }} </h6>
-                            </div>
-                            <hr>
-                        </div>
-                    </section>
+                <div class="col-4 d-flex justify-content-center pt-5 ">
+                    <div class="my-card-price p-3">
+                        <p>{{$apartment->price}} euro /notte</p>
 
-                    <section class="details pt-3">
-                        <div class="col-9">
-                            <H2>SERVIZI:</H2>
-                            @foreach ($apartment->features as $feature)
-                                <li><i class="{{ $feature->icon }}"></i> {{ $feature->title }}</li>
-                            @endforeach
-                            <hr>
-                        </div>
-                    </section>
-
-                    <section class="details pt-3">
-
-                        <div class="col-9">
-                            <H2>DESCRIZIONE:</H2>
-                            <h5>{{ $apartment->description }}</h5>
-                            <hr>
-                        </div>
-
-                    </section>
+                        <a href="{{ route('guest.contact', $apartment->id) }}"
+                            class="btn btn-success">
+                            <i class="far fa-envelope mr-2"></i>
+                            Contattaci
+                        </a>
+                        
+                    </div>
                 </div>
 
-                <div class="col-9">
-                    <h2>DOVE TI TROVERAI:</h2>
-                    <p>{{ $apartment->address . ' , ' . $apartment->city }}</p>
-                </div>
-                <div class="mt-3 mb-3" id='map'></div>
+                <div class="" id='map'></div>
 
                 <section>
                     <div class="button pt-2 pb-2 text-center d-flex justify-content-around">
