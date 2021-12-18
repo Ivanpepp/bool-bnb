@@ -10044,7 +10044,7 @@ h3 {
   text-decoration: none;
 }
 #my-wrap-homepage .my-main-padding {
-  padding-bottom: 100px;
+  padding-bottom: 45px;
 }
 #my-wrap-homepage .my-footer {
   background-color: #f5f1f1;
@@ -10077,15 +10077,6 @@ h3 {
   width: 100%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-}
-
-td a {
-  color: #ffc107;
-}
-
-td a:hover {
-  color: #ffdb6f;
-  text-decoration: underline;
 }
 
 .my_wrap_show img {

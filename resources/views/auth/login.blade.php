@@ -1,18 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container pt-5">
-    <div class="row justify-content-center pt-5">
+<div class="container pt-4">
+    <div class="row justify-content-center p-4">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+            <div class="card p-4">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail ') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -45,7 +43,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Ricordami') }}
                                     </label>
                                 </div>
                             </div>
@@ -53,13 +51,13 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-warning text-white">
+                                <button type="submit" class="btn my-bg-blue text-white">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link text-warning" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a class="btn btn-link my-text-blue text-warning" href="{{ route('password.request') }}">
+                                        <span class="my-text-blue">{{ __('Hai dimenticato la tua password?') }}</span>
                                     </a>
                                 @endif
                             </div>
