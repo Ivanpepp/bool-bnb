@@ -56,13 +56,29 @@
                         </div>
 
                     </section>  
+                    <div class=" d-sm-block d-md-none  col-lg-4 pt-5 pl-5">
 
+                    <div class=" col-sm-5 col-lg-7 p-2 d-flex justify-content-center">
+                    
+                        <div class="my-card p-3 text-center">
+                            <h4 class="pb-3">Gestisci il tuo locale</h4>
+                            <div class="d-flex pb-3">
+                                <a href="{{route('host.apartments.edit', $apartment)}}" class="my-btn">MODIFICA</a>
+                                <form class="" action="{{route('host.apartments.destroy',$apartment)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="my-btn my-btn-delate">ELIMINA</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                     <div class="col-9 pt-4 pb-1">
                         <h3>Luogo:</h3>
                         <p>{{ $apartment->address . ' , ' . $apartment->city }}</p>
                     </div>
                 </div>
-                <div class="col-lg-4 pt-4 pb-3">
+                <div class=" d-sm-none d-lg-block  col-lg-4 pt-5 pl-5">
 
                     <div class=" col-sm-5 col-lg-7 p-2 d-flex justify-content-center">
                     
