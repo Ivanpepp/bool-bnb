@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Feature;
 use App\Models\Sponsorship;
+use App\Models\Photo;
 
 class ApartmentController extends Controller
 {
@@ -15,15 +16,16 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Apartment $apartment)
+    public function index(Apartment $apartment, Photo $photo)
     {
         //
         
         $data = Apartment::orderBy('created_at', 'desc')->get();
         $sponsorships= Sponsorship::all();
+        $photos = Photo::all();
+        // dd($photos);
 
-
-        return response()->json(compact('data','sponsorships'));
+        return response()->json(compact('data','sponsorships', 'photos'));
     }
 
     /**
@@ -73,6 +75,7 @@ class ApartmentController extends Controller
     {
         //
         Apartment::destroy($id);
+        Photo::destroy($id);
         return response('',204);
     }
 }

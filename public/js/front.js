@@ -2332,9 +2332,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentCard',
-  props: ['apartment', 'baseUri'],
+  props: ['apartment', 'baseUri', 'photos'],
   data: function data() {
     return {};
   },
@@ -2432,7 +2433,8 @@ __webpack_require__.r(__webpack_exports__);
       minGuest: '',
       minRoom: '',
       minBath: '',
-      minMq: ''
+      minMq: '',
+      photos: []
     };
   },
   methods: {
@@ -2442,6 +2444,8 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       axios.get("".concat(this.baseUri, "/api/apartments")).then(function (res) {
         _this.apartments = res.data.data;
+        _this.photos = res.data.photos;
+        console.log(_this.photos);
       })["catch"](function (err) {
         console.error(err);
       }).then(function () {
@@ -3888,6 +3892,8 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.apartment.city))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.photos[0].image_thumb))]),
     ]
   )
 }
@@ -4148,7 +4154,11 @@ var render = function () {
         _vm._l(_vm.filterCity, function (apartment) {
           return _c("ApartmentCard", {
             key: apartment.id,
-            attrs: { apartment: apartment, baseUri: _vm.baseUri },
+            attrs: {
+              photos: _vm.photos,
+              apartment: apartment,
+              baseUri: _vm.baseUri,
+            },
           })
         }),
         1
