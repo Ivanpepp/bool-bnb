@@ -8,7 +8,25 @@
                 <!-- SEZIONE IMMAGINE -->
                 <div class=" col-12 my-img-container text-center">
 
-                
+                    <!-- <div id="myCarousel" class="carousel slide pt-5" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                @foreach ($apartment->photos as $key => $photo)
+                                    <div class="carousel-item my-container-img {{ $key == 0 ? 'active' : '' }} text-center">
+                                        <img class="img-fluid" src="{{ $photo->getImagePrefix() . $photo->image_thumb }}"
+                                            alt="{{ $apartment->title }} image">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                                <span class="sr-only">Next</span>
+                            </a>
+                    </div> -->
                     @foreach($apartment->photos as $key=> $photo)
                         <img class="col-sm-6 col-lg-3 my-img mb-1" src="$photo->image_thumb" alt="">
                     @endforeach
@@ -75,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class=" d-sm-none  d-lg-block col-lg-4 d-flex justify-content-center pt-5 ">
+                <div class=" d-sm-none d-lg-block col-lg-4 d-flex justify-content-center pt-5 ">
 
                     <div class=" col-sm-5 col-lg-7 p-2 my-card-price d-flex justify-content-center">
 
@@ -97,38 +115,38 @@
 
             </div>
         </div>
+    </div>
 
+    <script>
+        let longitudine = document.getElementById("longitudine").value;
+        let latitudine = document.getElementById("latitudine").value;
+        console.log(latitudine, longitudine)
+        var tt = window.tt;
+        var defaultCenter = [longitudine, latitudine]
+        var map = tt.map({
+            key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
+            container: 'map',
+            style: 'tomtom://vector/1/basic-main',
+            center: defaultCenter,
+            zoom: 15,
+        });
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
 
-        <script>
-            let longitudine = document.getElementById("longitudine").value;
-            let latitudine = document.getElementById("latitudine").value;
-            console.log(latitudine, longitudine)
-            var tt = window.tt;
-            var defaultCenter = [longitudine, latitudine]
-            var map = tt.map({
-                key: '9Mme267oYMyvrQjdDAIQMRHH59kZXGnI',
-                container: 'map',
-                style: 'tomtom://vector/1/basic-main',
-                center: defaultCenter,
-                zoom: 15,
-            });
-            map.addControl(new tt.FullscreenControl());
-            map.addControl(new tt.NavigationControl());
-            var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
-
-            var popupOffsets = {
-                top: [0, 0],
-                bottom: [0, -70],
-                'bottom-right': [0, -70],
-                'bottom-left': [0, -70],
-                left: [25, -35],
-                right: [-25, -35]
-            };
-            let city = document.getElementById('city').value;
-            var popup = new tt.Popup({
-                offset: popupOffsets
-            }).setHTML(city);
-            marker.setPopup(popup).togglePopup();
-        </script>
+        var popupOffsets = {
+            top: [0, 0],
+            bottom: [0, -70],
+            'bottom-right': [0, -70],
+            'bottom-left': [0, -70],
+            left: [25, -35],
+            right: [-25, -35]
+        };
+        let city = document.getElementById('city').value;
+        var popup = new tt.Popup({
+            offset: popupOffsets
+        }).setHTML(city);
+        marker.setPopup(popup).togglePopup();
+    </script>
 
     @endsection

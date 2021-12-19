@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5 p-3 border my-container-email">
         <div class="form-group">
-            <h4>{{$message->name}} {{$message->surname}} ti ha contattato.</h4>
-            <h4>{{$message->subject}}</h4>
-            <p>{{$message->content}}</p>
-            <address>{{$message->created_at}}</address>
+            <h4>Messaggio da {{$message->name}} {{$message->surname}}</h4>
+            <h6>Oggetto:{{$message->subject}}</h6>
+            <div class="border">
+                <p>{{$message->content}}</p>
+                <address>{{$message->created_at}}</address>
+            </div>
             <h4>Contattare al seguente indirizzo email: <address>{{$message->email}}</address></h4>
         </div>
         <form class="my-5" action="{{route('host.mail.destroy', $message->id)}}" method="POST">
