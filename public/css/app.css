@@ -10083,8 +10083,8 @@ td a:hover {
 }
 
 .my-wrap-container .my-img-container .my-img {
-  height: 250px;
-  width: 350px;
+  height: 200px;
+  width: 100%;
   background-color: #464647;
   border-radius: 10px;
 }
@@ -10102,11 +10102,23 @@ td a:hover {
   list-style-type: none;
 }
 .my-wrap-container .my-card-price {
-  height: 350px;
+  height: 150px;
   width: 250px;
+  position: relative;
   border: 2px solid #cecbcb;
   border-radius: 15px;
   box-shadow: 5px 5px 10px #dedede, -5px -5px 10px #dedede, 5px -5px 10px #dedede, -5px 5px 10px #dedede;
+}
+.my-wrap-container .my-card-price .my-btn {
+  background-color: #03b931;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 5px;
+}
+.my-wrap-container .my-card-price .my-btn:hover {
+  background-color: #71ff95;
 }
 .my-wrap-container #map {
   width: 100%;

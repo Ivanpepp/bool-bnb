@@ -3,8 +3,8 @@
     .my-img-container{
 
         .my-img{
-            height: 250px;
-            width: 350px;
+            height:200px;
+            width: 100%;
             background-color: rgb(70, 70, 71);
             border-radius:10px;
         }
@@ -29,8 +29,10 @@
     }
 
     .my-card-price{
-        height: 350px;
+        height: 150px;
         width:250px;
+
+        position:relative;
         border:2px solid #cecbcb;
         border-radius:15px;
         box-shadow:  5px  5px 10px #dedede,
@@ -39,6 +41,21 @@
             -5px  5px 10px #dedede;
             // #dedede;
             // rgb(37, 82, 207);
+        
+            .my-btn{
+            
+            background-color: rgb(3, 185, 49);
+            color:white;
+            padding: 10px 20px;
+            border-radius:10px;
+    
+            position: absolute;
+            bottom:5px;
+    
+            &:hover{
+                background-color:rgb(113, 255, 149);
+            }
+        }
     }
 
     #map{

@@ -6,37 +6,18 @@
             <div class="row">
 
                 <!-- SEZIONE IMMAGINE -->
-                <div class="col-12 my-img-container text-center">
+                <div class=" col-12 my-img-container text-center">
 
-                    <!-- <div id="myCarousel" class="carousel slide pt-5" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            @foreach ($apartment->photos as $key => $photo)
-                                <div class="carousel-item my-container-img {{ $key == 0 ? 'active' : '' }} text-center">
-                                    <img class="img-fluid" src="{{ $photo->getImagePrefix() . $photo->image_thumb }}"
-                                        alt="{{ $apartment->title }} image">
-                                </div>
-                            @endforeach
-                        </div>
-                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div> -->
+                
                     @foreach($apartment->photos as $key=> $photo)
-                        
-                        <img class="my-img mb-1" src="$photo->image_thumb" alt="">
-                        
+                        <img class="col-sm-6 col-lg-3 my-img mb-1" src="$photo->image_thumb" alt="">
                     @endforeach
+                
 
                 </div>
                 <!-- FINE SEZIONE IMMAGINE -->
 
-                <div class="col-8">
+                <div class="col-sm-12 col-lg-8">
                     <section class="my-info-section my-border-section pt-5">
                         <div class="col-10">
                             <h3><strong>{{ $apartment->title }} - Host: 
@@ -74,37 +55,41 @@
                         </div>
 
                     </section>
-    
-                
+                    
+                    <div class=" d-none d-sm-block d-md-none col-lg-4 pt-4 pb-3">
 
+                        <div class=" col-sm-5 col-lg-7 p-2 my-card-price d-flex justify-content-center">
+
+                            <p><strong>Prezzo: {{$apartment->price}}  &euro; </strong> / notte</p>
+                            <a href="{{ route('guest.contact', $apartment->id) }}" class="my-btn">
+                                <i class="far fa-envelope mr-2"></i>
+                                Contattaci
+                            </a>
+                        </div>
+                    </div>
+                    <!-- .d-none .d-sm-block .d-md-none -->
+                
                     <div class="col-9 pt-4 pb-1">
                         <h3>Luogo:</h3>
                         <p>{{ $apartment->address . ' , ' . $apartment->city }}</p>
                     </div>
                 </div>
 
-                <div class="col-4 d-flex justify-content-center pt-5 ">
-                    <div class="my-card-price p-3">
-                        <p>{{$apartment->price}} euro /notte</p>
+                <div class=" d-sm-none  d-lg-block col-lg-4 d-flex justify-content-center pt-5 ">
 
-                        <a href="{{ route('guest.contact', $apartment->id) }}"
-                            class="btn btn-success">
+                    <div class=" col-sm-5 col-lg-7 p-2 my-card-price d-flex justify-content-center">
+
+                        <p><strong>Prezzo: {{$apartment->price}}  &euro; </strong> / notte</p>
+                        <a href="{{ route('guest.contact', $apartment->id) }}" class="my-btn">
                             <i class="far fa-envelope mr-2"></i>
                             Contattaci
                         </a>
-                        
                     </div>
                 </div>
 
                 <div class="" id='map'></div>
 
                 <section>
-                    <div class="button pt-2 pb-2 text-center d-flex justify-content-around">
-                        <a href="http://127.0.0.1:8000" class="btn btn-primary">Torna alla lista</a>
-                        @if (Auth::check() && Auth::User()->id == $apartment->user_id)
-                        @else <a href="{{ route('guest.contact', $apartment->id) }}"
-                                class="btn btn-success  justify-content-end"><i
-                                    class="far fa-envelope mr-2"></i>Contattaci</a> @endif
                         <input type='hidden' id="longitudine" value='{{ $apartment->longitude }}'>
                         <input type='hidden' id="latitudine" value='{{ $apartment->latitude }}'>
                     </div>
