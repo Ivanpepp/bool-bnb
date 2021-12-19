@@ -37,10 +37,12 @@
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <a class="btn btn-sm my-bg-blue text-white mr-2" href="{{route('host.mail.show', $message)}}">APRI</a>
-                                                <form action="{{route('host.mail.destroy', $message->id)}}" method="POST">
+                                                <form id="my-delete-msg"action="{{route('host.mail.destroy', $message->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <i class="far fa-trash-alt text-danger fa-lg"></i>
+                                                    <a href="javascript:{}" onclick="document.getElementById('my-delete-msg').submit();">
+                                                        <i class="far fa-trash-alt text-danger fa-lg"></i>
+                                                    </a>
                                                 </form>
                                             </div>    
                                         </td>
