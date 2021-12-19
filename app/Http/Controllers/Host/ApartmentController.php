@@ -88,8 +88,8 @@ class ApartmentController extends Controller
         ],
         [
             'required'=>'Devi compilare correttamente :attribute',
-            'title.required' => 'non è possibile inserire un appartamento senza titolo',
-            'description.min' => 'la descrizione dell\'appartamento deve essere lungo almeno 50 caratteri',
+            'title.required' => 'Non è possibile inserire un appartamento senza titolo',
+            'description.min' => 'La descrizione dell\'appartamento deve essere lunga almeno 50 caratteri',
             'total_room.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_guest.numeric' => 'nel campo :attribute devi inserire un numero',
             'total_bathroom.numeric' => 'nel campo :attribute devi inserire un numero',

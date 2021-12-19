@@ -1,178 +1,235 @@
-<div class="container">
-        <header>
-            <h1>
+<div class="container pt-4">
+    <section id="post-form">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>        
+        @endif
+    </section>
+    <div class="row justify-content-center p-4">
+        <div class="col-md-8">
+            <div class="card p-4">
 
-            {{ $request->routeIs('host.apartments.edit') ? "Modifica appartamento" : "Inserisci un nuovo appartamento" }}
-
-            </h1>
-        </header>
-
-        <section id="post-form">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>        
-            @endif
-        </section>
-        
-            <form action="           
-            {{  $request->routeIs('host.apartments.edit') ? route('host.apartments.update', $apartment) : route('host.apartments.store') }}
-
-            " method="POST" enctype="multipart/form-data">
-
-                @if($request->routeIs('host.apartments.edit')) 
+                <div class="card-body">
+                    <form action="           
+                    {{  $request->routeIs('host.apartments.edit') ? route('host.apartments.update', $apartment) : route('host.apartments.store') }}
                 
-                    @method('PATCH')
+                    " method="POST" enctype="multipart/form-data">
                 
-                @endif
-
-                @csrf
-
-              {{--   <div class="form-group">
-                    <label for="user_id">Proprietario Appartamento</label>
-                    <input class="form-control" type="text"  id="user_id" name="user_id" value="{{Auth::user()->name}}" >
-                </div> --}}
-
-                <div class="form-group">
-                    <label for="title">Titolo dell' appartamento</label>
-                    <input class="form-control form-control-lg" type="text" 
-                    placeholder="Inserisci il titolo del post" id="title" name="title" value="{{ old('title', $apartment->title) }}">
-                </div>
-
-                
-                <div class="form-group">
-                    <legend class="h5">Sponsorizzazione: </legend>
-                    <div class="form-radio form-radio-inline">
-                        @foreach ($sponsorships as $sponsorship)
+                        @if($request->routeIs('host.apartments.edit')) 
                         
-                            <input {{ old("sponsorships") == $sponsorship['id'] ? 'checked' : '' }}   
+                            @method('PATCH')
+                        
+                        @endif
+                
+                        @csrf
+                
+                        <div class="form-group row">
+                            <label for="title" class="col-md-4 col-form-label text-md-right">Titolo Annuncio</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" 
+                                placeholder="Inserisci il titolo del post" id="title" name="title" value="{{ old('title', $apartment->title) }}">
+                            </div>
+                        </div>
 
+                        @if($request->routeIs('host.apartments.edit')) 
+                        
+                        @method('PATCH')
 
-                            @if ( in_array( $sponsorship->id, old("sponsorships", $sponsorshipIds ? $sponsorshipIds : [] )))
-                             checked
-                            @endif
-                            
-                            
-                            type="radio" class="form-radio-input mx-2" id="sponsorship-{{ $sponsorship->id }}"
-                             value="{{$sponsorship->id}}"
-
-                              name="sponsorships[]">
-                                <label class="form-check-label me-2" for="sponsorship-{{$sponsorship->id}}">{{$sponsorship->type}}</label>    
-
-                        @endforeach
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <legend class="h5">Servizi</legend>
-                    <div class="form-check form-check-inline">
-                        @foreach ($features as $feature)
-                            <input @if (in_array($feature->id, old('features' , $featureIds ? $featureIds : [])))
-                            checked @endif type="checkbox" class="form-check-input mx-2" id="feature-{{ $feature->id }}" value="{{$feature->id}}" name="features[]">
-                            <label class="form-check-label me-2" for="feature-{{$feature->id}}">{{$feature->title}}</label>    
-                        @endforeach
-                    </div>
-                </div>  
-
-                <div class="form-group">
-                    <label for="image_thumb">Immagine</label>
-                    <input class="form-control" type="file" id="image_thumb" multiple name="image_thumb[]" placeholder="Inserisci l'immagine dell'appartamento" value="{{old('image_thumb', $apartment->image_thumb)}}">
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Descrizione dell'appartamento</label>
-                    <textarea  class="form-control" type="textarea" placeholder="Inserisci la descrizione dell'appartamento" id="description" name="description" >{{old('description', $apartment->description) }} </textarea>
-                </div> 
-                <div class="form-group">
-                    <label for="city">Città</label>
-                    <input  class="form-control" type="text" placeholder="Inserisci la città" id="city" name="city" value="{{old('city', $apartment->city) }} ">
-                </div> 
-                <div class="form-group ">
-                    <label for="address">Indirizzo</label>
-                   {{--  <input type="text" id="query" value=""> --}}
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Sponsorizzazione</label>
+                            <div class="col-md-6 custom-radio custom-control-inline ">
+                                @foreach ($sponsorships as $sponsorship)
+                                
+                                    <input {{ old("sponsorships") == $sponsorship['id'] ? 'checked' : '' }}   
+                
+                
+                                    @if ( in_array( $sponsorship->id, old("sponsorships", $sponsorshipIds ? $sponsorshipIds : [] )))
+                                     checked
+                                    @endif
+                                    
+                                    
+                                    type="radio" class="form-radio-input" id="sponsorship-{{ $sponsorship->id }}"
+                                     value="{{$sponsorship->id}}"
+                
+                                      name="sponsorships[]">
+                                        <label class="form-check-label p-2" for="sponsorship-{{$sponsorship->id}}">{{$sponsorship->type}}</label>    
+                
+                                @endforeach
+                            </div>
+                        </div>
                     
-                    <input  class="form-control" type="text" placeholder="Inserisci l'indirizzo dell'appartamento" id="address" name="address" value="{{old('address', $apartment->address) }} ">
-                    <span class="btn  btn-primary"  onclick= "searchMap()" > Genera Coordinate </span>
-                </div> 
-                <div class="form-group">
-                    <label for="price">prezzo</label>
-                    <input  class="form-control" type="text" placeholder="Inserisci il prezzo a notte" id="price" name="price" value="{{old('price', $apartment->price) }} ">
-                </div> 
-                <div class="form-group">
-                    <label for="latitude">Latitudine</label>
-                    <input  class="form-control" type="text" placeholder="inserisci la latitudine" id="latitude" name="latitude" value="{{old('latitude', $apartment->latitude) }} ">
-                </div> 
-                <div class="form-group">
-                    <label for="longitude">Longitudione</label>
-                    <input  class="form-control" type="text" placeholder="inserisci la longitudine" id="longitude" name="longitude" value="{{old('longitude', $apartment->longitude) }} ">
-                </div> 
-                <div class="form-group">
-                    <label for="type">Tipo di appartamento </label>
-                    <input  class="form-control" type="text" placeholder="inserisci il tipo di appartamento" id="type" name="type" value="{{old('type', $apartment->type) }} ">
-                </div> 
-                <div class="form-group">
-                    <label for="total_room">Numero Stanze</label>
-                    <input  class="form-control" total_room="text" placeholder="inserisci il numero di stanze" id="total_room" name="total_room" value="{{old('total_room', $apartment->total_room) }} ">
-                </div> 
-                <div class="form-group">
-                    <label for="total_guest">Numero Ospiti</label>
-                    <input  class="form-control" total_guest="text" placeholder="inserisci il numero di persone che puo ospitare" id="total_guest" name="total_guest" value="{{old('total_guest', $apartment->total_guest) }}"> 
-                </div> 
-                <div class="form-group">
-                    <label for="total_bathroom">Numero Bagni</label>
-                    <input  class="form-control" total_bathroom="text" placeholder="inserisci il numero dei bagni" id="total_bathroom" name="total_bathroom" value="{{old('total_bathroom', $apartment->total_bathroom) }} ">
-                </div> 
-                <div class="form-group">
-                    <label for="mq">Numero mq</label>
-                    <input  class="form-control" mq="text" placeholder="inserisci il numero di metri quadrati" id="mq" name="mq" value="{{old('mq', $apartment->mq) }} ">
-                </div> 
-                <div class="form-group">
-                    <legend class="h5">Status: </legend>
-                    <div class="form-radio form-radio-inline">
-                            <input
+                        @endif
+                        @csrf
 
-                            @if ($request->routeIs('host.apartments.edit')) 
-                
-                                {{ old("is_visible") == '1' ? 'checked' : '' }}
-                            
-                                {{ 1 == $apartment->is_visible ? 'checked' : '' }}
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Servizi</label>
+                            <div class="col-md-6 custom-control custom-checkbox text-start pl-5">
+                                @foreach ($features as $feature)
+                                
+                                    <input @if (in_array($feature->id, old('features' , $featureIds ? $featureIds : [])))
+                                    checked @endif type="checkbox" class="form-check-input" id="feature-{{ $feature->id }}" value="{{$feature->id}}" name="features[]">
+                                    <i class="my-text-blue {{$feature->icon}}"></i><label class="form-check-label pl-2" for="feature-{{$feature->id}}">{{$feature->title}}</label>
+                                    <br>
+                                @endforeach
+                            </div>
+                        </div>  
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="city">Città</label>
+                            <div class="col-md-6">
+                                <input  class="form-control" type="text" placeholder="Inserisci la città" id="city" name="city" value="{{old('city', $apartment->city) }} ">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="address">Indirizzo</label>
+                           {{--  <input type="text" id="query" value=""> --}}
+                            <div class="col-md-6">
+                                <input  class="form-control" type="text" placeholder="Inserisci l'indirizzo dell'appartamento" id="address" name="address" value="{{old('address', $apartment->address) }} ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="p-3 mb-3">
+                                        <span class="btn my-bg-blue text-white"  onclick= "searchMap()" >Genera</span>
+                                    </div>
+                                    <div >
+                                        <div class="form-group d-flex align-items-center" style="margin-bottom: 0">
+                                            <label class="p-2 pt-3" for="latitude">Lat</label>
+                                            <input  class="form-control" type="text" id="latitude" name="latitude" value="{{old('latitude', $apartment->latitude) }} ">
+                                        </div> 
+                                        <div class="form-group d-flex align-items-center" style="margin-bottom: 0">
+                                            <label class="p-2 pt-3" for="longitude">Lng</label>
+                                            <input  class="form-control" type="text"  id="longitude" name="longitude" value="{{old('longitude', $apartment->longitude) }} ">
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="type">Tipologia locale</label>
+                            <div class="col-md-6">
+                                <input  class="form-control" type="text" id="type" name="type" value="{{old('type', $apartment->type) }} ">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="total_guest">Numero max Ospiti</label>
+                            <div class="col-md-6">
+                                <input  class="form-control" total_guest="text" id="total_guest" name="total_guest" value="{{old('total_guest', $apartment->total_guest) }}"> 
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="total_room">Numero Stanze</label>
+                            <div class="col-md-6">
+                                <input  class="form-control" total_room="text" placeholder="inserisci il numero di stanze" id="total_room" name="total_room" value="{{old('total_room', $apartment->total_room) }} ">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="mq">Numero m²</label>
+                            <div class="col-md-6">
+                                <input  class="form-control" mq="text" placeholder="inserisci il numero di metri quadrati" id="mq" name="mq" value="{{old('mq', $apartment->mq) }} ">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="total_bathroom">Numero Bagni</label>
+                            <div class="col-md-6">
+                                <input  class="form-control" total_bathroom="text" placeholder="inserisci il numero dei bagni" id="total_bathroom" name="total_bathroom" value="{{old('total_bathroom', $apartment->total_bathroom) }} ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right"  for="price">Prezzo</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" placeholder="Inserisci il prezzo a notte" id="price" name="price" value="{{old('price', $apartment->price) }} ">
+                            </div>
+                        </div>
+                        @if($request->routeIs('host.apartments.create')) 
+                        
+                        <div class="form-group row">
+                            <label class="col-12 col-form-label" for="image_thumb">Galleria Immagini</label>
+                            <div class="col-12">
+                                <input class="form-control" type="file" id="image_thumb" multiple name="image_thumb[]" value="{{old('image_thumb', $apartment->image_thumb)}}">
+                            </div>
+                        </div>
+          
+                        @endif
             
-                            @endif
+                        @csrf
 
-                                {{ old('is_visible') == '1' ? 'checked' : '' }}
+                        <div class="form-group row">
+                            <label class="col-12 col-form-label" for="description">Descrizione</label>
+                            <div class="col-12">
+                                <textarea  class="form-control" type="textarea" placeholder="Inserisci la descrizione dell'appartamento" id="description" name="description" >{{old('description', $apartment->description) }} </textarea>
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <div class="col-6 d-flex align-items-center flex-row-reverse">
+                                <div class="my-text-blue text-right pt-3 pb-3">
+                                    <legend class="h5">Visibilità</legend>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center pt-3 pb-3">
+                                    <div>
+                                        <div class="form-radio">
+                                            <input
+                        
+                                            @if ($request->routeIs('host.apartments.edit')) 
+                                
+                                                {{ old("is_visible") == '1' ? 'checked' : '' }}
+                                            
+                                                {{ 1 == $apartment->is_visible ? 'checked' : '' }}
                             
-                            type="radio" class="form-radio-input mx-2" id="is_visible" value="1" name="is_visible">
-
-
-                            <label class="form-check-label me-2" for="is_visible">Visibile</label>      
+                                            @endif
+                        
+                                                {{ old('is_visible') == '1' ? 'checked' : '' }}
+                                            
+                                            type="radio" class="form-radio-input mx-2" id="is_visible" value="1" name="is_visible">
+                        
+                        
+                                            <label class="form-check-label me-2" for="is_visible">Attiva</label> 
+                                            <br>     
+                                            
+                                            <input
+                        
+                                            @if($request->routeIs('host.apartments.edit'))  
+                                
+                                                {{ old("is_visible") == '0' ? 'checked' : '' }}
+                                
+                                                {{ '0' == $apartment->is_visible ? 'checked' : '' }}
                             
-                            <input
-
-                            @if($request->routeIs('host.apartments.edit')) 
-                
-                                {{ old("is_visible") == '0' ? 'checked' : '' }}
-                
-                                {{ '0' == $apartment->is_visible ? 'checked' : '' }}
-            
-                            @endif
-
-                            {{ old('is_visible') == '0' ? 'checked' : '' }}
-                            
-                            type="radio" class="form-radio-input mx-2" id="is_visible" value="0" name="is_visible">
-                            <label class="form-check-label me-2" for="is_visible">Non Visibile</label>  
-                    </div>
+                                            @endif
+                        
+                                            {{ old('is_visible') == '0' ? 'checked' : '' }}
+                                            
+                                            type="radio" class="form-radio-input mx-2" id="is_visible" value="0" name="is_visible">
+                                            <label class="form-check-label me-2" for="is_visible">Spenta</label>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn my-bg-blue text-white mr-2 mb-2" style="width: 100%">
+                                    {{ $request->routeIs('host.apartments.edit') ? "Modifica" : "Crea" }}
+                                </button>
+                            </div>
+                            <div class="col-12">        
+                                <button type="reset" class="btn bg-danger text-white" style="width: 100%">Cancella</button> 
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                {{ $request->routeIs('host.apartments.edit') ? "Modifica" : "Crea" }}
-                </button>
-                <button type="reset" class="btn btn-secondary">Cancella i dati</button>
-            </form>
-        </section>
+            </div>
+        </div>
     </div>
+</div>
     <script>
         let tt = window.tt;
          let handleResults= function(result){

@@ -53,9 +53,9 @@
                                 @endif
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-center pt-4">
+                        <!-- <div class="d-flex justify-content-center pt-4">
                             <a class="btn my-bg-blue text-white" href="{{route('host.apartments.index')}}" style="width: 100%">Inserzioni</a>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- <div class="d-flex flex-row-reverse pr-5">
                         <a class="my-text-blue text-underline " href="#">Torna ai tuoi annunci</a>
