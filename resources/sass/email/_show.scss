@@ -1,3 +1,39 @@
 .my-container-email{
-    
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 10px;
+    position:relative;
+
+    .my-section-contact{
+        border-bottom: 2px solid rgb(37, 82, 207);
+    }
+    .my-section-object{
+        // border:2px solid rgb(219, 219, 219);
+    }
+
+    .my-section-text{
+        // padding:30px;
+        position:relative;
+        border: 1px solid rgb(219, 219, 219);
+        border-radius:10px;
+
+        .my-created-at{
+            position:absolute;
+            right: 10px;
+            bottom: 0px;
+        }
+    }
+    button{
+        background-color: transparent;
+        border:none;
+    }
+    .my-btn-delate{
+        position:absolute;
+        right: 15px;
+        bottom:15px
+    }
+
+    .fa-arrow-left{
+        font-size: 20px;
+        color:rgb(37, 82, 207);
+    }
 }
