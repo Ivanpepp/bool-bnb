@@ -27,7 +27,7 @@ export default {
         sponsorships: [],
         apartmentId : '',
         apartment: [],
-        baseUri: 'http://127.0.0.1:8001',
+        baseUri: 'http://127.0.0.1:8000',
       }
     },
     components:{

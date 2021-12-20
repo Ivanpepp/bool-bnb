@@ -9,7 +9,7 @@
             @error="onError"></v-braintree>
       </div>
       <div v-else>
-        <a href="http://127.0.0.1:8001/host/apartments" class="btn btn-primary">Torna alla lista degli appartamenti</a>
+        <a href="http://127.0.0.1:8000/host/apartments" class="btn btn-primary">Torna alla lista degli appartamenti</a>
       </div>
   </div>
   
@@ -28,7 +28,7 @@ export default {
                 disableBuyButton : false,
                 loadingPayment : false,
                 tokenApi: '',
-                baseUri: 'http://127.0.0.1:8001',
+                baseUri: 'http://127.0.0.1:8000',
                 form: {
                     token : '',
                     sponsor: '' ,
@@ -55,7 +55,7 @@ export default {
          buy(id){
 
             this.isVisible = true;
-              axios.post('http://127.0.0.1:8001/api/orders/make/payment', {
+              axios.post('http://127.0.0.1:8000/api/orders/make/payment', {
                   token: 'fake-valid-nonce',
                   sponsor: id,
 

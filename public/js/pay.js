@@ -2298,7 +2298,7 @@ __webpack_require__.r(__webpack_exports__);
       sponsorships: [],
       apartmentId: '',
       apartment: [],
-      baseUri: 'http://127.0.0.1:8001'
+      baseUri: 'http://127.0.0.1:8000'
     };
   },
   components: {
@@ -2379,7 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
       disableBuyButton: false,
       loadingPayment: false,
       tokenApi: '',
-      baseUri: 'http://127.0.0.1:8001',
+      baseUri: 'http://127.0.0.1:8000',
       form: {
         token: '',
         sponsor: ''
@@ -2399,7 +2399,7 @@ __webpack_require__.r(__webpack_exports__);
     onError: function onError(error) {},
     buy: function buy(id) {
       this.isVisible = true;
-      axios.post('http://127.0.0.1:8001/api/orders/make/payment', {
+      axios.post('http://127.0.0.1:8000/api/orders/make/payment', {
         token: 'fake-valid-nonce',
         sponsor: id
       }).then(function (response) {
@@ -26394,7 +26394,7 @@ var render = function () {
             "a",
             {
               staticClass: "btn btn-primary",
-              attrs: { href: "http://127.0.0.1:8001/host/apartments" },
+              attrs: { href: "http://127.0.0.1:8000/host/apartments" },
             },
             [_vm._v("Torna alla lista degli appartamenti")]
           ),
@@ -39032,7 +39032,7 @@ var payment = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/pay.js */"./resources/js/pay.js");
+module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\pay.js */"./resources/js/pay.js");
 
 
 /***/ })
