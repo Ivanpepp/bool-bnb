@@ -84,6 +84,12 @@
 
 #my-footer-second{
     background-color: rgb(233, 231, 231);
+    ul{
+        list-style-type:none;
+        a{
+            text-decoration: none;
+        }
+    }
 }
 .navbar-light{
     transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) all !important;

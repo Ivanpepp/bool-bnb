@@ -10085,6 +10085,12 @@ h3 {
 #my-footer-second {
   background-color: #e9e7e7;
 }
+#my-footer-second ul {
+  list-style-type: none;
+}
+#my-footer-second ul a {
+  text-decoration: none;
+}
 
 .navbar-light {
   transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) all !important;
@@ -10098,7 +10104,11 @@ h3 {
   height: calc(100% - 271px);
 }
 
-#auth-index, #show-email {
+#auth-index {
+  height: calc(100% - 271px);
+}
+
+#show-email {
   height: calc(100vh - 271px);
 }
 
@@ -10219,17 +10229,25 @@ h3 {
 .my-wrap-container-host .my-btn {
   background-color: #2552cf;
   color: white;
+  border: 2px solid transparent;
   padding: 10px 20px;
   border-radius: 10px;
+  margin-right: 3px;
 }
 .my-wrap-container-host .my-btn:hover {
-  background-color: #7798f3;
+  background-color: white;
+  color: #2552cf;
+  border: 2px solid #2552cf;
 }
 .my-wrap-container-host .my-btn-delate {
   background-color: red;
+  color: white;
+  border: 2px solid transparent;
 }
 .my-wrap-container-host .my-btn-delate:hover {
-  background-color: #fc7c7c;
+  background-color: white;
+  color: red;
+  border: 2px solid red;
 }
 .my-wrap-container-host .my-btn-return {
   position: absolute;
@@ -10302,4 +10320,51 @@ h3 {
 
 #auth-footer-fix {
   height: calc(100vh - 271px);
+}
+
+#my-wrap-contact .my-btn {
+  background-color: #2552cf;
+  color: white;
+  border: 2px solid transparent;
+}
+#my-wrap-contact .my-btn:hover {
+  background-color: white;
+  color: #2552cf;
+  transform: scale(1.1);
+  border: 2px solid #2552cf;
+}
+#my-wrap-contact .my-btn-delate {
+  background-color: red;
+  color: white;
+  border: 2px solid transparent;
+}
+#my-wrap-contact .my-btn-delate:hover {
+  background-color: white;
+  color: red;
+  transform: scale(1.1);
+  border: 2px solid red;
+}
+#my-wrap-contact .my-text-color {
+  color: #2552cf;
+}
+
+#my-thanks-wrap {
+  height: calc(100vh - 271px);
+}
+#my-thanks-wrap .my-border-wrap {
+  border-radius: 10px;
+}
+#my-thanks-wrap .my-text-color {
+  color: #2552cf;
+}
+#my-thanks-wrap .my-btn {
+  background-color: #2552cf;
+  color: white;
+  border: 2px solid transparent;
+}
+#my-thanks-wrap .my-btn:hover {
+  background-color: white;
+  color: #2552cf;
+  transform: scale(1.1);
+  border: 2px solid #2552cf;
 }

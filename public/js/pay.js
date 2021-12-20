@@ -39032,7 +39032,7 @@ var payment = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/pay.js */"./resources/js/pay.js");
+module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\pay.js */"./resources/js/pay.js");
 
 
 /***/ })

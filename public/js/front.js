@@ -2481,7 +2481,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
     /*   kmCoverter(lat1,lon1){
-             // generally used geo measurement function
+               // generally used geo measurement function
               let R = 6378.137; // Radius of earth in KM
               let dLat = lat1 * Math.PI / 180;
               let dLon = lon1 * Math.PI / 180;
@@ -2723,7 +2723,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map {\n  height: 650px;\n  width: 100%;\n}\n.search-container{\n    position: relative;\n}\n#query{\n    position: absolute;\n    top: 100px;\n    left: 40px;\n    z-index: 99;\n    border: none;\n}\n#query:focus{\n    outline: none !important;\n    box-shadow: 0 0 10px #719ECE;\n}\n", ""]);
+exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\n.search-container{\r\n    position: relative;\n}\n#query{\r\n    position: absolute;\r\n    top: 100px;\r\n    left: 40px;\r\n    z-index: 99;\r\n    border: none;\n}\n#query:focus{\r\n    outline: none !important;\r\n    box-shadow: 0 0 10px #719ECE;\n}\r\n", ""]);
 
 // exports
 
@@ -17006,7 +17006,7 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
