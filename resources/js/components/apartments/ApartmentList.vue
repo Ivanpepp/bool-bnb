@@ -27,15 +27,14 @@
                         <div class="container">
                             <div class="search-bar p-5 d-flex">
                                 <div class="dropdown show">
-                                    <a class="btn btn-md dropdown-toggle text-white my-bg-blue mr-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="btn btn-md dropdown-toggle btn-avanzato mr-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Avanzata
                                     </a>
-
                                     <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
-                                        <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° m²" aria-label="Username" aria-describedby="basic-addon1">
-                                        <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° ospiti" aria-label="Username" aria-describedby="basic-addon1">
-                                        <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° stanze" aria-label="Username" aria-describedby="basic-addon1">
-                                        <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="dropdown-item form-control" placeholder="N° bagni" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° min m²" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N°min ospiti" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N°min  stanze" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="dropdown-item form-control" placeholder="N° min bagni" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
                                 </div>
                                 <div class="input-group">
@@ -180,5 +179,17 @@ export default {
         url('/images/search-background.jpg');
         background-position: center;
         background-size: cover;
-}
+    }
+
+    .btn-avanzato{
+        color: white;
+        background-color: rgb(37, 82, 207);
+        border: 2px solid transparent;
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+        &:hover{
+        background-color: white !important;
+        color: rgb(37, 82, 207);
+        border:2px solid rgb(37, 82, 207);
+        }
+    }
 </style>

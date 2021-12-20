@@ -2441,7 +2441,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2704,7 +2703,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".loader[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(37, 37, 37, 0.911);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9;\n}\n.spinner-border[data-v-2d816b0d] {\n  width: 250px;\n  height: 250px;\n}\n.loading[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2rem;\n}\n.my-search-card[data-v-2d816b0d] {\n  background-image: linear-gradient(to bottom, rgba(40, 41, 51, 0.52), rgba(40, 41, 51, 0.52)), url(\"/images/search-background.jpg\");\n  background-position: center;\n  background-size: cover;\n}", ""]);
+exports.push([module.i, ".loader[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(37, 37, 37, 0.911);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9;\n}\n.spinner-border[data-v-2d816b0d] {\n  width: 250px;\n  height: 250px;\n}\n.loading[data-v-2d816b0d] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2rem;\n}\n.my-search-card[data-v-2d816b0d] {\n  background-image: linear-gradient(to bottom, rgba(40, 41, 51, 0.52), rgba(40, 41, 51, 0.52)), url(\"/images/search-background.jpg\");\n  background-position: center;\n  background-size: cover;\n}\n.btn-avanzato[data-v-2d816b0d] {\n  color: white;\n  background-color: #2552cf;\n  border: 2px solid transparent;\n  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;\n}\n.btn-avanzato[data-v-2d816b0d]:hover {\n  background-color: white !important;\n  color: #2552cf;\n  border: 2px solid #2552cf;\n}", ""]);
 
 // exports
 
@@ -4005,7 +4004,7 @@ var render = function () {
                       "a",
                       {
                         staticClass:
-                          "btn btn-md dropdown-toggle text-white my-bg-blue mr-2",
+                          "btn btn-md dropdown-toggle btn-avanzato mr-2",
                         attrs: {
                           href: "#",
                           role: "button",
@@ -4042,7 +4041,7 @@ var render = function () {
                           attrs: {
                             id: "input-search",
                             type: "text",
-                            placeholder: "N° m²",
+                            placeholder: "N° min m²",
                             "aria-label": "Username",
                             "aria-describedby": "basic-addon1",
                           },
@@ -4085,7 +4084,7 @@ var render = function () {
                           attrs: {
                             id: "input-search",
                             type: "text",
-                            placeholder: "N° ospiti",
+                            placeholder: "N°min ospiti",
                             "aria-label": "Username",
                             "aria-describedby": "basic-addon1",
                           },
@@ -4128,7 +4127,7 @@ var render = function () {
                           attrs: {
                             id: "input-search",
                             type: "text",
-                            placeholder: "N° stanze",
+                            placeholder: "N°min  stanze",
                             "aria-label": "Username",
                             "aria-describedby": "basic-addon1",
                           },
@@ -4171,7 +4170,7 @@ var render = function () {
                           attrs: {
                             id: "input-search",
                             type: "text",
-                            placeholder: "N° bagni",
+                            placeholder: "N° min bagni",
                             "aria-label": "Username",
                             "aria-describedby": "basic-addon1",
                           },
@@ -17006,7 +17005,7 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

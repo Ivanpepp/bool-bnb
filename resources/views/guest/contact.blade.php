@@ -43,7 +43,7 @@
                         </div>
                         <div class="d-flex justify-content-around">
                             <button type="submit" class="btn my-btn">Invia</button>
-                            <a href="{{ route('guest.home') }}" class="btn my-btn-delate">Annulla</a>
+                            <a href="{{ route('guest.home') }}" class="btn my-btn-delete">Annulla</a>
                         </div>
                     </form>
                 </div>

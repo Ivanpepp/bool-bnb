@@ -1,3 +1,16 @@
 #host-index{
     height : calc(100% - 271px);
 }
+
+.btn-new{
+    color: white;
+    background-color: rgb(37, 82, 207);
+    border: 2px solid transparent;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+
+    &:hover{
+        color: rgb(37, 82, 207);
+        background-color: white;
+        border: 2px solid rgb(37, 82, 207);
+    }
+}

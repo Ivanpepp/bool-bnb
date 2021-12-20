@@ -153,7 +153,7 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-center pt-4">
-                            <a class="btn my-bg-blue text-white" href="{{route('host.apartments.create')}}" style="width: 100%">Nuovo</a>
+                            <a class="btn btn-new" href="{{route('host.apartments.create')}}" style="width: 100%">Nuovo</a>
                         </div>
                     </div>
                 </div>

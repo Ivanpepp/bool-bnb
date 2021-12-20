@@ -36,7 +36,7 @@
                                         <td class="d-none d-lg-table-cell">{{$message->created_at}}</td> -->
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <a class="btn btn-sm my-bg-blue text-white mr-2" href="{{route('host.mail.show', $message)}}">APRI</a>
+                                                <a class="btn btn-sm my-bg-blue btn-msg mr-2" href="{{route('host.mail.show', $message)}}">APRI</a>
                                                 <form id="my-delete-msg"action="{{route('host.mail.destroy', $message->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

@@ -10104,12 +10104,35 @@ h3 {
   height: calc(100% - 271px);
 }
 
+.btn-new {
+  color: white;
+  background-color: #2552cf;
+  border: 2px solid transparent;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+.btn-new:hover {
+  color: #2552cf;
+  background-color: white;
+  border: 2px solid #2552cf;
+}
+
 #auth-index {
   height: calc(100% - 271px);
 }
 
 #show-email {
   height: calc(100vh - 271px);
+}
+
+.btn-msg {
+  color: white;
+  border: 2px solid transparent;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+.btn-msg:hover {
+  background-color: white !important;
+  color: #2552cf;
+  border: 2px solid #2552cf;
 }
 
 .my-wrap-container .my-img-container .my-img {
@@ -10142,13 +10165,17 @@ h3 {
 .my-wrap-container .my-card-price .my-btn {
   background-color: #03b931;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border-radius: 10px;
+  border: 2px solid transparent;
   position: absolute;
-  bottom: 5px;
+  bottom: 20px;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
 .my-wrap-container .my-card-price .my-btn:hover {
-  background-color: #71ff95;
+  background-color: white;
+  color: #03b931;
+  border: 2px solid #03b931;
 }
 .my-wrap-container #map {
   width: 100%;
@@ -10233,6 +10260,7 @@ h3 {
   padding: 10px 20px;
   border-radius: 10px;
   margin-right: 3px;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
 .my-wrap-container-host .my-btn:hover {
   background-color: white;
@@ -10243,6 +10271,7 @@ h3 {
   background-color: red;
   color: white;
   border: 2px solid transparent;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
 .my-wrap-container-host .my-btn-delate:hover {
   background-color: white;
@@ -10326,22 +10355,22 @@ h3 {
   background-color: #2552cf;
   color: white;
   border: 2px solid transparent;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
 #my-wrap-contact .my-btn:hover {
   background-color: white;
   color: #2552cf;
-  transform: scale(1.1);
   border: 2px solid #2552cf;
 }
-#my-wrap-contact .my-btn-delate {
+#my-wrap-contact .my-btn-delete {
   background-color: red;
   color: white;
   border: 2px solid transparent;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
-#my-wrap-contact .my-btn-delate:hover {
+#my-wrap-contact .my-btn-delete:hover {
   background-color: white;
   color: red;
-  transform: scale(1.1);
   border: 2px solid red;
 }
 #my-wrap-contact .my-text-color {
