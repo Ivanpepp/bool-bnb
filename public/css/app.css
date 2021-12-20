@@ -10303,3 +10303,11 @@ h3 {
 #auth-footer-fix {
   height: calc(100vh - 271px);
 }
+
+#my-wrap-contact .my-btn {
+  background-color: #2552cf;
+  color: white;
+}
+#my-wrap-contact .my-text-color {
+  color: #2552cf;
+}
