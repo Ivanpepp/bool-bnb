@@ -10,7 +10,7 @@
 
                     @foreach($apartment->photos as $key=> $photo)
                         
-                        <img class="my-img mb-1" src="$photo->image_thumb" alt="">
+                        <img class="my-img mb-1" src="{{ $photo->getImagePrefix() . $photo->image_thumb }}" alt="">
                         
                     @endforeach
 

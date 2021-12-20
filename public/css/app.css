@@ -10138,7 +10138,7 @@ h3 {
 .my-wrap-container .my-img-container .my-img {
   height: 200px;
   width: 100%;
-  background-color: #464647;
+  /* background-color: rgb(70, 70, 71); */
   border-radius: 10px;
 }
 .my-wrap-container .my-list-service ul {
