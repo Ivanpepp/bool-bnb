@@ -155,4 +155,4 @@
         marker.setPopup(popup).togglePopup();
     </script>
 
-    @endsection
+@endsection

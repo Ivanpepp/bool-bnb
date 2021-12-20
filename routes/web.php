@@ -28,7 +28,7 @@ Route::post('/guest/contatti', 'Guest\HomeController@contactFormHandler')->name(
 Route::get('/thanks', 'Guest\HomeController@contactFormEnder')->name('guest.thanks');
 Route::get('/welcome' , 'Guest\HomeController@welcome')->name('welcome');
 
-Route::get("/chart/{id}", "Host\ApartmentController@MessageStats")->name("host.apartments.chart");
+
 
 Route::middleware('auth')
 ->namespace('Host')
@@ -40,6 +40,7 @@ Route::middleware('auth')
     Route::resource('users', 'UserController');
     Route::resource('mail', 'MessageController');
     Route::get('/sponsor/payment/{id}','ApartmentController@payment')->name('payment');
+    Route::get("/apartments/chart/{id}", "ApartmentController@MessageStats")->name("chart");
 });
 
 

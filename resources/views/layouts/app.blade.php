@@ -162,7 +162,7 @@
         </main>
 
         <!-- FOOTER APP -->
-        <footer class="my-footer pt-5">
+        <footer class="my-footer pt-5" id="my-footer-second">
             <div class="container-fluid">
                 <div class="row d-flex flex-row">
                     <div class="col-sm-6 col-lg-3">

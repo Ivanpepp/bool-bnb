@@ -10079,6 +10079,10 @@ h3 {
   border-bottom-right-radius: 5px;
 }
 
+#my-footer-second {
+  background-color: #e9e7e7;
+}
+
 .my-wrap-container .my-img-container .my-img {
   height: 200px;
   width: 100%;
