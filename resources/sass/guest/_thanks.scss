@@ -1,0 +1,22 @@
+#my-thanks-wrap{
+    height : calc(100vh - 271px);
+
+    .my-border-wrap{
+        border-radius:10px;
+    }
+    .my-text-color{
+        color:rgb(37, 82, 207);
+    }
+
+    .my-btn{
+        background-color:rgb(37, 82, 207);
+        color:white;
+        border: 2px solid transparent;
+        &:hover{
+            background-color:white;
+            color:rgb(37, 82, 207);
+            transform: scale(1.1);
+            border:2px solid rgb(37, 82, 207);
+        }
+    }
+}
