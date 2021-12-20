@@ -27,9 +27,9 @@
                                 <span class="sr-only">Next</span>
                             </a>
                     </div> -->
-                   <div>
+                   <div class=" ">
                     @foreach($apartment->photos as $key=> $photo)
-                    <img class="col-sm-6 col-lg-3 my-img mb-1 img-fluid" src="{{ $photo->getImagePrefix() . $photo->image_thumb }}" alt="">
+                    <img  class="col-sm-6 col-lg-3 my-img mb-1 img-fluid rounded" src="{{ $photo->getImagePrefix() . $photo->image_thumb }}" alt="">
                     @endforeach
                    </div>
                 
@@ -157,5 +157,6 @@
         }).setHTML(city);
         marker.setPopup(popup).togglePopup();
     </script>
+
 
 @endsection

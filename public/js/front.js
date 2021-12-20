@@ -3928,9 +3928,9 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col-xs-12 col-sm-6 col-lg-4 mb-3 my-card ivan-card" },
+    { staticClass: "col-xs-12 col-sm-6 col-lg-4 mb-3 my-card ivan-card " },
     [
-      _c("div", { staticClass: " col-sm-12 col-lg-12 my-img-container" }, [
+      _c("div", { staticClass: " col-sm-12 col-lg-12 my-img-container " }, [
         _c("img", {
           staticClass: "img-fluid",
           attrs: {

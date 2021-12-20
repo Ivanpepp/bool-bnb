@@ -18,8 +18,8 @@
             </div>
         </form>
     </div> -->
-    <div class="col-xs-12 col-sm-6 col-lg-4 mb-3 my-card ivan-card">
-        <div class=" col-sm-12 col-lg-12 my-img-container">
+    <div class="col-xs-12 col-sm-6 col-lg-4 mb-3 my-card ivan-card ">
+        <div class=" col-sm-12 col-lg-12 my-img-container ">
             <img  class="img-fluid" :src="'http://127.0.0.1:8000/storage/apartments/images/'+photoIds[0]" alt="">
         </div>
         <div class="col-lg-12 pt-2">
