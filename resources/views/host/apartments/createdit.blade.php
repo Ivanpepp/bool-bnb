@@ -166,7 +166,7 @@
                                 <textarea  class="form-control" type="textarea" placeholder="Inserisci la descrizione dell'appartamento" id="description" name="description" >{{old('description', $apartment->description) }} </textarea>
                             </div>
                         </div> 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <div class="col-6 d-flex align-items-center flex-row-reverse">
                                 <div class="my-text-blue text-right pt-3 pb-3">
                                     <legend class="h5">Visibilità</legend>
@@ -212,7 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <hr>
                         <div class="row">
                             <div class="col-12">
