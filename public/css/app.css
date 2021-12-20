@@ -10085,6 +10085,12 @@ h3 {
 #my-footer-second {
   background-color: #e9e7e7;
 }
+#my-footer-second ul {
+  list-style-type: none;
+}
+#my-footer-second ul a {
+  text-decoration: none;
+}
 
 .navbar-light {
   transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) all !important;
@@ -10098,7 +10104,11 @@ h3 {
   height: calc(100% - 271px);
 }
 
-#auth-index, #show-email {
+#auth-index {
+  height: calc(100% - 271px);
+}
+
+#show-email {
   height: calc(100vh - 271px);
 }
 
