@@ -28,6 +28,8 @@ Route::post('/guest/contatti', 'Guest\HomeController@contactFormHandler')->name(
 Route::get('/thanks', 'Guest\HomeController@contactFormEnder')->name('guest.thanks');
 Route::get('/welcome' , 'Guest\HomeController@welcome')->name('welcome');
 
+Route::get("/chart/{id}", "Host\ApartmentController@MessageStats")->name("host.apartments.chart");
+
 Route::middleware('auth')
 ->namespace('Host')
 ->prefix('host')

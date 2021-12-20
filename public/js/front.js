@@ -16903,7 +16903,11 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/front.js */"./resources/js/front.js");
+=======
+module.exports = __webpack_require__(/*! C:\laravel\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+>>>>>>> stats-graph
 
 
 /***/ })
