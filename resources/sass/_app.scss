@@ -34,9 +34,9 @@
         text-decoration: none;
     }
 
-    .my-main-padding{
+    /* .my-main-padding{
         padding-bottom: 45px;
-    }
+    } */
     
     // FOOTER APP BLADE
     .my-footer{
@@ -46,6 +46,7 @@
         // bottom: 0;
         // width: 100%;
         // position:absolute;
+      /*  height: 195px;  */
 
         ul{
             list-style-type:none;
@@ -83,9 +84,10 @@
 
 #my-footer-second{
     background-color: rgb(233, 231, 231);
-    // position: fixed;
-    // left: 0;
-    // bottom: 0;
-    // width: 100%;
-    // position:absolute;
+}
+.navbar-light{
+    transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) all !important;
+}
+.navbar-dark{
+    transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) all !important;
 }

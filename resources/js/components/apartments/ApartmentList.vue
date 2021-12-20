@@ -1,56 +1,67 @@
 <template>
-<section>
     <div>
-        <div>
-            <Map />
-        </div>       
-    </div>
-                <div class="my-search-card d-flex align-content-center">
-                <!-- <div class="input-group">
-                    <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per città o indirizzo " aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="inpu-group d-flex">
-                    <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
-                    <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo ospiti " aria-label="Username" aria-describedby="basic-addon1">
-                    <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
-                    <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
-                </div> -->
-                    <div class="container">
-                        <div class="search-bar p-5 d-flex">
-                            <div class="dropdown show">
-                                <a class="btn btn-md dropdown-toggle text-white my-bg-blue mr-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Avanzata
-                                </a>
+            <div v-if="isLoading" class="loader">
 
-                                <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
-                                    <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° m²" aria-label="Username" aria-describedby="basic-addon1">
-                                    <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° ospiti" aria-label="Username" aria-describedby="basic-addon1">
-                                    <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° stanze" aria-label="Username" aria-describedby="basic-addon1">
-                                    <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="dropdown-item form-control" placeholder="N° bagni" aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control" placeholder="Cerca per indirizzo n° e/o città" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                        </div>
+                    <div class="spinner-border text-white" role="status" >
 
                     </div>
-                </div> 
-    <div class="container pt-4">
-        <div class="row">
-                <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id" :photos='photos' :apartment='apartment' :baseUri='baseUri'/>
-            
-        </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination pagination-lg">
-                <li v-if="currentPage > 1" class="page-item"><button class="page-link" @click='getApartmentList(currentPage - 1)' >Precedente</button></li>
-                <li v-for="n in lastPage" :key='n' class="page-item" :class="{active : n === currentPage}"><button  class="page-link" @click="getApartmentList(n)">{{n}}</button></li>
-                <li v-if="currentPage < lastPage" class="page-item"><button class="page-link" @click='getApartmentList(currentPage + 1)' >Successivo</button></li>
-            </ul>
-        </nav>
-    </div>
+                    <span class="text-white loading">Loading...</span>
 
-</section>
+             </div>
+            <section v-else>
+                    <div>
+                        <div>
+                            <Map />
+                        </div>       
+                    </div>
+                    <div class="my-search-card d-flex align-content-center">
+                    <!-- <div class="input-group">
+                        <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per città o indirizzo " aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="inpu-group d-flex">
+                        <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo di metri quadri " aria-label="Username" aria-describedby="basic-addon1">
+                        <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo ospiti " aria-label="Username" aria-describedby="basic-addon1">
+                        <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo stanze da letto " aria-label="Username" aria-describedby="basic-addon1">
+                        <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="form-control mb-4" placeholder="Cerca per minimo bagni " aria-label="Username" aria-describedby="basic-addon1">
+                    </div> -->
+                        <div class="container">
+                            <div class="search-bar p-5 d-flex">
+                                <div class="dropdown show">
+                                    <a class="btn btn-md dropdown-toggle text-white my-bg-blue mr-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Avanzata
+                                    </a>
+
+                                    <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
+                                        <input  @keyup.enter="filterCity" v-model='minMq' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° m²" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minGuest' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° ospiti" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minRoom' id="input-search" type="text" class="dropdown-item form-control mb-2" placeholder="N° stanze" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterCity" v-model='minBath' id="input-search" type="text" class="dropdown-item form-control" placeholder="N° bagni" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input  @keyup.enter="filterCity" v-model='search' id="input-search" type="text" class="form-control" placeholder="Cerca per indirizzo n° e/o città" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> 
+                    
+        <div class="container pt-4">
+            <div class="row">
+                    <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id" :photos='photos' :apartment='apartment' :baseUri='baseUri'/>
+                
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-lg">
+                    <li v-if="currentPage > 1" class="page-item"><button class="page-link" @click='getApartmentList(currentPage - 1)' >Precedente</button></li>
+                    <li v-for="n in lastPage" :key='n' class="page-item" :class="{active : n === currentPage}"><button  class="page-link" @click="getApartmentList(n)">{{n}}</button></li>
+                    <li v-if="currentPage < lastPage" class="page-item"><button class="page-link" @click='getApartmentList(currentPage + 1)' >Successivo</button></li>
+                </ul>
+            </nav>
+        </div>
+
+    </section>
+    </div>
 </template>
 
 <script>
@@ -86,7 +97,7 @@ export default {
            .then((res)=>{
                this.apartments=res.data.data;
                this.photos=res.data.photos;
-               console.log(this.photos);
+               /* console.log(this.photos); */
            })
            .catch((err)=>{
                console.error(err);

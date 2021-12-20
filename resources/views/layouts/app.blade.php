@@ -33,7 +33,7 @@
         <div class="div-height"></div>
         <div class="my-header">
             <div class="pos-f-t">
-                <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top shadow-lg">
                     <div class="container">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             Bool<span class="my_blue">BNB</span>
@@ -156,7 +156,7 @@
         </main>
 
         <!-- FOOTER APP -->
-        <footer class="my-footer pt-5" id="my-footer-second">
+        <footer class="my-footer pt-5 d-none" id="my-footer-second">
             <div class="container-fluid">
                 <div class="row d-flex flex-row">
                     <div class="col-sm-6 col-lg-3">
@@ -299,6 +299,12 @@
             hiddenNav.classList.remove('show')
         }
     };
+
+    const myTimeout = setTimeout(myGreeting, 500);
+
+        function myGreeting() {
+        document.getElementById("my-footer-second").classList.add('d-block');
+}
 </script>
 
 </html>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="my-wrap-container-host pt-4">
+    <div class="my-wrap-container-host pt-4 " id="host-show">
         <div class="container">
             <div class="row">
 
@@ -95,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="" id='map'></div>
+                <div class="shadow" id='map'></div>
 
                 <section>
                     <div class="button pt-2 pb-2 text-center d-flex justify-content-around">

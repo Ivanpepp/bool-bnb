@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5 p-3  my-container-email">
+    <div class="container  p-3 border my-container-email" id="show-email">
         <div class="form-group">
 
             <h4 class="my-section-contact pb-2">Messaggio da {{$message->name}} {{$message->surname}}</h4>
