@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="auth-footer-fix">
-    <div class="container pt-4">
+<section id="auth-footer-fix" >
+    <div class="container pt-4 ">
         <div class="row justify-content-center p-4">
             <div class="col-md-8">
-                <div class="card p-4">
+                <div class="card p-4 shadow">
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf

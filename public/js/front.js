@@ -2337,11 +2337,36 @@ __webpack_require__.r(__webpack_exports__);
   name: 'ApartmentCard',
   props: ['apartment', 'baseUri', 'photos'],
   data: function data() {
-    return {};
+    return {
+      photoIds: []
+    };
+  },
+  created: function created() {
+    this.imageSelector();
+    console.log(this.photoIds);
   },
   methods: {
     getUri: function getUri() {
       return "".concat(this.baseUri, "/guest/").concat(this.apartment.id);
+    }
+  },
+  computed: {
+    imageSelector: function imageSelector() {
+      var _this = this;
+
+      /*  for(let i=0; i<120; i++ ){
+           if( this.apartment.id === this.photos.apartment_id){
+            this.photoIds.push(this.photos.image_thumb)
+               
+           }
+        
+       } */
+      this.photos.forEach(function (element) {
+        if (element.apartment_id === _this.apartment.id) {
+          _this.photoIds.push(element.image_thumb);
+        }
+      });
+      return this.photoIds;
     }
   }
 });
@@ -2359,6 +2384,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApartmentCard.vue */ "./resources/js/components/apartments/ApartmentCard.vue");
 /* harmony import */ var _Map_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Map.vue */ "./resources/js/components/apartments/Map.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2445,7 +2481,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("".concat(this.baseUri, "/api/apartments")).then(function (res) {
         _this.apartments = res.data.data;
         _this.photos = res.data.photos;
-        console.log(_this.photos);
+        /* console.log(this.photos); */
       })["catch"](function (err) {
         console.error(err);
       }).then(function () {
@@ -2453,7 +2489,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
     /*   kmCoverter(lat1,lon1){
-               // generally used geo measurement function
+             // generally used geo measurement function
               let R = 6378.137; // Radius of earth in KM
               let dLat = lat1 * Math.PI / 180;
               let dLon = lon1 * Math.PI / 180;
@@ -2679,7 +2715,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\n.search-container{\r\n    position: relative;\n}\n#query{\r\n    position: absolute;\r\n    top: 100px;\r\n    left: 40px;\r\n    z-index: 99;\r\n    border: none;\n}\n#query:focus{\r\n    outline: none !important;\r\n    box-shadow: 0 0 10px #719ECE;\n}\r\n", ""]);
+exports.push([module.i, "\n#map {\n  height: 650px;\n  width: 100%;\n}\n.search-container{\n    position: relative;\n}\n#query{\n    position: absolute;\n    top: 100px;\n    left: 40px;\n    z-index: 99;\n    border: none;\n}\n#query:focus{\n    outline: none !important;\n    box-shadow: 0 0 10px #719ECE;\n}\n", ""]);
 
 // exports
 
@@ -3883,7 +3919,17 @@ var render = function () {
     "div",
     { staticClass: "col-xs-12 col-sm-6 col-lg-4 mb-2 my-card" },
     [
-      _c("div", { staticClass: "img" }, [_vm._v("img")]),
+      _c("img", {
+        staticClass: "image-fluid",
+        attrs: {
+          width: "200px",
+          height: "200px",
+          src:
+            "http://127.0.0.1:8000/storage/apartments/images/" +
+            _vm.photoIds[0],
+          alt: "",
+        },
+      }),
       _vm._v(" "),
       _c("h3", [
         _c("a", { attrs: { href: _vm.getUri() } }, [
@@ -3893,7 +3939,7 @@ var render = function () {
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.apartment.city))]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.photos[0].image_thumb))]),
+      _c("p", [_vm._v(_vm._s(_vm.photoIds[0]))]),
     ]
   )
 }
@@ -3919,319 +3965,366 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
-    _c("div", [_c("div", [_c("Map")], 1)]),
-    _vm._v(" "),
-    _c("div", { staticClass: "my-search-card d-flex align-content-center" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "search-bar p-5 d-flex" }, [
-          _c("div", { staticClass: "dropdown show" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "btn btn-md dropdown-toggle text-white my-bg-blue mr-2",
-                attrs: {
-                  href: "#",
-                  role: "button",
-                  id: "dropdownMenuLink",
-                  "data-toggle": "dropdown",
-                  "aria-haspopup": "true",
-                  "aria-expanded": "false",
-                },
-              },
-              [
-                _vm._v(
-                  "\r\n                                    Avanzata\r\n                                "
-                ),
-              ]
-            ),
-            _vm._v(" "),
+  return _c("div", [
+    _vm.isLoading
+      ? _c("div", { staticClass: "loader" }, [
+          _c("div", {
+            staticClass: "spinner-border text-white",
+            attrs: { role: "status" },
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-white loading" }, [
+            _vm._v("Loading..."),
+          ]),
+        ])
+      : _c("section", [
+          _c("div", [_c("div", [_c("Map")], 1)]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "my-search-card d-flex align-content-center" },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "search-bar p-5 d-flex" }, [
+                  _c("div", { staticClass: "dropdown show" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "btn btn-md dropdown-toggle text-white my-bg-blue mr-2",
+                        attrs: {
+                          href: "#",
+                          role: "button",
+                          id: "dropdownMenuLink",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false",
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                                    Avanzata\n                                "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu p-2",
+                        attrs: { "aria-labelledby": "dropdownMenuLink" },
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.minMq,
+                              expression: "minMq",
+                            },
+                          ],
+                          staticClass: "dropdown-item form-control mb-2",
+                          attrs: {
+                            id: "input-search",
+                            type: "text",
+                            placeholder: "N° m²",
+                            "aria-label": "Username",
+                            "aria-describedby": "basic-addon1",
+                          },
+                          domProps: { value: _vm.minMq },
+                          on: {
+                            keyup: function ($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.filterCity.apply(null, arguments)
+                            },
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.minMq = $event.target.value
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.minGuest,
+                              expression: "minGuest",
+                            },
+                          ],
+                          staticClass: "dropdown-item form-control mb-2",
+                          attrs: {
+                            id: "input-search",
+                            type: "text",
+                            placeholder: "N° ospiti",
+                            "aria-label": "Username",
+                            "aria-describedby": "basic-addon1",
+                          },
+                          domProps: { value: _vm.minGuest },
+                          on: {
+                            keyup: function ($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.filterCity.apply(null, arguments)
+                            },
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.minGuest = $event.target.value
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.minRoom,
+                              expression: "minRoom",
+                            },
+                          ],
+                          staticClass: "dropdown-item form-control mb-2",
+                          attrs: {
+                            id: "input-search",
+                            type: "text",
+                            placeholder: "N° stanze",
+                            "aria-label": "Username",
+                            "aria-describedby": "basic-addon1",
+                          },
+                          domProps: { value: _vm.minRoom },
+                          on: {
+                            keyup: function ($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.filterCity.apply(null, arguments)
+                            },
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.minRoom = $event.target.value
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.minBath,
+                              expression: "minBath",
+                            },
+                          ],
+                          staticClass: "dropdown-item form-control",
+                          attrs: {
+                            id: "input-search",
+                            type: "text",
+                            placeholder: "N° bagni",
+                            "aria-label": "Username",
+                            "aria-describedby": "basic-addon1",
+                          },
+                          domProps: { value: _vm.minBath },
+                          on: {
+                            keyup: function ($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.filterCity.apply(null, arguments)
+                            },
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.minBath = $event.target.value
+                            },
+                          },
+                        }),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.search,
+                          expression: "search",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "input-search",
+                        type: "text",
+                        placeholder: "Cerca per indirizzo n° e/o città",
+                        "aria-label": "Username",
+                        "aria-describedby": "basic-addon1",
+                      },
+                      domProps: { value: _vm.search },
+                      on: {
+                        keyup: function ($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.filterCity.apply(null, arguments)
+                        },
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.search = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "container pt-4" }, [
             _c(
               "div",
-              {
-                staticClass: "dropdown-menu p-2",
-                attrs: { "aria-labelledby": "dropdownMenuLink" },
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.minMq,
-                      expression: "minMq",
-                    },
-                  ],
-                  staticClass: "dropdown-item form-control mb-2",
+              { staticClass: "row" },
+              _vm._l(_vm.filterCity, function (apartment) {
+                return _c("ApartmentCard", {
+                  key: apartment.id,
                   attrs: {
-                    id: "input-search",
-                    type: "text",
-                    placeholder: "N° m²",
-                    "aria-label": "Username",
-                    "aria-describedby": "basic-addon1",
+                    photos: _vm.photos,
+                    apartment: apartment,
+                    baseUri: _vm.baseUri,
                   },
-                  domProps: { value: _vm.minMq },
-                  on: {
-                    keyup: function ($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.filterCity.apply(null, arguments)
-                    },
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.minMq = $event.target.value
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.minGuest,
-                      expression: "minGuest",
-                    },
-                  ],
-                  staticClass: "dropdown-item form-control mb-2",
-                  attrs: {
-                    id: "input-search",
-                    type: "text",
-                    placeholder: "N° ospiti",
-                    "aria-label": "Username",
-                    "aria-describedby": "basic-addon1",
-                  },
-                  domProps: { value: _vm.minGuest },
-                  on: {
-                    keyup: function ($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.filterCity.apply(null, arguments)
-                    },
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.minGuest = $event.target.value
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.minRoom,
-                      expression: "minRoom",
-                    },
-                  ],
-                  staticClass: "dropdown-item form-control mb-2",
-                  attrs: {
-                    id: "input-search",
-                    type: "text",
-                    placeholder: "N° stanze",
-                    "aria-label": "Username",
-                    "aria-describedby": "basic-addon1",
-                  },
-                  domProps: { value: _vm.minRoom },
-                  on: {
-                    keyup: function ($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.filterCity.apply(null, arguments)
-                    },
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.minRoom = $event.target.value
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.minBath,
-                      expression: "minBath",
-                    },
-                  ],
-                  staticClass: "dropdown-item form-control",
-                  attrs: {
-                    id: "input-search",
-                    type: "text",
-                    placeholder: "N° bagni",
-                    "aria-label": "Username",
-                    "aria-describedby": "basic-addon1",
-                  },
-                  domProps: { value: _vm.minBath },
-                  on: {
-                    keyup: function ($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.filterCity.apply(null, arguments)
-                    },
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.minBath = $event.target.value
-                    },
-                  },
-                }),
-              ]
+                })
+              }),
+              1
             ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.search,
-                  expression: "search",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: {
-                id: "input-search",
-                type: "text",
-                placeholder: "Cerca per indirizzo n° e/o città",
-                "aria-label": "Username",
-                "aria-describedby": "basic-addon1",
-              },
-              domProps: { value: _vm.search },
-              on: {
-                keyup: function ($event) {
-                  if (
-                    !$event.type.indexOf("key") &&
-                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                  ) {
-                    return null
-                  }
-                  return _vm.filterCity.apply(null, arguments)
-                },
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.search = $event.target.value
-                },
-              },
-            }),
+            _vm._v(" "),
+            _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+              _c(
+                "ul",
+                { staticClass: "pagination pagination-lg" },
+                [
+                  _vm.currentPage > 1
+                    ? _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "page-link",
+                            on: {
+                              click: function ($event) {
+                                return _vm.getApartmentList(_vm.currentPage - 1)
+                              },
+                            },
+                          },
+                          [_vm._v("Precedente")]
+                        ),
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm._l(_vm.lastPage, function (n) {
+                    return _c(
+                      "li",
+                      {
+                        key: n,
+                        staticClass: "page-item",
+                        class: { active: n === _vm.currentPage },
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "page-link",
+                            on: {
+                              click: function ($event) {
+                                return _vm.getApartmentList(n)
+                              },
+                            },
+                          },
+                          [_vm._v(_vm._s(n))]
+                        ),
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _vm.currentPage < _vm.lastPage
+                    ? _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "page-link",
+                            on: {
+                              click: function ($event) {
+                                return _vm.getApartmentList(_vm.currentPage + 1)
+                              },
+                            },
+                          },
+                          [_vm._v("Successivo")]
+                        ),
+                      ])
+                    : _vm._e(),
+                ],
+                2
+              ),
+            ]),
           ]),
         ]),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container pt-4" }, [
-      _c(
-        "div",
-        { staticClass: "row" },
-        _vm._l(_vm.filterCity, function (apartment) {
-          return _c("ApartmentCard", {
-            key: apartment.id,
-            attrs: {
-              photos: _vm.photos,
-              apartment: apartment,
-              baseUri: _vm.baseUri,
-            },
-          })
-        }),
-        1
-      ),
-      _vm._v(" "),
-      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-        _c(
-          "ul",
-          { staticClass: "pagination pagination-lg" },
-          [
-            _vm.currentPage > 1
-              ? _c("li", { staticClass: "page-item" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "page-link",
-                      on: {
-                        click: function ($event) {
-                          return _vm.getApartmentList(_vm.currentPage - 1)
-                        },
-                      },
-                    },
-                    [_vm._v("Precedente")]
-                  ),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._l(_vm.lastPage, function (n) {
-              return _c(
-                "li",
-                {
-                  key: n,
-                  staticClass: "page-item",
-                  class: { active: n === _vm.currentPage },
-                },
-                [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "page-link",
-                      on: {
-                        click: function ($event) {
-                          return _vm.getApartmentList(n)
-                        },
-                      },
-                    },
-                    [_vm._v(_vm._s(n))]
-                  ),
-                ]
-              )
-            }),
-            _vm._v(" "),
-            _vm.currentPage < _vm.lastPage
-              ? _c("li", { staticClass: "page-item" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "page-link",
-                      on: {
-                        click: function ($event) {
-                          return _vm.getApartmentList(_vm.currentPage + 1)
-                        },
-                      },
-                    },
-                    [_vm._v("Successivo")]
-                  ),
-                ])
-              : _vm._e(),
-          ],
-          2
-        ),
-      ]),
-    ]),
   ])
 }
 var staticRenderFns = []
@@ -16899,7 +16992,7 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

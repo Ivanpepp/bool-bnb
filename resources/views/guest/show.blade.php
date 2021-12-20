@@ -95,7 +95,7 @@
 
                 <div class=" d-sm-none d-lg-block col-lg-4 d-flex justify-content-center pt-5 ">
 
-                    <div class=" col-sm-5 col-lg-7 p-2 my-card-price d-flex justify-content-center">
+                    <div class=" col-sm-5 col-lg-7 p-2 my-card-price d-flex justify-content-center ">
 
                         <p><strong>Prezzo: {{$apartment->price}}  &euro; </strong> / notte</p>
                         <a href="{{ route('guest.contact', $apartment->id) }}" class="my-btn">
@@ -105,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="" id='map'></div>
+                <div class="shadow mb-3" id='map'></div>
 
                 <section>
                         <input type='hidden' id="longitudine" value='{{ $apartment->longitude }}'>

@@ -19,10 +19,10 @@
         </form>
     </div> -->
     <div class="col-xs-12 col-sm-6 col-lg-4 mb-2 my-card">
-        <div class="img">img</div>
+        <img width="200px" height="200px" class="image-fluid" :src="'http://127.0.0.1:8000/storage/apartments/images/'+photoIds[0]" alt="">
         <h3><a :href="getUri()">{{apartment.title}}</a></h3>
         <p>{{apartment.city}}</p>
-        <p>{{photos[0].image_thumb}}</p>
+        <p>{{photoIds[0]}}</p>
     </div>
 </template>
 
@@ -33,13 +33,39 @@ export default {
 
     data(){
         return{
+            photoIds : [],
         }
+    },
+    created(){
+        this.imageSelector();
+        console.log(this.photoIds);
+        
     },
     methods:{
         getUri(){
             return `${this.baseUri}/guest/${this.apartment.id}`
-        }
+        },
+         
     },
+    computed:{
+         imageSelector(){
+           /*  for(let i=0; i<120; i++ ){
+                if( this.apartment.id === this.photos.apartment_id){
+                 this.photoIds.push(this.photos.image_thumb)
+                    
+                }
+             
+            } */
+            this.photos.forEach(element => {
+                if(element.apartment_id === this.apartment.id ){
+                this.photoIds.push(element.image_thumb)
+                }
+            });
+           
+            return this.photoIds;
+    }
+    }
+  
  
 }
 </script>

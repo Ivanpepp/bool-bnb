@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-3">
+    <div class="container pt-3" id="auth-index">
         <div class="wrapper row">
             <div class="col-12">
-                <div class="">
+                <div class="pt-5">
                     <!-- <div class="card-header">{{ __('Messaggi') }}</div> -->
         
-                    <div class="card-body">
+                    <div class="card-body shadow pt-5 ">
                         <table class="table table-hover p-2">
                             <thead class="d-none">
                                     <th class="col-6">Annuncio</th>

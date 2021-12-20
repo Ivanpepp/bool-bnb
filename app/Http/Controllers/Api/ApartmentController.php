@@ -20,9 +20,11 @@ class ApartmentController extends Controller
     {
         //
         
-        $data = Apartment::orderBy('created_at', 'desc')->get();
+        $data = Apartment::all();
         $sponsorships= Sponsorship::all();
         $photos = Photo::all();
+        /* $photosIds =  Apartment::where()->photos->get();
+        dd($photosIds); */
         // dd($photos);
 
         return response()->json(compact('data','sponsorships', 'photos'));
