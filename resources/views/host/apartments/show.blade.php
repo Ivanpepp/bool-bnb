@@ -62,11 +62,11 @@
                         <div class="my-card p-3 text-center">
                             <h4 class="pb-3">Gestisci il tuo locale</h4>
                             <div class="d-flex pb-3">
-                                <a href="{{route('host.apartments.edit', $apartment)}}" class="my-btn">MODIFICA</a>
+                                <a href="{{route('host.apartments.edit', $apartment)}}" class=" btn my-btn">MODIFICA</a>
                                 <form class="" action="{{route('host.apartments.destroy',$apartment)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="my-btn my-btn-delate">ELIMINA</button>
+                                    <button type="submit" class="btn my-btn my-btn-delate">ELIMINA</button>
                                 </form>
                             </div>
                         </div>

@@ -10219,17 +10219,25 @@ h3 {
 .my-wrap-container-host .my-btn {
   background-color: #2552cf;
   color: white;
+  border: 2px solid transparent;
   padding: 10px 20px;
   border-radius: 10px;
+  margin-right: 3px;
 }
 .my-wrap-container-host .my-btn:hover {
-  background-color: #7798f3;
+  background-color: white;
+  color: #2552cf;
+  border: 2px solid #2552cf;
 }
 .my-wrap-container-host .my-btn-delate {
   background-color: red;
+  color: white;
+  border: 2px solid transparent;
 }
 .my-wrap-container-host .my-btn-delate:hover {
-  background-color: #fc7c7c;
+  background-color: white;
+  color: red;
+  border: 2px solid red;
 }
 .my-wrap-container-host .my-btn-return {
   position: absolute;
