@@ -15,13 +15,13 @@ class PhotoSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $apartment_ids = Apartment::pluck('id')->toArray();
+/*         $apartment_ids = Apartment::pluck('id')->toArray();
 
         for ($i = 0 ; $i < 500 ; $i++){
             $newPhoto = new Photo();
             $newPhoto->apartment_id = Arr::random($apartment_ids);
             $newPhoto->image_thumb = $faker->imageUrl(400, 400, $newPhoto->apartment->title, true);
             $newPhoto->save();
-        }
+        } */
     }
 }

@@ -17,7 +17,7 @@ class ApartmentSeeder extends Seeder
     {
         $user_ids = User::pluck('id')->toArray();
 
-        for ($i = 0 ; $i < 101 ; $i++){
+/*         for ($i = 0 ; $i < 101 ; $i++){
             $newApartment = new Apartment();
             $newApartment->user_id = Arr::random($user_ids);
             $newApartment->title = $faker->sentence();
@@ -34,6 +34,6 @@ class ApartmentSeeder extends Seeder
             $newApartment->	mq = rand(30,500);
             $newApartment->	is_visible = true;
             $newApartment->save();
-        }
+        } */
     }
 }
