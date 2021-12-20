@@ -136,6 +136,7 @@
             center: defaultCenter,
             zoom: 15,
         });
+        map.scrollZoom.disable();
         map.addControl(new tt.FullscreenControl());
         map.addControl(new tt.NavigationControl());
         var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);

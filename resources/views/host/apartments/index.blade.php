@@ -126,6 +126,9 @@
                                         <a href="{{route('host.payment', $apartment->id)}}">
                                             <i class="my_blue fas fa-medal fa-md"></i>
                                         </a>
+                                        <a href="{{route('host.chart', $apartment->id)}}">
+                                        <i class="fas fa-chart-line fa-md"></i>
+                                        </a>
                                         <a href="{{route('host.apartments.edit', $apartment)}}" role="button">
                                             <i class="text-dark far fa-edit fa-md"></i>
                                         </a>
