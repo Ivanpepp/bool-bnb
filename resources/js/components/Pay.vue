@@ -1,18 +1,25 @@
 <template>
-  <div class="container">
+<div class="pay-fix">
+  <div class="container pt-4 mb-4">
     <div class="row">
-      <h2 v-if="loading" class="text-center">
-        Loading...
-      </h2>
-      <div v-else> 
-        <h1>Sponsorizza il tuo appartmento con ID n. #{{apartment.id}}</h1>
-       <div class="">
-          <Sponsor class="mx-3" v-for="sponsorship in sponsorships" :key='sponsorship.id' :sponsorship="sponsorship" />
-       </div>
+      <div class="col-12">
+        <div class="text-center">
+            <h2 class="p-4">Attiva un modello di sponsorship per "<span class="my-text-blue">{{apartment.title}} </span>"</h2>
+        </div>
+        <div class="card-body p-4 shadow">
+          <h2 v-if="loading" class="text-center">
+            Loading...
+          </h2>
+          <div v-else> 
+            <div class="">
+                <Sponsor class="mx-3" v-for="sponsorship in sponsorships" :key='sponsorship.id' :sponsorship="sponsorship" />
+            </div>
+          </div>
+        </div>
       </div>
       
     </div>
-    
+</div>
   </div>
 </template>
 
@@ -79,5 +86,7 @@ export default {
 </script>
 
 <style>
-
+.pay-fix{
+  height: calc(100% - 271px);
+}
 </style>

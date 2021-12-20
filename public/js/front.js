@@ -2484,7 +2484,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
     /*   kmCoverter(lat1,lon1){
-             // generally used geo measurement function
+               // generally used geo measurement function
               let R = 6378.137; // Radius of earth in KM
               let dLat = lat1 * Math.PI / 180;
               let dLon = lon1 * Math.PI / 180;
@@ -2726,7 +2726,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map {\n  height: 650px;\n  width: 100%;\n}\n.search-container{\n    position: relative;\n}\n#query{\n    position: absolute;\n    top: 100px;\n    left: 40px;\n    z-index: 99;\n    border: none;\n}\n#query:focus{\n    outline: none !important;\n    box-shadow: 0 0 10px #719ECE;\n}\n", ""]);
+exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\n.search-container{\r\n    position: relative;\n}\n#query{\r\n    position: absolute;\r\n    top: 100px;\r\n    left: 40px;\r\n    z-index: 99;\r\n    border: none;\n}\n#query:focus{\r\n    outline: none !important;\r\n    box-shadow: 0 0 10px #719ECE;\n}\r\n", ""]);
 
 // exports
 
@@ -3928,7 +3928,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col-xs-12 col-sm-6 col-lg-4 mb-3 my-card ivan-card" },
+    { staticClass: "col-xs-12 col-sm-6 col-lg-4 my-card ivan-card" },
     [
       _c("div", { staticClass: " col-sm-12 col-lg-12 my-img-container" }, [
         _c("img", {
@@ -3949,12 +3949,10 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _c("h5", [
-          _c("address", [
-            _vm._v(
-              _vm._s(_vm.apartment.address) + ", " + _vm._s(_vm.apartment.city)
-            ),
-          ]),
+        _c("address", { staticClass: "h5" }, [
+          _vm._v(
+            _vm._s(_vm.apartment.address) + ", " + _vm._s(_vm.apartment.city)
+          ),
         ]),
         _vm._v(" "),
         _c("p", [_c("strong", [_vm._v(_vm._s(_vm.apartment.price) + "  €")])]),
@@ -17017,7 +17015,7 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

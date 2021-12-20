@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-3 mb-5" id="auth-index">
+<div class="container pt-3" id="auth-index">
         <div class="wrapper row">
             <div class="col-12">
                 <div class="pt-5">

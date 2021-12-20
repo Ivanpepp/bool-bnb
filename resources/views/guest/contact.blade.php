@@ -1,5 +1,6 @@
 @extends("layouts.app")
 @section("content")
+<div class="contact-fix">
     <div class="container" id="my-wrap-contact">
         <div class="row justify-content-center pt-3">
             <h3 class="pt-2 pb-3 text-uppercase">Contatta per informazioni su : <span class="my-text-color"> {{$apartment->title}} </span></h3>
@@ -50,4 +51,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

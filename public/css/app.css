@@ -10101,7 +10101,7 @@ h3 {
 }
 
 #host-index {
-  height: calc(100% - 271px);
+  height: calc(100vh - 271px);
 }
 
 .btn-new {
@@ -10117,7 +10117,7 @@ h3 {
 }
 
 #auth-index {
-  height: calc(100% - 271px);
+  height: calc(100vh - 271px);
 }
 
 #show-email {
@@ -10315,6 +10315,10 @@ h3 {
   height: 300px;
 }
 
+.chart-fix {
+  height: calc(100vh - 271px);
+}
+
 .my-container-email {
   border: 2px solid #dbdbdb;
   border-radius: 10px;
@@ -10375,6 +10379,10 @@ h3 {
 }
 #my-wrap-contact .my-text-color {
   color: #2552cf;
+}
+
+.contact-fix {
+  height: calc(100vh - 271px);
 }
 
 #my-thanks-wrap {
