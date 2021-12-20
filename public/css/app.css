@@ -10047,7 +10047,7 @@ h3 {
   padding-bottom: 45px;
 }
 #my-wrap-homepage .my-footer {
-  background-color: #f5f1f1;
+  background-color: #e9e7e7;
 }
 #my-wrap-homepage .my-footer ul {
   list-style-type: none;
@@ -10079,16 +10079,6 @@ h3 {
   border-bottom-right-radius: 5px;
 }
 
-<<<<<<< HEAD
-td a {
-  color: #ffc107;
-}
-
-td a:hover {
-  color: #ffdb6f;
-  text-decoration: underline;
-}
-
 .my-wrap-container .my-img-container .my-img {
   height: 200px;
   width: 100%;
@@ -10098,11 +10088,6 @@ td a:hover {
 .my-wrap-container .my-list-service ul {
   padding-left: 0;
   margin: 0;
-=======
-.my_wrap_show img {
-  height: 500px;
-  width: 500px;
->>>>>>> jack-sabato
 }
 .my-wrap-container .my-list-service ul li {
   padding: 0;

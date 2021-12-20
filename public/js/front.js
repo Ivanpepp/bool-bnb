@@ -2453,7 +2453,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
     /*   kmCoverter(lat1,lon1){
-             // generally used geo measurement function
+               // generally used geo measurement function
               let R = 6378.137; // Radius of earth in KM
               let dLat = lat1 * Math.PI / 180;
               let dLon = lon1 * Math.PI / 180;
@@ -2679,11 +2679,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "\n#map {\n  height: 650px;\n  width: 100%;\n}\n", ""]);
-=======
 exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\n.search-container{\r\n    position: relative;\n}\n#query{\r\n    position: absolute;\r\n    top: 100px;\r\n    left: 40px;\r\n    z-index: 99;\r\n    border: none;\n}\n#query:focus{\r\n    outline: none !important;\r\n    box-shadow: 0 0 10px #719ECE;\n}\r\n", ""]);
->>>>>>> jack-sabato
 
 // exports
 
@@ -3946,7 +3942,7 @@ var render = function () {
               },
               [
                 _vm._v(
-                  "\n                                    Avanzata\n                                "
+                  "\r\n                                    Avanzata\r\n                                "
                 ),
               ]
             ),
@@ -16903,11 +16899,7 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/front.js */"./resources/js/front.js");
-=======
-module.exports = __webpack_require__(/*! C:\laravel\bool-bnb\resources\js\front.js */"./resources/js/front.js");
->>>>>>> stats-graph
+module.exports = __webpack_require__(/*! C:\Dev\Boolean\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
