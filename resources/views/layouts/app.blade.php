@@ -33,7 +33,7 @@
         <div class="div-height"></div>
         <div class="my-header">
             <div class="pos-f-t">
-                <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top">
                     <div class="container">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             Bool<span class="my_blue">BNB</span>
