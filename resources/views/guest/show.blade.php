@@ -107,16 +107,12 @@
 
                 <div class="" id='map'></div>
 
-<<<<<<< HEAD
                 <section>
                         <input type='hidden' id="longitudine" value='{{ $apartment->longitude }}'>
                         <input type='hidden' id="latitudine" value='{{ $apartment->latitude }}'>
                     </div>
                 </section>
 
-=======
-                
->>>>>>> jack-sabato
             </div>
             <section>
                 <div class="button pt-2 pb-2 text-center d-flex justify-content-around">
