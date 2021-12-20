@@ -37,8 +37,8 @@ export default {
         }
     },
     created(){
-        this.imageSelector();
-        console.log(this.photoIds);
+        this.imageSelector;
+   
         
     },
     methods:{
@@ -49,16 +49,9 @@ export default {
     },
     computed:{
          imageSelector(){
-           /*  for(let i=0; i<120; i++ ){
-                if( this.apartment.id === this.photos.apartment_id){
-                 this.photoIds.push(this.photos.image_thumb)
-                    
-                }
-             
-            } */
             this.photos.forEach(element => {
                 if(element.apartment_id === this.apartment.id ){
-                this.photoIds.push(element.image_thumb)
+                this.photoIds.push(element.image_thumb);
                 }
             });
            

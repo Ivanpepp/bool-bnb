@@ -12,6 +12,7 @@
 
 export default {
     name: 'Map',
+    props:['apartments'],
     Data(){
         return {
         }
@@ -37,16 +38,20 @@ export default {
             //     zoom: 15
             // });
             map.scrollZoom.disable();
-
-            var apartmentAssets = [
-                { lat: 41.89056, lng: 12.49427 },
+            let apartmentAssets = [
+                /* { lat: 41.89056, lng: 12.49427 },
                 { lat: 45.46362, lng: 9.18812 },
                 { lat: 38.11463, lng: 15.6502 },
                 { lat: 42.3507, lng: 13.39993 },
                 { lat: 42.44227, lng: 11.22066},
                 { lat: 45.43461, lng: 12.33891},
-                { lat: 40.92251, lng: 9.48685},
+                { lat: 40.92251, lng: 9.48685}, */
             ];
+            this.apartments.forEach(element => {
+                apartmentAssets.push({ lat: element.latitude, lng: element.longitude });
+                /* apartmentAssets.lng = element.longitude; */
+
+            });
             apartmentAssets.forEach(function (child) {
                 new tt.Marker().setLngLat(child).addTo(map);
             })
@@ -81,9 +86,28 @@ export default {
                 center: lnglat,
                 zoom: 13,  
                             
-                })
+                });
+                   let apartmentAssets = [
+                /* { lat: 41.89056, lng: 12.49427 },
+                { lat: 45.46362, lng: 9.18812 },
+                { lat: 38.11463, lng: 15.6502 },
+                { lat: 42.3507, lng: 13.39993 },
+                { lat: 42.44227, lng: 11.22066},
+                { lat: 45.43461, lng: 12.33891},
+                { lat: 40.92251, lng: 9.48685}, */
+            ];
+            this.apartments.forEach(element => {
+                apartmentAssets.push({ lat: element.latitude, lng: element.longitude });
+                /* apartmentAssets.lng = element.longitude; */
 
-            var marker = new tt.Marker().setLngLat(lnglat).addTo(map);
+            });
+            let marker;
+            apartmentAssets.forEach(function (child) {
+                 marker = new tt.Marker().setLngLat(child).addTo(map);
+            })
+
+           /*  var marker = new tt.Marker().setLngLat(lnglat).addTo(map); */
+             
             var popupOffsets = {
             top: [0, 0],
             bottom: [0, -30],
@@ -113,6 +137,7 @@ export default {
                 query: document.getElementById("query").value,
 
             }).go().then(this.handleResults);
+           
         },
         // addMarker(map) { 
         //   const tt = window.tt; 

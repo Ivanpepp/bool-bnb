@@ -2342,8 +2342,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.imageSelector();
-    console.log(this.photoIds);
+    this.imageSelector;
   },
   methods: {
     getUri: function getUri() {
@@ -2354,13 +2353,6 @@ __webpack_require__.r(__webpack_exports__);
     imageSelector: function imageSelector() {
       var _this = this;
 
-      /*  for(let i=0; i<120; i++ ){
-           if( this.apartment.id === this.photos.apartment_id){
-            this.photoIds.push(this.photos.image_thumb)
-               
-           }
-        
-       } */
       this.photos.forEach(function (element) {
         if (element.apartment_id === _this.apartment.id) {
           _this.photoIds.push(element.image_thumb);
@@ -2538,6 +2530,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Map',
+  props: ['apartments'],
   Data: function Data() {
     return {};
   },
@@ -2561,28 +2554,22 @@ __webpack_require__.r(__webpack_exports__);
     // });
 
     map.scrollZoom.disable();
-    var apartmentAssets = [{
-      lat: 41.89056,
-      lng: 12.49427
-    }, {
-      lat: 45.46362,
-      lng: 9.18812
-    }, {
-      lat: 38.11463,
-      lng: 15.6502
-    }, {
-      lat: 42.3507,
-      lng: 13.39993
-    }, {
-      lat: 42.44227,
-      lng: 11.22066
-    }, {
-      lat: 45.43461,
-      lng: 12.33891
-    }, {
-      lat: 40.92251,
-      lng: 9.48685
-    }];
+    var apartmentAssets = [
+      /* { lat: 41.89056, lng: 12.49427 },
+      { lat: 45.46362, lng: 9.18812 },
+      { lat: 38.11463, lng: 15.6502 },
+      { lat: 42.3507, lng: 13.39993 },
+      { lat: 42.44227, lng: 11.22066},
+      { lat: 45.43461, lng: 12.33891},
+      { lat: 40.92251, lng: 9.48685}, */
+    ];
+    this.apartments.forEach(function (element) {
+      apartmentAssets.push({
+        lat: element.latitude,
+        lng: element.longitude
+      });
+      /* apartmentAssets.lng = element.longitude; */
+    });
     apartmentAssets.forEach(function (child) {
       new tt.Marker().setLngLat(child).addTo(map);
     }); // var marker = new tt.Marker().setLngLat(defaultCenter).addTo(map);
@@ -2612,7 +2599,28 @@ __webpack_require__.r(__webpack_exports__);
         center: lnglat,
         zoom: 13
       });
-      var marker = new tt.Marker().setLngLat(lnglat).addTo(map);
+      var apartmentAssets = [
+        /* { lat: 41.89056, lng: 12.49427 },
+        { lat: 45.46362, lng: 9.18812 },
+        { lat: 38.11463, lng: 15.6502 },
+        { lat: 42.3507, lng: 13.39993 },
+        { lat: 42.44227, lng: 11.22066},
+        { lat: 45.43461, lng: 12.33891},
+        { lat: 40.92251, lng: 9.48685}, */
+      ];
+      this.apartments.forEach(function (element) {
+        apartmentAssets.push({
+          lat: element.latitude,
+          lng: element.longitude
+        });
+        /* apartmentAssets.lng = element.longitude; */
+      });
+      var marker;
+      apartmentAssets.forEach(function (child) {
+        marker = new tt.Marker().setLngLat(child).addTo(map);
+      });
+      /*  var marker = new tt.Marker().setLngLat(lnglat).addTo(map); */
+
       var popupOffsets = {
         top: [0, 0],
         bottom: [0, -30],
@@ -3978,7 +3986,13 @@ var render = function () {
           ]),
         ])
       : _c("section", [
-          _c("div", [_c("div", [_c("Map")], 1)]),
+          _c("div", [
+            _c(
+              "div",
+              [_c("Map", { attrs: { apartments: _vm.apartments } })],
+              1
+            ),
+          ]),
           _vm._v(" "),
           _c(
             "div",

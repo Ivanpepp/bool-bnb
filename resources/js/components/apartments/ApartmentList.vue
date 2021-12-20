@@ -11,7 +11,7 @@
             <section v-else>
                     <div>
                         <div>
-                            <Map />
+                            <Map :apartments='apartments'/>
                         </div>       
                     </div>
                     <div class="my-search-card d-flex align-content-center">
