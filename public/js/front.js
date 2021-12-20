@@ -2449,7 +2449,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
     /*   kmCoverter(lat1,lon1){
-               // generally used geo measurement function
+             // generally used geo measurement function
               let R = 6378.137; // Radius of earth in KM
               let dLat = lat1 * Math.PI / 180;
               let dLon = lon1 * Math.PI / 180;
@@ -2672,7 +2672,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#map {\r\n  height: 650px;\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n#map {\n  height: 650px;\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -3933,7 +3933,7 @@ var render = function () {
               },
               [
                 _vm._v(
-                  "\r\n                                    Avanzata\r\n                                "
+                  "\n                                    Avanzata\n                                "
                 ),
               ]
             ),
@@ -16868,7 +16868,7 @@ window.onresize = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Aorus\Documents\Boolean\final_project\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/ivannastro/Desktop/BOOLEAN/PROJECT-41/bool-bnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
