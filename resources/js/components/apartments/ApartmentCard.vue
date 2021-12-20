@@ -18,8 +18,10 @@
             </div>
         </form>
     </div> -->
-    <div class="col-xs-12 col-sm-6 col-lg-4 mb-2 my-card">
-        <img width="200px" height="200px" class="image-fluid" :src="'http://127.0.0.1:8000/storage/apartments/images/'+photoIds[0]" alt="">
+    <div class="col-xs-12 col-sm-6 col-lg-4 mb-2 my-card ivan-card">
+        
+        <img  class="img-fluid" :src="'http://127.0.0.1:8000/storage/apartments/images/'+photoIds[0]" alt="">
+        
         <h3><a :href="getUri()">{{apartment.title}}</a></h3>
         <p>{{apartment.city}}</p>
         <p>{{photoIds[0]}}</p>
@@ -68,11 +70,16 @@ export default {
         padding:10px;
         border-radius:10px;
 
-        .img{
-            height: 200px;
-            width:100%;
-            background-color:rgb(37, 82, 207);
-            border-radius: 10px;
+        
+        img{
+            width: 90%;
+            height: 90%;
+            border-radius: 15px;
+         
+            
         }
+    
+    
+
     }
 </style>

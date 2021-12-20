@@ -2333,6 +2333,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentCard',
   props: ['apartment', 'baseUri', 'photos'],
@@ -2684,7 +2686,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".my-card[data-v-4662a702] {\n  padding: 10px;\n  border-radius: 10px;\n}\n.my-card .img[data-v-4662a702] {\n  height: 200px;\n  width: 100%;\n  background-color: #2552cf;\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".my-card[data-v-4662a702] {\n  padding: 10px;\n  border-radius: 10px;\n}\n.my-card img[data-v-4662a702] {\n  width: 90%;\n  height: 90%;\n  border-radius: 15px;\n}", ""]);
 
 // exports
 
@@ -3924,13 +3926,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col-xs-12 col-sm-6 col-lg-4 mb-2 my-card" },
+    { staticClass: "col-xs-12 col-sm-6 col-lg-4 mb-2 my-card ivan-card" },
     [
       _c("img", {
-        staticClass: "image-fluid",
+        staticClass: "img-fluid",
         attrs: {
-          width: "200px",
-          height: "200px",
           src:
             "http://127.0.0.1:8000/storage/apartments/images/" +
             _vm.photoIds[0],

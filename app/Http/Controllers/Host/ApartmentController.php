@@ -245,7 +245,7 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::user()->id;
         $apartment->fill($data);
         $apartment->update();
-        foreach ($request->file('image_thumb') as $image) {
+      /*   foreach ($request->file('image_thumb') as $image) {
 
             $name = $image->getClientOriginalName();
             $image->move(public_path() . '/storage/apartments/images/', $name);
@@ -253,7 +253,7 @@ class ApartmentController extends Controller
             $photo->image_thumb = $thumb;
             $photo->apartment_id = $apartment->id;
             $photo->update();
-        }
+        } */
         if (array_key_exists('features', $data)) $apartment->features()->sync($data['features']);
         if (array_key_exists('sponsorships', $data)) $apartment->sponsorships()->sync($data['sponsorships']);
 
