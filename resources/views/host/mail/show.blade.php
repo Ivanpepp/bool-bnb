@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container  p-3 border my-container-email" id="show-email">
+<div id="show-email" class="pt-5">
+    <div class="container  p-3 border my-container-email shadow" >
         <div class="form-group">
 
             <h4 class="my-section-contact pb-2">Messaggio da {{$message->name}} {{$message->surname}}</h4>
@@ -27,5 +28,8 @@
         </form>
         <a class="" href="{{route('host.mail.index')}}"><i class="fas fa-arrow-left"></i></a>
     </div>
+
+</div>
+    
 
 @endsection
