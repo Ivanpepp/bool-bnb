@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Message;
 use App\Models\Visit;
-use Carbon\CarbonImmutable;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -26,12 +26,12 @@ class HomeController extends Controller
     {
 
         $apartment = Apartment::findOrFail($id);
-        $now = CarbonImmutable::now()->hour;
-        $after = CarbonImmutable::now()->add(1, "hour");
+        $now = Carbon::today()->day;
+        $after = Carbon::tomorrow()->day;
 
         $ipsTotal = Visit::select('ip_address')
             ->where('apartment_id', $id)
-            ->whereBetween(DB::raw('HOUR(created_at)'), [$now, $after])
+            ->whereBetween(DB::raw('DAY(created_at)'), [$now, $after])
             ->get()->all();
         $ips = [];
 

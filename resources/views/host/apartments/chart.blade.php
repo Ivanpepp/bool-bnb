@@ -19,7 +19,7 @@
                 <h3>Visite totali: {{ $visitsCount }}</h3>
             </div>
         </div>
-        <div class="row pt-5" id="messStats" name="messStats" value="@php json_encode($hours) @endphp">
+        <div class="row pt-5" id="messStats" name="messStats" value="@php json_encode($days) @endphp">
             <h3>Andamento visite:</h3>
             <div class="chart-container" style="position: relative; width:80vw">
                 <canvas id="myChart"></canvas>
@@ -30,23 +30,23 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript">
-        var hours = @JSON($hours);
-        var hour = [];
+        var days = @JSON($days);
+        var day = [];
         var visits = [];
         var previous = [];
 
-        for (var i = 0; i < hours.length; i++) {
-            if (hours[i] !== previous) {
-                hour.push(hours[i]);
+        for (var i = 0; i < days.length; i++) {
+            if (days[i] !== previous) {
+                day.push(days[i]);
                 visits.push(1);
             } else {
                 visits[visits.length - 1]++;
             }
-            previous = hours[i];
+            previous = days[i];
         }
 
         const data = {
-            labels: hour,
+            labels: day,
             datasets: [{
                 label: "Stats Visite",
                 backgroundColor: 'rgb(255, 0, 0)',

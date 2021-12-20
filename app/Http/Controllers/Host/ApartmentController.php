@@ -57,14 +57,14 @@ class ApartmentController extends Controller
 
 
 
-        $hours = [];
+        $days = [];
 
         foreach ($dates as $date) {
 
-            $hours[] = $date['created_at']->hour;
+            $days[] = $date['created_at']->day;
         }
 
-        return view('host.apartments.chart', compact('apartment', 'messagesCount', "visitsCount", "hours"));
+        return view('host.apartments.chart', compact('apartment', 'messagesCount', "visitsCount", "days"));
     }
 
 
