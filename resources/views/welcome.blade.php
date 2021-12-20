@@ -17,7 +17,7 @@
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus soluta vel, facere eligendi sit voluptas ipsum unde nihil sed, officia provident qui sint accusantium ducimus sequi quia atque, illo ex?</p>
                                 </div>
                             </div>
-                            <a href="{{ route('guest.home') }}" class="my-btn-homepage">APPARTAMENTI</a>
+                            <a href="{{ route('guest.home') }}" class="my-btn-homepage">ESPLORA</a>
                         </div>
                     </div>
 
