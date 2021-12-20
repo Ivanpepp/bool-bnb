@@ -10044,7 +10044,7 @@ h3 {
   text-decoration: none;
 }
 #my-wrap-homepage .my-main-padding {
-  padding-bottom: 100px;
+  padding-bottom: 45px;
 }
 #my-wrap-homepage .my-footer {
   background-color: #f5f1f1;
@@ -10079,6 +10079,7 @@ h3 {
   border-bottom-right-radius: 5px;
 }
 
+<<<<<<< HEAD
 td a {
   color: #ffc107;
 }
@@ -10097,6 +10098,11 @@ td a:hover {
 .my-wrap-container .my-list-service ul {
   padding-left: 0;
   margin: 0;
+=======
+.my_wrap_show img {
+  height: 500px;
+  width: 500px;
+>>>>>>> jack-sabato
 }
 .my-wrap-container .my-list-service ul li {
   padding: 0;

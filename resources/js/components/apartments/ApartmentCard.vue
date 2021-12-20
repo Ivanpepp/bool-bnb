@@ -22,24 +22,24 @@
         <div class="img">img</div>
         <h3><a :href="getUri()">{{apartment.title}}</a></h3>
         <p>{{apartment.city}}</p>
+        <p>{{photos[0].image_thumb}}</p>
     </div>
 </template>
 
 <script>
 export default {
     name: 'ApartmentCard',
-    props:['apartment','baseUri'],
+    props:['apartment','baseUri', 'photos'],
 
     data(){
         return{
-
         }
     },
     methods:{
         getUri(){
             return `${this.baseUri}/guest/${this.apartment.id}`
         }
-}
+    },
  
 }
 </script>

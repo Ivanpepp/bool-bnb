@@ -107,13 +107,28 @@
 
                 <div class="" id='map'></div>
 
+<<<<<<< HEAD
                 <section>
                         <input type='hidden' id="longitudine" value='{{ $apartment->longitude }}'>
                         <input type='hidden' id="latitudine" value='{{ $apartment->latitude }}'>
                     </div>
                 </section>
 
+=======
+                
+>>>>>>> jack-sabato
             </div>
+            <section>
+                <div class="button pt-2 pb-2 text-center d-flex justify-content-around">
+                    <a href="http://127.0.0.1:8000" class="btn btn-primary">Torna alla lista</a>
+                    @if (Auth::check() && Auth::User()->id == $apartment->user_id)
+                    @else <a href="{{ route('guest.contact', $apartment->id) }}"
+                            class="btn btn-success  justify-content-end"><i
+                                class="far fa-envelope mr-2"></i>Contattaci</a> @endif
+                    <input type='hidden' id="longitudine" value='{{ $apartment->longitude }}'>
+                    <input type='hidden' id="latitudine" value='{{ $apartment->latitude }}'>
+                </div>
+            </section>
         </div>
     </div>
 

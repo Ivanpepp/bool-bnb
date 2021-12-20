@@ -35,10 +35,10 @@
                         </div>
 
                     </div>
-                </div>         
+                </div> 
     <div class="container pt-4">
         <div class="row">
-                <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id"  :apartment='apartment' :baseUri='baseUri'/>
+                <ApartmentCard   v-for="apartment in filterCity" :key="apartment.id" :photos='photos' :apartment='apartment' :baseUri='baseUri'/>
             
         </div>
         <nav aria-label="Page navigation example">
@@ -75,6 +75,7 @@ export default {
             minRoom: '',
             minBath: '',
             minMq: '',
+            photos: [],
         }
     },
     
@@ -84,6 +85,8 @@ export default {
            axios.get(`${this.baseUri}/api/apartments`)
            .then((res)=>{
                this.apartments=res.data.data;
+               this.photos=res.data.photos;
+               console.log(this.photos);
            })
            .catch((err)=>{
                console.error(err);
@@ -92,7 +95,8 @@ export default {
                this.isLoading =false;
            });
        
-        },  
+        }, 
+
       /*   kmCoverter(lat1,lon1){
 
 
@@ -125,7 +129,6 @@ export default {
                     &&( this.minMq <= element.mq));
             });
         },
-      
     }
 }
 </script>

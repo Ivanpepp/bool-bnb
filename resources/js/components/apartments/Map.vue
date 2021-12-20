@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <!-- <input type="text" id="query" value="" />
-    <button class="btn-sm btn-danger" @click="searchMap()">Search</button> -->
+    <div>
+      <div class="search-container">
+      </div>
+    <input class="pl-2" placeholder=" Cerca sulla mappa"  type="text" id="query" value="" v-on:keyup.enter="searchMap()"/>
     <div id="map"></div>
-  </div>
+    <!-- <button class="btn-sm btn-danger" @click="searchMap()">Search</button> -->
+    </div>
 </template>
 
 <script>
@@ -77,7 +79,7 @@ export default {
                 container: 'map',
                 style: 'tomtom://vector/1/basic-main',
                 center: lnglat,
-                zoom: 15,  
+                zoom: 13,  
                             
                 })
 
@@ -90,8 +92,9 @@ export default {
             left: [25, -35],
             right: [-25, -35]
                 }
+            map.scrollZoom.disable();
 
-            var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>INSANE</b><br/>Relativamente molto gangsta!");
+            var popup = new tt.Popup({offset: popupOffsets});
             marker.setPopup(popup).togglePopup();
             map.addControl(new tt.FullscreenControl());
             map.addControl(new tt.NavigationControl());
@@ -139,5 +142,21 @@ export default {
 #map {
   height: 650px;
   width: 100%;
+}
+
+.search-container{
+    position: relative;
+}
+#query{
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    z-index: 99;
+    border: none;
+}
+
+#query:focus{
+    outline: none !important;
+    box-shadow: 0 0 10px #719ECE;
 }
 </style>

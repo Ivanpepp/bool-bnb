@@ -82,7 +82,7 @@
                                             {{ __('Dashboard') }}
                                         </a>
                                         <a class="dropdown-item" href="{{route('host.apartments.index')}}">
-                                            {{ __('Apartments') }}
+                                            {{ __('Inserzioni') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
