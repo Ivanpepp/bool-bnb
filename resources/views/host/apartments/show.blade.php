@@ -56,9 +56,9 @@
                         </div>
 
                     </section>  
-                    <div class=" d-sm-block d-md-none  col-lg-4 pt-5 pl-5">
+                    <div class="d-sm-block d-md-none col-lg-4 pt-5 pb-3 pl-5 my-border-section">
 
-                    <div class=" col-sm-5 col-lg-7 p-2 d-flex justify-content-center">
+                    <div class="col-sm-5 col-lg-7 p-2 d-flex justify-content-center">
                     
                         <div class="my-card p-3 text-center">
                             <h4 class="pb-3">Gestisci il tuo locale</h4>

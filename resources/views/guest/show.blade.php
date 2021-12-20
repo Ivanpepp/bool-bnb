@@ -74,7 +74,7 @@
 
                     </section>
                     
-                    <div class=" d-none d-sm-block d-md-none col-lg-4 pt-4 pb-3">
+                    <div class="d-none d-sm-block d-md-none col-lg-4 pt-4 pb-3 my-border-section">
 
                         <div class=" col-sm-5 col-lg-7 p-2 my-card-price d-flex justify-content-center">
 
