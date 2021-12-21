@@ -10315,7 +10315,7 @@ h3 {
   height: 300px;
 }
 
-.chart-fix {
+#chart {
   height: calc(100vh - 271px);
 }
 
@@ -10402,7 +10402,7 @@ h3 {
 #my-thanks-wrap .my-btn:hover {
   background-color: white;
   color: #2552cf;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   border: 2px solid #2552cf;
 }
 

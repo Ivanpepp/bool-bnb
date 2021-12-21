@@ -85,8 +85,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
 .pay-fix{
   height: calc(100% - 271px);
+  margin-bottom: 195px;
 }
 </style>
